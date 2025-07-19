@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 		update_waypoints()
 
 func get_direction_authorized_player(dir_player:Vector3)->Vector3:
-	if max_length - curve_mesh_3d.curve.get_baked_length() < 0:
+	if max_length - curve_mesh_3d.curve.get_baked_length() > 0:
 		return dir_player
 	else:
 		var dir_cable:Vector3 = player.global_position - waypoints[-1]
