@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://byb0yycdorl8b" path="res://assets/KenneyPrototype/wall-doorway-wide.fbx" id="2_5ei7m"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://388y7sc3xvd0" path="res://assets/KenneySpaceStation/pipe-ring-colored.fbx" id="4_76lpn"]
-[ext_resource type="PackedScene" uid="uid://crsd538boi7c2" path="res://assets/KenneyPrototype/door-sliding-double-round.fbx" id="5_kji3t"]
 [ext_resource type="PackedScene" uid="uid://b65ets4og0tm2" path="res://assets/KenneySpaceStation/wall-corner.fbx" id="6_t4vlo"]
 [ext_resource type="PackedScene" uid="uid://cstsl736jxrp7" path="res://assets/KenneySpaceStation/wall.fbx" id="7_gjjxq"]
-[ext_resource type="PackedScene" uid="uid://biwy22hxh1u06" path="res://assets/KenneySpaceStation/container-flat-open.fbx" id="8_4s3ep"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="9_76lpn"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_dxt8t"]
+[ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="9_kji3t"]
 [ext_resource type="PackedScene" uid="uid://bd6knao0af57o" path="res://assets/KenneyPrototype/wall-doorway.fbx" id="11_dxt8t"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_n3axc"]
-[ext_resource type="PackedScene" uid="uid://cx4g0sdbkgswj" path="res://assets/KenneyPrototype/door-sliding.fbx" id="12_76lpn"]
 [ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_dxt8t"]
+[ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="12_kji3t"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="12_vdui8"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="13_n24p8"]
 
@@ -64,9 +64,6 @@ visible = false
 [node name="pipe-ring-colored2" parent="-walls" instance=ExtResource("4_76lpn")]
 transform = Transform3D(-1, -9.67191e-08, 0, 8.74228e-08, -1.10634, 0, 0, 0, 1, -0.75, 1.03709, -2.74258)
 visible = false
-
-[node name="door-sliding-double-round" parent="-walls" instance=ExtResource("5_kji3t")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3)
 
 [node name="wall-corner5" parent="-walls" instance=ExtResource("6_t4vlo")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -2.75)
@@ -140,10 +137,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 [node name="-items" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 
+[node name="exit" parent="-items" instance=ExtResource("9_kji3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3)
+
 [node name="in_exit" type="Node3D" parent="-items"]
 
-[node name="container-flat-open" parent="-items/in_exit" instance=ExtResource("8_4s3ep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.15, -3.175)
+[node name="input" parent="-items/in_exit" instance=ExtResource("9_76lpn")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
 
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
@@ -166,8 +166,8 @@ transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5
 [node name="in_exit2" type="Node3D" parent="-items"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
-[node name="container-flat-open" parent="-items/in_exit2" instance=ExtResource("8_4s3ep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.425, 0.15, -1.925)
+[node name="input" parent="-items/in_exit2" instance=ExtResource("9_76lpn")]
+transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -7.1215e-15, -4.37114e-08, 2.425, 0.15, -1.925)
 
 [node name="connectioin8" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
 transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 1.925, -0.25, -1.925)
@@ -184,7 +184,7 @@ transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.92
 [node name="connectioin10" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
 transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.45, -0.25, -1.925)
 
-[node name="door-sliding" parent="-items" instance=ExtResource("12_76lpn")]
+[node name="door" parent="-items" instance=ExtResource("12_kji3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, -0.25)
 
 [node name="output" parent="-items" instance=ExtResource("12_dxt8t")]
