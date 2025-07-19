@@ -93,15 +93,6 @@ shadow_mesh = SubResource("ArrayMesh_b27nj")
 [node name="leg-back-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="0"]
 transform = Transform3D(0.999516, -0.0310968, 0, 0.0310968, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
 
-[node name="leg-back-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="1"]
-transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
-
-[node name="leg-front-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="2"]
-transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, 0.09375)
-
-[node name="leg-front-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="3"]
-transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, -0.09375)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 10)
 
