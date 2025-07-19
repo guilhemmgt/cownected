@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=4 uid="uid://q48wk5he7o4c"]
+[gd_scene load_steps=13 format=4 uid="uid://q48wk5he7o4c"]
 
-[ext_resource type="PackedScene" path="res://scenes/character_bison.tscn" id="1_ch5s6"]
+[ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_ch5s6"]
 [ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_taen3"]
-[ext_resource type="Texture2D" uid="uid://bxfqn4p1u66wq" path="res://assets/FBX format/Textures/colormap.png" id="3_b27nj"]
 [ext_resource type="PackedScene" uid="uid://bmji3eioqtbpk" path="res://scenes/cable.tscn" id="5_b27nj"]
 [ext_resource type="Script" uid="uid://be2vpobvy0u4k" path="res://scripts/cable.gd" id="6_xbtgf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_b27nj")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sorjm"]
@@ -49,7 +47,6 @@ shadow_mesh = SubResource("ArrayMesh_sorjm")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_taen3"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_b27nj")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b27nj"]
