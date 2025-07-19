@@ -31,7 +31,8 @@ fov = 60.0
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-light_energy = 0.5
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
+light_energy = 0.1
 shadow_enabled = true
 
 [node name="-floors" type="Node3D" parent="."]
