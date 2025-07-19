@@ -2,7 +2,7 @@
 extends Interactor3D
 
 ## A specialized class tailored for [CharacterBody3D], it simplifies the process of creating a player character.
-class_name CharacterBody3DInteractor
+class_name CowInteractor
 
 ## The name of the input action to be used to interact with [Interactable3D]. [br]
 ## Check [color=#76B6E0]
@@ -31,6 +31,8 @@ class_name CharacterBody3DInteractor
 var cached_closest: Interactable3D
 var cached_raycasted: Interactable3D
 
+# the source the character is being linked to
+var linked_source: Source
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings = []
@@ -88,9 +90,9 @@ func check_area() -> void:
 
 	cached_closest = new_closest
 
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(action_name):
-
 		if cached_closest and use_area_3d_to_interact and interaction_on == 1:
 			interact(cached_closest)
+		elif not cached_closest and linked_source:
+			linked_source = null

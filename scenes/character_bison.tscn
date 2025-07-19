@@ -262,7 +262,7 @@ mesh = SubResource("ArrayMesh_wj2jd")
 skeleton = NodePath("")
 
 [node name="leg-back-left" type="MeshInstance3D" parent="animal-bison/animal-bison/root/torso"]
-transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+transform = Transform3D(0.999516, -0.0310964, 0, 0.0310964, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
 mesh = SubResource("ArrayMesh_awl2s")
 skeleton = NodePath("")
 
