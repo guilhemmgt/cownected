@@ -16,6 +16,7 @@ var in_hand : bool = false
 var updating : bool = false
 
 func _ready() -> void:
+	curve_mesh_3d.visible = false
 	waypoints.append(source.global_position)
 
 func _process(_delta: float) -> void:
@@ -23,8 +24,11 @@ func _process(_delta: float) -> void:
 		update_waypoints()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("debug"):
-		_on_pick()
+	if event.is_action_pressed("debug"):
+		if in_hand:
+			_on_drop()
+		else:
+			_on_pick()
 
 func is_max_length_deployed(length_authorized:float):
 	return length_authorized - curve_mesh_3d.curve.get_baked_length() < 0
@@ -65,16 +69,40 @@ func update_cable():
 	curve_mesh_3d.curve.add_point(player.global_position - global_position)
 	updating = false
 	
-func _on_plug():
+func _on_plug(position_target: Vector3):
+	curve_mesh_3d.curve.add_point(position_target - global_position)
 	plugged = true
 	in_hand = false
 
 func _on_pick():
 	in_hand = true
+	curve_mesh_3d.visible = true
 
 func _on_drop():
 	in_hand = false
+	# await play_animation_drop()
+	reset()
+	
 
+func play_animation_drop():
+	var nb_points : int = curve_mesh_3d.curve.point_count
+	var length_cable : float = curve_mesh_3d.curve.get_baked_length()
+	for i in range(nb_points):
+		var old_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i)
+		var goal_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i-1)
+		var d = old_pos.distance_to(goal_pos)
+		var step = d/length_cable
+		for j in range(int(d/step)):
+			print(j)
+			lerp(old_pos, goal_pos, j*step/d)
+			await get_tree().create_timer(1).timeout
+	
+
+func reset():
+	curve_mesh_3d.visible = false
+	curve_mesh_3d.curve.clear_points()
+	in_hand = false
+	plugged = false
 
 func update_cable_intelligent():
 	var points : Array[Vector3] = waypoints.duplicate()
