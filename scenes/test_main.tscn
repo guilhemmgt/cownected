@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://dc7rwy62xj3p0"]
+[gd_scene load_steps=10 format=4 uid="uid://dc7rwy62xj3p0"]
 
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_tw0hx"]
 [ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_xl5go"]
 [ext_resource type="Script" uid="uid://cpq11uhbfqr5p" path="res://scripts/source.gd" id="4_31pel"]
 [ext_resource type="Texture2D" uid="uid://bxfqn4p1u66wq" path="res://assets/FBX format/Textures/colormap.png" id="4_bcbe7"]
 [ext_resource type="PackedScene" uid="uid://bi02uv4h0t1ik" path="res://assets/FBX format/snow-pile.fbx" id="5_4jmdl"]
+[ext_resource type="PackedScene" uid="uid://b5lx83i5j34qb" path="res://scenes/FocusUnfocusBox.tscn" id="5_bcbe7"]
+[ext_resource type="PackedScene" uid="uid://d1wbxok56y8nm" path="res://scenes/ClosestNotClosestBox.tscn" id="6_4jmdl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
 resource_name = "colormap"
@@ -50,6 +52,9 @@ shadow_mesh = SubResource("ArrayMesh_sorjm")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_tw0hx")]
 
+[node name="leg-back-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="0"]
+transform = Transform3D(0.999516, -0.0310963, 0, 0.0310963, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 10)
 
@@ -61,12 +66,12 @@ skeleton = NodePath("")
 [node name="snow-pile" parent="." instance=ExtResource("5_4jmdl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425318, 0, 1.38194)
 
-[node name="Source" type="Node3D" parent="."]
-transform = Transform3D(0.590493, 0, -0.807043, 0, 1, 0, 0.807043, 0, 0.590493, -2.98406, 0, -0.513616)
-script = ExtResource("4_31pel")
-metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
+[node name="Interactable" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476948, -5)
 
-[node name="flag" parent="Source" instance=ExtResource("2_xl5go")]
-transform = Transform3D(0.875507, 0, 0.483206, 0, 1, 0, -0.483206, 0, 0.875507, 0, 0, 0)
+[node name="FocusUnfocusBox" parent="Interactable" instance=ExtResource("5_bcbe7")]
+
+[node name="ClosestNotClosestBox" parent="Interactable" instance=ExtResource("6_4jmdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.476948, 5)
 
 [editable path="CharacterBody3D"]
