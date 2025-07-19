@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cstsl736jxrp7" path="res://assets/KenneySpaceStation/wall.fbx" id="7_gjjxq"]
 [ext_resource type="PackedScene" uid="uid://biwy22hxh1u06" path="res://assets/KenneySpaceStation/container-flat-open.fbx" id="8_4s3ep"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_dxt8t"]
-[ext_resource type="PackedScene" uid="uid://c6sq7iy4jmxiw" path="res://assets/KenneySpaceStation/computer.fbx" id="10_21cjc"]
 [ext_resource type="PackedScene" uid="uid://bd6knao0af57o" path="res://assets/KenneyPrototype/wall-doorway.fbx" id="11_dxt8t"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_n3axc"]
 [ext_resource type="PackedScene" uid="uid://cx4g0sdbkgswj" path="res://assets/KenneyPrototype/door-sliding.fbx" id="12_76lpn"]
+[ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_dxt8t"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="12_vdui8"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="13_n24p8"]
 
@@ -134,6 +134,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.25, 
 [node name="wall11" parent="-walls" instance=ExtResource("7_gjjxq")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.25, 0, 1)
 
+[node name="wall-doorway" parent="-walls" instance=ExtResource("11_dxt8t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.25)
+
 [node name="-items" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 
@@ -144,21 +147,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.15, -3.175)
 
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
-
-[node name="connectioin7" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.25)
-
-[node name="connectioin11" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.35)
-
-[node name="connectioin8" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
-transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 1.925, -0.25, 0.825)
-
-[node name="connectioin9" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
-transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.925, -0.25, 0.825)
-
-[node name="connectioin10" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
-transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.45, -0.25, 0.825)
 
 [node name="connectioin2" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2)
@@ -181,17 +169,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 [node name="container-flat-open" parent="-items/in_exit2" instance=ExtResource("8_4s3ep")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.425, 0.15, -1.925)
 
-[node name="computer" parent="-items" instance=ExtResource("10_21cjc")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 1)
+[node name="connectioin8" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 1.925, -0.25, -1.925)
 
-[node name="computer2" parent="-items" instance=ExtResource("10_21cjc")]
-transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 1.9297, 0, -1.4403)
+[node name="connectioin7" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2.5)
 
-[node name="wall-doorway" parent="-items" instance=ExtResource("11_dxt8t")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.25)
+[node name="connectioin11" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2.4)
+
+[node name="connectioin9" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.925, -0.25, -1.925)
+
+[node name="connectioin10" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.45, -0.25, -1.925)
 
 [node name="door-sliding" parent="-items" instance=ExtResource("12_76lpn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, -0.25)
+
+[node name="output" parent="-items" instance=ExtResource("12_dxt8t")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 1)
+
+[node name="output2" parent="-items" instance=ExtResource("12_dxt8t")]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 2, 0, -1.7)
 
 [node name="-env" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
