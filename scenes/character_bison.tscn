@@ -503,7 +503,7 @@ mesh = SubResource("ArrayMesh_wj2jd")
 skeleton = NodePath("")
 
 [node name="leg-back-left" type="MeshInstance3D" parent="animal-bison/animal-bison/root/torso"]
-transform = Transform3D(0.999516, -0.0310963, 0, 0.0310963, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+transform = Transform3D(0.999516, -0.0310964, 0, 0.0310964, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
 mesh = SubResource("ArrayMesh_awl2s")
 skeleton = NodePath("")
 
@@ -555,11 +555,10 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0386677, 0.376071, -0.157997)
 shape = SubResource("BoxShape3D_68x3o")
 
-[node name="CharacterBody3DInteractor" type="Node3D" parent="." node_paths=PackedStringArray("ray_cast", "area")]
+[node name="CharacterBody3DInteractor" type="Node3D" parent="." node_paths=PackedStringArray("area")]
 script = ExtResource("3_sswyl")
 action_name = "interact"
 disable_interaction_for_ray_cast = true
 use_area_3d_to_interact = true
 interaction_on = 1
-ray_cast = NodePath("")
 area = NodePath("../animal-bison/animal-bison/Area3D")
