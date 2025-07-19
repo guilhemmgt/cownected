@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://drpo23vwda3pp"]
+
+[ext_resource type="Script" uid="uid://rpidspxnxygi" path="res://scripts/character_bison.gd" id="1_68x3o"]
+[ext_resource type="PackedScene" uid="uid://cbjmch1mir3x7" path="res://scenes/animal_bison.tscn" id="2_68x3o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68x3o"]
+size = Vector3(0.396484, 0.722809, 0.863495)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_68x3o")
+
+[node name="animal-bison" parent="." instance=ExtResource("2_68x3o")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0386677, 0.376071, -0.157997)
+shape = SubResource("BoxShape3D_68x3o")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc7rwy62xj3p0"]
+
+[ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_tw0hx"]
+[ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_xl5go"]
+
+[node name="test_main" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_tw0hx")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 10)
+
+[node name="flag" parent="." instance=ExtResource("2_xl5go")]
+transform = Transform3D(-0.222978, 0, 0.974824, 0, 1, 0, -0.974824, 0, -0.222978, 1.5707, 0, -1.62482)
+
+[editable path="CharacterBody3D"]
