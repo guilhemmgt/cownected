@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://b2ttsm4muci3d" path="res://addons/curvemesh3d/curvemesh3d.gd" id="2_mrtv2"]
 
 [sub_resource type="Curve3D" id="Curve3D_0nbdv"]
-bake_interval = 0.1
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
+bake_interval = 1.0
 
 [sub_resource type="Curve" id="Curve_rj3a4"]
 
@@ -18,23 +13,16 @@ roughness = 0.5
 
 [node name="Cable" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
 [node name="CurveMesh3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271464, 0)
 curve = SubResource("Curve3D_0nbdv")
 script = ExtResource("2_mrtv2")
 radius_profile = SubResource("Curve_rj3a4")
 material = SubResource("StandardMaterial3D_ce67e")
-cap_start_type = null
-cap_end_type = null
 metadata/_custom_type_script = "uid://bgir0m5t7wjcw"
 
-[node name="WaypointsParent" type="Node3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.44764)
-
 [node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 1, 0)
+debug_shape_thickness = 5
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
