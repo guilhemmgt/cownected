@@ -25,8 +25,18 @@ func _process(_delta: float) -> void:
 	if !updating:
 		update_waypoints()
 
-func is_max_length_deployed(length_authorized:float):
-	return length_authorized - curve_mesh_3d.curve.get_baked_length() < 0
+func get_direction_authorized_player(dir_player:Vector3)->Vector3:
+	if max_length - curve_mesh_3d.curve.get_baked_length() > 0:
+		return dir_player
+	else:
+		var dir_cable:Vector3 = player.global_position - waypoints[-1]
+		var d : float = dir_cable.dot(dir_player)
+		if d <= 0:
+			return dir_player
+		else:
+			var tang : Vector3 = dir_cable.cross(Vector3.UP).normalized()
+			var new_dir_player : Vector3 = dir_player.dot(tang)*tang
+			return new_dir_player
 
 func update_waypoints():
 	if in_hand:
