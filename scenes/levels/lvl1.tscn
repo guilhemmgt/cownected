@@ -154,7 +154,7 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 
 [node name="level" type="Label3D" parent="-env"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91068e-15, -2.075, 1.06, 1.875)
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91068e-15, -2.25, 1.06, 1.875)
 modulate = Color(1, 0.819608, 0.372549, 1)
 text = "LEVEL 01"
 font = ExtResource("11_yq2hi")
@@ -164,7 +164,7 @@ horizontal_alignment = 0
 vertical_alignment = 2
 
 [node name="instructions" type="Label3D" parent="-env"]
-transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.67052e-22, -4.37114e-08, 1, 1, -1.31134e-07, -5.73205e-15, 2.15, 1.06, 1.875)
+transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.67052e-22, -4.37114e-08, 1, 1, -1.31134e-07, -5.73205e-15, 2.25, 1.06, 1.875)
 modulate = Color(1, 0.819608, 0.372549, 1)
 text = "Move with wasd
 pick and connect cables with space"
@@ -197,10 +197,10 @@ texture = ExtResource("12_2tpkn")
 [node name="background" type="Node3D" parent="-env"]
 
 [node name="floor" parent="-env/background" instance=ExtResource("11_kylad")]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 52.125, 0.75, -1.25)
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 52.25, 0.75, -1.25)
 
 [node name="floor2" parent="-env/background" instance=ExtResource("11_kylad")]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -52.125, 0.75, -1.25)
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -52.25, 0.75, -1.25)
 
 [node name="floor3" parent="-env/background" instance=ExtResource("11_kylad")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -53)
