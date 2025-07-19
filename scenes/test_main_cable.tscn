@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://q48wk5he7o4c"]
+[gd_scene load_steps=12 format=4 uid="uid://q48wk5he7o4c"]
 
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_ch5s6"]
 [ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_taen3"]
 [ext_resource type="PackedScene" uid="uid://bmji3eioqtbpk" path="res://scenes/cable.tscn" id="5_b27nj"]
-[ext_resource type="Script" uid="uid://be2vpobvy0u4k" path="res://scripts/cable.gd" id="6_xbtgf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
 resource_name = "colormap"
@@ -90,7 +89,18 @@ shadow_mesh = SubResource("ArrayMesh_b27nj")
 [node name="test_main_cable" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_ch5s6")]
-collision_layer = 4
+
+[node name="leg-back-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="0"]
+transform = Transform3D(0.999516, -0.0310968, 0, 0.0310968, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+
+[node name="leg-back-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="1"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
+
+[node name="leg-front-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="2"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, 0.09375)
+
+[node name="leg-front-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="3"]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, -0.09375)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 10)
@@ -111,7 +121,6 @@ mesh = SubResource("ArrayMesh_sbq58")
 skeleton = NodePath("")
 
 [node name="Cable" parent="." node_paths=PackedStringArray("player", "source") instance=ExtResource("5_b27nj")]
-script = ExtResource("6_xbtgf")
 player = NodePath("../CharacterBody3D")
 source = NodePath("../snow-pile")
 
