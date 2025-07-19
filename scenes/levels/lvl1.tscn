@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b65ets4og0tm2" path="res://assets/KenneySpaceStation/wall-corner.fbx" id="8_sh3n3"]
 [ext_resource type="PackedScene" uid="uid://umacgldd5esu" path="res://assets/KenneySpaceStation/bed-double-cover.fbx" id="9_kylad"]
 [ext_resource type="PackedScene" uid="uid://c6sq7iy4jmxiw" path="res://assets/KenneySpaceStation/computer.fbx" id="10_02ush"]
-[ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://box.tscn" id="11_kylad"]
+[ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/box.tscn" id="11_kylad"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_yq2hi"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="12_2tpkn"]
 
