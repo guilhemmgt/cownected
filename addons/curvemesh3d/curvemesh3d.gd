@@ -1,4 +1,4 @@
-# Copyright (C) 2022 Claudio Z. (cloudofoz)
+# Copyright (C) 2022-2024 Claudio Z. (cloudofoz)
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,6 +20,8 @@
 
 @tool
 extends Path3D
+
+class_name CurveMesh3D
 
 #---------------------------------------------------------------------------------------------------
 # CONSTANTS
@@ -62,19 +64,29 @@ const CM_HALF_PI = PI / 2.0
 
 @export_group("Caps", "cap_")
 
-## If 'true' the generated mesh starts with an hemispherical surface
-@export var cap_start: bool = true:
+enum CapType {
+	None, ## Does not fill the cap with any geometry.
+	Flat, ## Fills the cap with a flat disc.
+	Hemisphere ## Fills the cap with a hemisphere.
+}
+
+## Determines the shape the generated mesh starts with
+@export var cap_start_type: CapType = CapType.Hemisphere:
 	set(value):
-		cap_start = value
+		cap_start_type = value
 		curve_changed.emit()
 
-## If 'true' the generated mesh ends with an hemispherical surface
-@export var cap_end: bool = true:
+## Determines the shape the generated mesh ends with
+@export var cap_end_type: CapType = CapType.Hemisphere:
 	set(value):
-		cap_end = value
+		cap_end_type = value
 		curve_changed.emit()
- 
-## Number of rings that are used to create the hemispherical cap
+
+# Deprecated, used in _ready to maintain compatibility with existing projects
+var cap_start: bool = true
+var cap_end: bool = true
+
+## Number of rings that are used when creating a hemispherical cap
 ## note: the number of vertices of each ring depends on [radial_resolution]
 @export_range(1, 32, 1, "or_greater") var cap_rings: int = 4:
 	set(value):
@@ -128,6 +140,11 @@ static func cm_get_aligned_transform(from: Vector3, to: Vector3, t: float) -> Tr
 	var direction = (to - from).normalized() 
 	var center = from.move_toward(to, t)
 	var axis = direction.cross(up).normalized()
+	if axis == Vector3.ZERO:
+		if direction == up:
+			axis = up
+		else:
+			axis = up
 	var angle = direction.angle_to(up)
 	return Transform3D.IDENTITY.rotated(axis, angle).translated_local(-center)
 
@@ -143,6 +160,12 @@ static func cm_get_curve_length(plist: PackedVector3Array) -> float:
 #---------------------------------------------------------------------------------------------------
 
 func _ready() -> void:
+	# Backwards compatibility for old cap variables
+	if !cap_start:
+		cap_start_type = CapType.None
+	if !cap_end:
+		cap_end_type = CapType.None
+	
 	cm_clear_duplicated_internal_children()
 	if(!cm_st): 
 		cm_st = SurfaceTool.new()
@@ -223,12 +246,29 @@ func cm_gen_curve_segments_range(start_ring_idx: int, ring_count: int) -> int:
 #4. 0 <= beta  <= HALF_PI                 # "it's an hemisphere!"
 #5. 0 <= alpha <= TAU                     # TAU = 2 * PI
 func cm_gen_cap_verts(t3d: Transform3D, is_cap_start: bool):
+	var num_of_rings:int
+	var height_multiplier:float
+	
+	var cap_is_flat = (cap_start_type if is_cap_start else cap_end_type) == CapType.Flat
+	
+	if cap_is_flat:
+		# This cap is flat
+		num_of_rings = 1
+		height_multiplier = 0.0
+		# Normal for the flat surface
+		var normal_dir = Vector3.DOWN if is_cap_start else Vector3.UP
+		cm_st.set_normal(normal_dir * t3d)
+	else:
+		num_of_rings = cap_rings
+		height_multiplier = 1.0
+	
 	var alpha_step: float = TAU / radial_resolution
-	var beta_step: float = CM_HALF_PI / cap_rings
+	var beta_step: float = CM_HALF_PI / num_of_rings
 	var c = Vector3.ZERO * t3d
 	var r: float
 	var beta_offset: float
 	var beta_direction: float
+	
 	if is_cap_start:
 			r = cm_get_radius(0.0)
 			beta_offset = CM_HALF_PI
@@ -237,15 +277,17 @@ func cm_gen_cap_verts(t3d: Transform3D, is_cap_start: bool):
 			r = cm_get_radius(1.0)
 			beta_offset = 0.0
 			beta_direction = -1.0
-	for ring_idx in range(cap_rings, -1, -1):
+
+	for ring_idx in range(num_of_rings, -1, -1):
 		var beta = beta_offset + ring_idx * beta_step * beta_direction
 		var sin_beta = sin(beta)
 		var cos_beta = cos(beta)
 		for v_idx in (radial_resolution + 1):
 			var alpha = (v_idx % radial_resolution) * alpha_step
-			var v = Vector3(r * sin_beta * cos(alpha), r * cos_beta, r * sin_beta * sin(alpha)) * t3d
+			var v = Vector3(r * sin_beta * cos(alpha),r * cos_beta * height_multiplier,r * sin_beta * sin(alpha)) * t3d
 			cm_st.set_uv(Vector2(float(v_idx) / float(radial_resolution), 1.0) * sin_beta * cap_uv_scale + cap_uv_offset) 
-			cm_st.set_normal((v-c).normalized())
+			if !cap_is_flat:
+				cm_st.set_normal((v-c).normalized())
 			cm_st.add_vertex(v)
 
 func cm_gen_vertices():
@@ -256,13 +298,13 @@ func cm_gen_vertices():
 	var cur_length = 0.0
 	var total_length = cm_get_curve_length(plist)
 	var t3d = cm_get_aligned_transform(plist[0], plist[1], 0.0)
-	if(cap_start): cm_gen_cap_verts(t3d, true)
+	if(cap_start_type != CapType.None): cm_gen_cap_verts(t3d, true)
 	cm_gen_circle_verts(t3d, 0.0)
 	for i in range(0, psize - 1):
 		cur_length += plist[i].distance_to(plist[i + 1])
 		t3d = cm_get_aligned_transform(plist[i], plist[i + 1], 1.0)
 		cm_gen_circle_verts(t3d, min(cur_length / total_length, 1.0))
-	if(cap_end): cm_gen_cap_verts(t3d, false)
+	if(cap_end_type != CapType.None): cm_gen_cap_verts(t3d, false)
 	return psize
 
 # The whole mesh could be generated by one call, like this:
@@ -274,11 +316,15 @@ func cm_gen_vertices():
 # (+1 means that we "jump" to another set of vertices).
 func cm_gen_faces(psize: int):
 	var start_idx: int = 0
-	if(cap_start):
+	if(cap_start_type == CapType.Hemisphere):
 		start_idx = cm_gen_curve_segments_range(0, cap_rings) + 1
+	elif(cap_start_type == CapType.Flat):
+		start_idx = cm_gen_curve_segments_range(0, 1) + 1
 	start_idx = cm_gen_curve_segments_range(start_idx, psize - 1) + 1
-	if(cap_end):
+	if(cap_end_type == CapType.Hemisphere):
 		start_idx = cm_gen_curve_segments_range(start_idx, cap_rings) + 1
+	elif(cap_end_type == CapType.Flat):
+		start_idx = cm_gen_curve_segments_range(start_idx, 1) + 1
 
 func cm_clear() -> bool:
 	if(!cm_st || !cm_mesh): return false

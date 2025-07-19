@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rpidspxnxygi" path="res://scripts/character_bison.gd" id="1_68x3o"]
 [ext_resource type="Texture2D" uid="uid://dcew74hbq8akk" path="res://assets/KenneyPrototype/Textures/colormap.png" id="2_kpc6k"]
-[ext_resource type="ArrayMesh" uid="uid://bu8vxmpgcedfu" path="res://assets/snowpile.tres" id="3_6npwx"]
+[ext_resource type="ArrayMesh" uid="uid://c5yxamounhf53" path="res://assets/snowpile.tres" id="3_6npwx"]
 [ext_resource type="Script" uid="uid://b5yt3g1bwkffs" path="res://addons/interaction_system/systems/interaction/interactor/character_body_3d_interactor.gd" id="3_sswyl"]
 [ext_resource type="AnimationLibrary" uid="uid://cvk5xtegcf8g4" path="res://anim.res" id="4_4xreo"]
 [ext_resource type="AudioStream" uid="uid://bivycqlpxsiki" path="res://assets/audio/moo-104587_1lHj5iSO.mp3" id="5_6npwx"]
