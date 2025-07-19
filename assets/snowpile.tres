@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dc7rwy62xj3p0"]
+[gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://bu8vxmpgcedfu"]
 
-[ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_tw0hx"]
-[ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_xl5go"]
-[ext_resource type="Texture2D" uid="uid://bxfqn4p1u66wq" path="res://assets/FBX format/Textures/colormap.png" id="4_bcbe7"]
-[ext_resource type="PackedScene" uid="uid://bi02uv4h0t1ik" path="res://assets/FBX format/snow-pile.fbx" id="5_4jmdl"]
+[ext_resource type="Texture2D" uid="uid://bxfqn4p1u66wq" path="res://assets/FBX format/Textures/colormap.png" id="1_pjrhc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_bcbe7")
+albedo_texture = ExtResource("1_pjrhc")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sorjm"]
@@ -26,7 +23,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_i8wmo"]
+[resource]
 resource_name = "Scene"
 _surfaces = [{
 "aabb": AABB(-0.496655, 0, -0.556836, 0.993309, 0.2, 1.11367),
@@ -44,23 +41,3 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sorjm")
-
-[node name="test_main" type="Node3D"]
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_tw0hx")]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 10)
-
-[node name="flag" parent="." instance=ExtResource("2_xl5go")]
-transform = Transform3D(-0.222978, 0, 0.974824, 0, 1, 0, -0.974824, 0, -0.222978, 1.5707, 0, -1.62482)
-
-[node name="snow-pile2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425318, 0, 1.38194)
-mesh = SubResource("ArrayMesh_i8wmo")
-skeleton = NodePath("")
-
-[node name="snow-pile" parent="." instance=ExtResource("5_4jmdl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425318, 0, 1.38194)
-
-[editable path="CharacterBody3D"]
