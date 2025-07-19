@@ -23,9 +23,9 @@ func remove_source(source: Source):
 	check_active()
 	
 func clear_sources():
-	sources.clear()
 	for source in sources:
 		source._on_cable_dropped()
+	sources.clear()
 	check_active()
 
 func check_active():

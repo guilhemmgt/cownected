@@ -6,6 +6,7 @@ extends Interactable3D
 var active: bool = true
 var switch: Switch
 var cable: Cable
+var connected: bool = false
 
 func _ready():
 	collision_layer = 2
@@ -29,7 +30,9 @@ func _on_not_closest(interactor: CowInteractor):
 	pass
 	
 func _on_interacted(interactor: CowInteractor):
-	interactor.connect("cable_dropped", _on_cable_dropped)
+	if not connected:
+		interactor.connect("cable_dropped", _on_cable_dropped)
+		connected = true
 	interactor.linked_source = self
 	cable.player = interactor.get_parent()
 	cable._on_pick()
