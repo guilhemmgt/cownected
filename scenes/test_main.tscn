@@ -1,12 +1,11 @@
 [gd_scene load_steps=10 format=4 uid="uid://dc7rwy62xj3p0"]
 
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_tw0hx"]
-[ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_xl5go"]
-[ext_resource type="Script" uid="uid://cpq11uhbfqr5p" path="res://scripts/source.gd" id="4_31pel"]
 [ext_resource type="Texture2D" uid="uid://bxfqn4p1u66wq" path="res://assets/FBX format/Textures/colormap.png" id="4_bcbe7"]
 [ext_resource type="PackedScene" uid="uid://bi02uv4h0t1ik" path="res://assets/FBX format/snow-pile.fbx" id="5_4jmdl"]
 [ext_resource type="PackedScene" uid="uid://b5lx83i5j34qb" path="res://scenes/FocusUnfocusBox.tscn" id="5_bcbe7"]
 [ext_resource type="PackedScene" uid="uid://d1wbxok56y8nm" path="res://scenes/ClosestNotClosestBox.tscn" id="6_4jmdl"]
+[ext_resource type="PackedScene" uid="uid://dm2tt274gcmej" path="res://scenes/test.tscn" id="6_bcbe7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
 resource_name = "colormap"
@@ -73,5 +72,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476948, -5)
 
 [node name="ClosestNotClosestBox" parent="Interactable" instance=ExtResource("6_4jmdl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.476948, 5)
+
+[node name="Area3D" parent="." instance=ExtResource("6_bcbe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40671, 0, 0)
 
 [editable path="CharacterBody3D"]

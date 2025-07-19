@@ -14,3 +14,6 @@ signal interacted(interactor: Interactor3D)
 signal closest(interactor: Interactor3D)
 ## Emitted when an [Interactable3D] is no longer the closest one to the [Interactor3D].
 signal not_closest(interactor: Interactor3D)
+
+func _on_closest(interactor: Interactor3D) -> void:
+	pass # Replace with function body.
