@@ -7,7 +7,7 @@ class_name Cable
 @export var source: Source
 @export var eps_angle : float = 5
 @export var eps_dist: float = 0.1
-@export var speed_cable_drop : float = 30
+@export var speed_cable_drop : float = 20
 @onready var ray_cast_3d_2: RayCast3D = $RayCast3D2
 
 
@@ -24,13 +24,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if !updating:
 		update_waypoints()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug"):
-		if in_hand:
-			_on_drop()
-		else:
-			_on_pick()
 
 func is_max_length_deployed(length_authorized:float):
 	return length_authorized - curve_mesh_3d.curve.get_baked_length() < 0
@@ -82,6 +75,7 @@ func _on_pick():
 	curve_mesh_3d.visible = true
 
 func _on_drop():
+	print("DROP")
 	in_hand = false
 	await play_animation_drop()
 	reset()
@@ -95,7 +89,7 @@ func _set_pos_curv_last_point(new):
 func play_animation_drop():
 	var length_cable : float = curve_mesh_3d.curve.get_baked_length()
 	var nb_points : int = curve_mesh_3d.curve.point_count
-	pos_curv_last_point=player.global_position
+	pos_curv_last_point=player.global_position-global_position
 	for i in range(nb_points):
 		var old_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i)
 		var goal_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i-1)
