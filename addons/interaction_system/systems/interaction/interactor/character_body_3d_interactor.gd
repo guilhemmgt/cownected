@@ -34,6 +34,8 @@ var cached_raycasted: Interactable3D
 # the source the character is being linked to
 var linked_source: Source
 
+signal cable_dropped
+
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings = []
 
@@ -95,4 +97,4 @@ func _input(event: InputEvent) -> void:
 		if cached_closest and use_area_3d_to_interact and interaction_on == 1:
 			interact(cached_closest)
 		elif not cached_closest and linked_source:
-			linked_source = null
+			cable_dropped.emit()

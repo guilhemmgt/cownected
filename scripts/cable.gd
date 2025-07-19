@@ -1,10 +1,10 @@
 extends Node3D
-class_name cable
-const SNOW_PILE = preload("res://scenes/snow-pile.fbx")
+class_name Cable
+
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var curve_mesh_3d: Path3D = $CurveMesh3D
-@export var player: Node3D
-@export var source: Node3D
+@export var player: CharacterBody3D
+@export var source: Source
 @export var eps_angle : float = 5
 @export var eps_dist: float = 0.1
 @onready var ray_cast_3d_2: RayCast3D = $RayCast3D2
@@ -14,6 +14,7 @@ var waypoints : Array[Vector3] = []
 var plugged : bool = false 
 var in_hand : bool = false
 var updating : bool = false
+var max_length: float = 0
 
 func _ready() -> void:
 	curve_mesh_3d.visible = false
