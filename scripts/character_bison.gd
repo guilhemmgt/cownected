@@ -27,6 +27,5 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		animationplayer.play("rest")
-	
-	print(animationplayer.get_animation_list())
+
 	move_and_slide()
