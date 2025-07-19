@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dc7rwy62xj3p0"]
+[gd_scene load_steps=13 format=4 uid="uid://dc7rwy62xj3p0"]
 
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_tw0hx"]
 [ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_xl5go"]
@@ -6,6 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://bi02uv4h0t1ik" path="res://assets/FBX format/snow-pile.fbx" id="5_4jmdl"]
 [ext_resource type="PackedScene" uid="uid://b5lx83i5j34qb" path="res://scenes/FocusUnfocusBox.tscn" id="5_bcbe7"]
 [ext_resource type="PackedScene" uid="uid://d1wbxok56y8nm" path="res://scenes/ClosestNotClosestBox.tscn" id="6_4jmdl"]
+
+[sub_resource type="Curve" id="Curve_7vda6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.626667, 0.146068), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_72mss"]
+curve = SubResource("Curve_7vda6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nmhor"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+gravity = Vector3(0, 1, 0)
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_72mss")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
 resource_name = "colormap"
@@ -52,7 +67,28 @@ shadow_mesh = SubResource("ArrayMesh_sorjm")
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_tw0hx")]
 
 [node name="leg-back-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="0"]
-transform = Transform3D(0.999516, -0.0310963, 0, 0.0310963, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+transform = Transform3D(0.999516, -0.0310962, 0, 0.0310962, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+
+[node name="leg-back-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
+
+[node name="leg-front-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, 0.0625, 0.09375)
+
+[node name="leg-front-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, 0.0625, -0.09375)
+
+[node name="head" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.1625, 0)
+
+[node name="GPUParticles3D" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="5"]
+process_material = SubResource("ParticleProcessMaterial_nmhor")
+
+[node name="Area3D" parent="CharacterBody3D/animal-bison/animal-bison" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702267, 0, 0.724732)
+
+[node name="CollisionShape3D" parent="CharacterBody3D/animal-bison/animal-bison/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0155063, 0.083252, -0.683864)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 10)
