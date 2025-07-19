@@ -89,7 +89,7 @@ func _set_pos_curv_last_point(new):
 func play_animation_drop():
 	var length_cable : float = curve_mesh_3d.curve.get_baked_length()
 	var nb_points : int = curve_mesh_3d.curve.point_count
-	pos_curv_last_point=player.global_position-global_position
+	pos_curv_last_point=curve_mesh_3d.curve.get_point_position(curve_mesh_3d.curve.point_count-1)
 	for i in range(nb_points):
 		var old_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i)
 		var goal_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i-1)
