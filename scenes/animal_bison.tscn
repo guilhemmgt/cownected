@@ -278,7 +278,7 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="leg-back-left" parent="animal-bison/root/torso" index="0"]
-transform = Transform3D(0.999516, -0.0310962, 0, 0.0310962, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+transform = Transform3D(0.999516, -0.0310963, 0, 0.0310963, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
 
 [node name="leg-back-right" parent="animal-bison/root/torso" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
@@ -300,3 +300,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_ngwsc")
 }
 autoplay = "rest"
+
+[node name="RayCast3D2" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(-0.000593467, 0, 1, 0, 1, 0, -1, 0, -0.000593467, 0, 0.353117, 0)
+target_position = Vector3(0, 0, -3)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
