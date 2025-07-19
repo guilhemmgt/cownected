@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://lobxfca6o8c4"]
+[gd_scene load_steps=16 format=3 uid="uid://lobxfca6o8c4"]
 
+[ext_resource type="Script" uid="uid://im7ognk4bs5s" path="res://scripts/level.gd" id="1_co2ub"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_u7exc"]
 [ext_resource type="PackedScene" uid="uid://byb0yycdorl8b" path="res://assets/KenneyPrototype/wall-doorway-wide.fbx" id="2_02ush"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_kylad"]
@@ -20,7 +21,12 @@ background_color = Color(0.415686, 0.443137, 0.529412, 1)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node"]
+script = ExtResource("1_co2ub")
+metadata/_custom_type_script = "uid://im7ognk4bs5s"
+
+[node name="CowSpawner" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.644951, 0.764224, 0, -0.764224, 0.644951, 0, 4.6193, 2.99226)
@@ -128,8 +134,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 
 [node name="in_exit" type="Node3D" parent="-items"]
 
-[node name="input" parent="-items/in_exit" instance=ExtResource("8_co2ub")]
+[node name="input" parent="-items/in_exit" node_paths=PackedStringArray("targets") instance=ExtResource("8_co2ub")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
+targets = [NodePath("../../exit")]
 
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("8_7x113")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cbjmch1mir3x7"]
 
 [ext_resource type="PackedScene" uid="uid://deiasqnmf8yvh" path="res://assets/KenneyPrototype/animal-bison.fbx" id="1_cfbbq"]
-[ext_resource type="ArrayMesh" uid="uid://bu8vxmpgcedfu" path="res://assets/snowpile.tres" id="2_3w2lb"]
+[ext_resource type="ArrayMesh" uid="uid://c5yxamounhf53" path="res://assets/snowpile.tres" id="2_3w2lb"]
 
 [sub_resource type="Curve" id="Curve_7vda6"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.626667, 0.146068), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

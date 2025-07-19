@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://divj3gqkc30q5"]
+[gd_scene load_steps=8 format=4 uid="uid://divj3gqkc30q5"]
 
 [ext_resource type="Texture2D" uid="uid://drsnp108nr8v5" path="res://assets/KenneySpaceStation/Textures/colormap.png" id="1_rygmg"]
+[ext_resource type="Script" uid="uid://dvjxdm8x1wwve" path="res://scripts/switch.gd" id="2_dcilb"]
+[ext_resource type="Script" uid="uid://ub5o4uks10ce" path="res://scripts/expose_switch.gd" id="2_t4852"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djfxa"]
 resource_name = "colormap"
@@ -42,7 +44,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ecnwu")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dcilb"]
+size = Vector3(0.566193, 0.551636, 0.379395)
+
 [node name="input" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tilqc")
 skeleton = NodePath("")
+script = ExtResource("2_t4852")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_dcilb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0138397, 0.322083, 0.310303)
+shape = SubResource("BoxShape3D_dcilb")

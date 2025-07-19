@@ -7,7 +7,7 @@ class_name Cable
 @export var source: Source
 @export var eps_angle : float = 5
 @export var eps_dist: float = 0.1
-@export var speed_cable_drop : float = 20
+@export var speed_cable_drop : float = 15
 @onready var ray_cast_3d_2: RayCast3D = $RayCast3D2
 
 
