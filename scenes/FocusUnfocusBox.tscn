@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5lx83i5j34qb"]
+
+[sub_resource type="GDScript" id="GDScript_djiep"]
+script/source = "extends Interactable3D
+
+@onready var text: Label3D = $Text
+@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var material: Resource = preload(\"res://assets/InteractableMaterial.tres\").duplicate()
+
+
+func _ready() -> void:
+	mesh_instance_3d.material_override = material
+
+
+func _on_focused(_interactor: Interactor3D) -> void:
+	text.text = \"Focused\"
+	material.albedo_color = Color(\"red\")
+
+
+func _on_unfocused(_interactor: Interactor3D) -> void:
+	text.text = \"Unfocused\"
+	material.albedo_color = Color(\"white\")
+
+
+func _on_interacted(_interactor: Interactor3D) -> void:
+	text.text = \"Interacted\"
+	mesh_instance_3d.rotate_z(45)
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fuw6l"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtsn2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_djiep"]
+material = SubResource("StandardMaterial3D_qtsn2")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="FocusUnfocusBox" type="Area3D"]
+collision_layer = 2
+collision_mask = 0
+script = SubResource("GDScript_djiep")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fuw6l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_djiep")
+
+[node name="Text" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+billboard = 2
+text = "I'll react to RayCast3D"
+
+[connection signal="focused" from="." to="." method="_on_focused"]
+[connection signal="interacted" from="." to="." method="_on_interacted"]
+[connection signal="unfocused" from="." to="." method="_on_unfocused"]
