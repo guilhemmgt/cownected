@@ -133,7 +133,7 @@ mesh = SubResource("ArrayMesh_rhcxt")
 skeleton = NodePath("")
 
 [node name="text" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.980955, 0.194234, 0, -0.194234, 0.980955, -3.32875e-08, 0.441009, 0.0406939)
+transform = Transform3D(1, 0, 0, 0, 0.980955, 0.194234, 0, -0.194234, 0.980955, 0.0117014, 0.441, 0.04)
 pixel_size = 0.001
 modulate = Color(0, 0, 0, 1)
 text = "99m"
