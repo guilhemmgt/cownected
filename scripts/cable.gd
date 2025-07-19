@@ -1,12 +1,12 @@
 extends Node3D
 class_name cable
-const SNOW_PILE = preload("res://scenes/snow-pile.fbx")
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var curve_mesh_3d: Path3D = $CurveMesh3D
 @export var player: Node3D
 @export var source: Node3D
 @export var eps_angle : float = 5
 @export var eps_dist: float = 0.1
+@export var speed_cable_drop : float = 30
 @onready var ray_cast_3d_2: RayCast3D = $RayCast3D2
 
 
@@ -70,6 +70,7 @@ func update_cable():
 	updating = false
 	
 func _on_plug(position_target: Vector3):
+	curve_mesh_3d.curve.remove_point(curve_mesh_3d.curve.point_count-1)
 	curve_mesh_3d.curve.add_point(position_target - global_position)
 	plugged = true
 	in_hand = false
@@ -80,27 +81,34 @@ func _on_pick():
 
 func _on_drop():
 	in_hand = false
-	# await play_animation_drop()
+	await play_animation_drop()
 	reset()
-	
+
+var pos_curv_last_point : Vector3 = Vector3.ZERO : set = _set_pos_curv_last_point
+func _set_pos_curv_last_point(new):
+	pos_curv_last_point = new
+	curve_mesh_3d.curve.set_point_position(curve_mesh_3d.curve.point_count-1, pos_curv_last_point)
+		
 
 func play_animation_drop():
-	var nb_points : int = curve_mesh_3d.curve.point_count
 	var length_cable : float = curve_mesh_3d.curve.get_baked_length()
+	var nb_points : int = curve_mesh_3d.curve.point_count
+	pos_curv_last_point=player.global_position
 	for i in range(nb_points):
 		var old_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i)
 		var goal_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i-1)
 		var d = old_pos.distance_to(goal_pos)
-		var step = d/length_cable
-		for j in range(int(d/step)):
-			print(j)
-			lerp(old_pos, goal_pos, j*step/d)
-			await get_tree().create_timer(1).timeout
-	
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(self, "pos_curv_last_point",curve_mesh_3d.curve.get_point_position(curve_mesh_3d.curve.point_count-2),d/speed_cable_drop)
+		await tween.finished
+		tween.kill()
+		curve_mesh_3d.curve.remove_point(curve_mesh_3d.curve.point_count-1)
 
 func reset():
 	curve_mesh_3d.visible = false
 	curve_mesh_3d.curve.clear_points()
+	waypoints = []
+	waypoints.append(source.global_position)
 	in_hand = false
 	plugged = false
 
