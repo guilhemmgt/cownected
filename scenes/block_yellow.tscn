@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=4 uid="uid://dawyod3to5asc"]
+
+[ext_resource type="PackedScene" uid="uid://dlv6kwbcts8bm" path="res://assets/KenneySpaceStation/floor.fbx" id="1_8vxvu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ftpk"]
+resource_name = "colormap"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.819608, 0.372549, 1)
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qe0hj"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.3, 1),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAQAAAAQAAAADAAUAAwABAAYAAAAHAAQABwABAAQABwAAAAUAAQAHAAYAAwAHAAUABwADAAYA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAPwAAAAAAAAC/AAAAvwAAAAAAAAA/AAAAPwAAAAAAAAA/AAAAP5qZmT4AAAA/AAAAvwAAAAAAAAC/AAAAP5qZmT4AAAC/AAAAv5qZmT4AAAA/AAAAv5qZmT4AAAC/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ikd15"]
+resource_name = "Scene"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.3, 1),
+"attribute_data": PackedByteArray("AABgPpqZeT8AAGA+mpl5PwAAYD6amXk/AABgPpqZeT8AAGA+ZmZGPwAAYD6amXk/AABgPpqZeT8AAGA+ZmZGPwAAYD6amXk/AABgPmZmRj8AAGA+mpl5PwAAYD5mZkY/AABgPpqZeT8AAGA+ZmZGPwAAYD5mZkY/AABgPpqZeT8AAGA+mpl5PwAAYD5mZkY/AABgPpqZeT8AAGA+ZmZGPwAAsD5mZkY/AACwPmZmRj8AALA+ZmZGPwAAsD5mZkY/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABQAEAAcACAAJAAoACQAIAAsADAANAA4ADQAMAA8AEAARABIAEQAQABMAFAAVABYAFQAUABcA"),
+"material": SubResource("StandardMaterial3D_2ftpk"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAPwAAAAAAAAC/AAAAvwAAAAAAAAA/AAAAPwAAAAAAAAA/AAAAvwAAAAAAAAC/AAAAv5qZmT4AAAC/AAAAvwAAAAAAAAA/AAAAvwAAAAAAAAC/AAAAv5qZmT4AAAA/AAAAvwAAAAAAAAA/AAAAP5qZmT4AAAA/AAAAPwAAAAAAAAA/AAAAv5qZmT4AAAA/AAAAPwAAAAAAAAC/AAAAP5qZmT4AAAA/AAAAP5qZmT4AAAC/AAAAPwAAAAAAAAA/AAAAPwAAAAAAAAC/AAAAv5qZmT4AAAC/AAAAvwAAAAAAAAC/AAAAP5qZmT4AAAC/AAAAP5qZmT4AAAA/AAAAv5qZmT4AAAC/AAAAP5qZmT4AAAC/AAAAv5qZmT4AAAA//38AAP///7//fwAA////v/9/AAD///+//38AAP///78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9//3////+//3//f////7//f/9/////v/9//3////+/////f/////////9//////////3//////////f///////////AAD/v/////8AAP+//////wAA/7//////AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qe0hj")
+
+[node name="floor" instance=ExtResource("1_8vxvu")]
+
+[node name="floor" parent="." index="0"]
+mesh = SubResource("ArrayMesh_ikd15")

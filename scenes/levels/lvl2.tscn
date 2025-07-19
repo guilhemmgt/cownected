@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://b65ets4og0tm2" path="res://assets/KenneySpaceStation/wall-corner.fbx" id="6_t4vlo"]
 [ext_resource type="PackedScene" uid="uid://cstsl736jxrp7" path="res://assets/KenneySpaceStation/wall.fbx" id="7_gjjxq"]
 [ext_resource type="PackedScene" uid="uid://biwy22hxh1u06" path="res://assets/KenneySpaceStation/container-flat-open.fbx" id="8_4s3ep"]
-[ext_resource type="PackedScene" uid="uid://umacgldd5esu" path="res://assets/KenneySpaceStation/bed-double-cover.fbx" id="9_0emr4"]
+[ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://c6sq7iy4jmxiw" path="res://assets/KenneySpaceStation/computer.fbx" id="10_21cjc"]
 [ext_resource type="PackedScene" uid="uid://bd6knao0af57o" path="res://assets/KenneyPrototype/wall-doorway.fbx" id="11_dxt8t"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_n3axc"]
 [ext_resource type="PackedScene" uid="uid://cx4g0sdbkgswj" path="res://assets/KenneyPrototype/door-sliding.fbx" id="12_76lpn"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="12_vdui8"]
-[ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/box.tscn" id="13_n24p8"]
+[ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="13_n24p8"]
 
 [sub_resource type="Environment" id="Environment_tpdyh"]
 background_mode = 1
@@ -141,35 +141,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 [node name="container-flat-open" parent="-items/in_exit" instance=ExtResource("8_4s3ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.15, -3.175)
 
-[node name="bed-double-cover" parent="-items/in_exit" instance=ExtResource("9_0emr4")]
-transform = Transform3D(-4.37114e-08, 0, -0.3, 0, 1, 0, 1, 0, -1.31134e-08, -1.5, -0.125, -2.75)
+[node name="connectioin" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
-[node name="bed-double-cover3" parent="-items/in_exit" instance=ExtResource("9_0emr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, -0.725, -0.125, -2)
+[node name="connectioin7" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.25)
 
-[node name="bed-double-cover5" parent="-items/in_exit" instance=ExtResource("9_0emr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, -1.275, -0.125, -2)
+[node name="connectioin11" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.35)
 
-[node name="bed-double-cover4" parent="-items/in_exit" instance=ExtResource("9_0emr4")]
-transform = Transform3D(-4.37114e-08, 0, -0.3, 0, 1, 0, 1, 0, -1.31134e-08, 0, -0.125, -2.75)
+[node name="connectioin8" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 1.925, -0.25, 0.825)
+
+[node name="connectioin9" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.925, -0.25, 0.825)
+
+[node name="connectioin10" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.45, -0.25, 0.825)
+
+[node name="connectioin2" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2)
+
+[node name="connectioin5" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2.5)
+
+[node name="connectioin6" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2)
+
+[node name="connectioin3" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -1, -0.25, -1.55)
+
+[node name="connectioin4" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
+transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5, -0.25, -1.55)
 
 [node name="in_exit2" type="Node3D" parent="-items"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
 [node name="container-flat-open" parent="-items/in_exit2" instance=ExtResource("8_4s3ep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.425, 0.15, -2.175)
-
-[node name="bed-double-cover6" parent="-items/in_exit2" instance=ExtResource("9_0emr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, 1.725, -0.125, -2.175)
-
-[node name="bed-double-cover7" parent="-items/in_exit2" instance=ExtResource("9_0emr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, 0.725, -0.125, -2.175)
-
-[node name="bed-double-cover8" parent="-items/in_exit2" instance=ExtResource("9_0emr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, 0.213906, -0.125, -2.175)
-
-[node name="bed-double-cover4" parent="-items/in_exit2" instance=ExtResource("9_0emr4")]
-transform = Transform3D(-3.49691e-08, 0, -0.3, 0, 1, 0, 0.8, 0, -1.31134e-08, 0, -0.125, -2.75)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.425, 0.15, -1.925)
 
 [node name="computer" parent="-items" instance=ExtResource("10_21cjc")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 1)

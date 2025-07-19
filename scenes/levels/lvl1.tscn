@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cstsl736jxrp7" path="res://assets/KenneySpaceStation/wall.fbx" id="5_yq2hi"]
 [ext_resource type="PackedScene" uid="uid://crsd538boi7c2" path="res://assets/KenneyPrototype/door-sliding-double-round.fbx" id="6_2tpkn"]
 [ext_resource type="PackedScene" uid="uid://biwy22hxh1u06" path="res://assets/KenneySpaceStation/container-flat-open.fbx" id="8_02ush"]
+[ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="8_7x113"]
 [ext_resource type="PackedScene" uid="uid://b65ets4og0tm2" path="res://assets/KenneySpaceStation/wall-corner.fbx" id="8_sh3n3"]
-[ext_resource type="PackedScene" uid="uid://umacgldd5esu" path="res://assets/KenneySpaceStation/bed-double-cover.fbx" id="9_kylad"]
 [ext_resource type="PackedScene" uid="uid://c6sq7iy4jmxiw" path="res://assets/KenneySpaceStation/computer.fbx" id="10_02ush"]
-[ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/box.tscn" id="11_kylad"]
+[ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="11_kylad"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_yq2hi"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="12_2tpkn"]
 
@@ -125,20 +125,26 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.25, 
 [node name="-items" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 
+[node name="connectioin" parent="-items" instance=ExtResource("8_7x113")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
+
+[node name="connectioin2" parent="-items" instance=ExtResource("8_7x113")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2)
+
+[node name="connectioin5" parent="-items" instance=ExtResource("8_7x113")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2.5)
+
+[node name="connectioin6" parent="-items" instance=ExtResource("8_7x113")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2)
+
+[node name="connectioin3" parent="-items" instance=ExtResource("8_7x113")]
+transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -1, -0.25, -1.55)
+
+[node name="connectioin4" parent="-items" instance=ExtResource("8_7x113")]
+transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5, -0.25, -1.55)
+
 [node name="container-flat-open" parent="-items" instance=ExtResource("8_02ush")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.15, -3.175)
-
-[node name="bed-double-cover" parent="-items" instance=ExtResource("9_kylad")]
-transform = Transform3D(-4.37114e-08, 0, -0.3, 0, 1, 0, 1, 0, -1.31134e-08, -1.5, -0.125, -2.75)
-
-[node name="bed-double-cover3" parent="-items" instance=ExtResource("9_kylad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, -0.725, -0.125, -2)
-
-[node name="bed-double-cover5" parent="-items" instance=ExtResource("9_kylad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, -1.275, -0.125, -2)
-
-[node name="bed-double-cover4" parent="-items" instance=ExtResource("9_kylad")]
-transform = Transform3D(-4.37114e-08, 0, -0.3, 0, 1, 0, 1, 0, -1.31134e-08, 0, -0.125, -2.75)
 
 [node name="computer" parent="-items" instance=ExtResource("10_02ush")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0.25)
