@@ -16,7 +16,7 @@ config/ninetailsrabbit.interaction_kit_3d/grabbables_collision_layer=7
 [application]
 
 config/name="KenneyJam"
-run/main_scene="uid://dc7rwy62xj3p0"
+run/main_scene="uid://80exbsbc6lui"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -32,7 +32,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/curvemesh3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/component_view/plugin.cfg", "res://addons/curvemesh3d/plugin.cfg")
 
 [input]
 
