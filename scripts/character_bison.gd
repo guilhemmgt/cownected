@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		animationplayer.play("walk")
 		var rad_angle = atan2(-direction.x, -direction.z)
 		bison_mesh.rotation = Vector3(0, rad_angle, 0) + BASE_MESH_ROTATION
+		collision_shape.rotation = Vector3(0, rad_angle, 0) + BASE_MESH_ROTATION
 		
 		
 	else:
