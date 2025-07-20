@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://bseegxli8fljm"]
 
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_iix5d"]
+[ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="2_5ei7m"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="2_iix5d"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="3_5ei7m"]
 [ext_resource type="PackedScene" uid="uid://ckv3ypkfeagek" path="res://scenes/assets/corner.tscn" id="5_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="9_76lpn"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="9_kji3t"]
-[ext_resource type="PackedScene" uid="uid://bd6knao0af57o" path="res://assets/KenneyPrototype/wall-doorway.fbx" id="11_dxt8t"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_n3axc"]
 [ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="12_kji3t"]
@@ -43,6 +43,9 @@ transform = Transform3D(2.7216, 0, 0, 0, 1, 0, 0, 0, 2.76276, 0.25, 0, -0.5)
 
 [node name="-walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
+
+[node name="wall-doorway" parent="-walls" instance=ExtResource("2_5ei7m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.25)
 
 [node name="wall15" parent="-walls" instance=ExtResource("2_iix5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.25)
@@ -100,9 +103,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.25, 
 
 [node name="wall-doorway-wide" parent="-walls" instance=ExtResource("3_5ei7m")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3)
-
-[node name="wall-doorway" parent="-walls" instance=ExtResource("11_dxt8t")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.25)
 
 [node name="wall-corner" parent="-walls" instance=ExtResource("5_dxt8t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1.75)
