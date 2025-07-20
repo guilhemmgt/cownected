@@ -19,6 +19,8 @@
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
 transform = Transform3D(1, 0, 0, 0, 0.269592, 0.962975, 0, -0.962975, 0.269592, 0, 14.4081, 2.50686)
+light_energy = 0.3
+shadow_enabled = true
 
 [node name="-floors" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)

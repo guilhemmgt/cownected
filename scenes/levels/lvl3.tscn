@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhxlern0h63q7"]
+[gd_scene load_steps=17 format=3 uid="uid://cailth8xh8d2f"]
 
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_qe0rt"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_3mu2x"]
@@ -8,21 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="9_apeqx"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_xnfqt"]
 [ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="11_apeqx"]
-[ext_resource type="PackedScene" uid="uid://bd6knao0af57o" path="res://assets/KenneyPrototype/wall-doorway.fbx" id="11_cp7et"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="11_qe0rt"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="13_cng8y"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="14_3i44f"]
+[ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="15_3mu2x"]
 [ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="15_apeqx"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="15_mhuq4"]
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="16_3mu2x"]
+[ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="16_apeqx"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, 0.325106, 0.945678, 0, -0.945678, 0.325106, 0, 9.61998, 1.80528)
-light_energy = 0.1
+transform = Transform3D(1, 0, 0, 0, 0.618765, 0.785576, 0, -0.785576, 0.618765, 0, 6.68029, 1.73452)
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="-floors" type="Node3D" parent="."]
@@ -248,29 +249,31 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -67.25)
 [node name="floor4" parent="-env/background" instance=ExtResource("15_mhuq4")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
 
+[node name="wall-doorway" parent="." instance=ExtResource("15_3mu2x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.18557e-08, 0.35, -3.25)
+
 [node name="logic" type="Node3D" parent="."]
 
 [node name="exit" parent="logic" instance=ExtResource("9_apeqx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31134e-07, 0.352595, -6)
 
-[node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.337823, -6.05962)
-targets = [NodePath("../exit")]
-
-[node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.321248, -3.31429)
-targets = [NodePath("../door")]
-
-[node name="Source" parent="logic" instance=ExtResource("15_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38619, 0.3798, -2.94252)
-reach = 4.0
-
-[node name="Source2" parent="logic" instance=ExtResource("15_apeqx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.96452, 0.40332, 1.20334)
-reach = 4.0
-
 [node name="door" parent="logic" instance=ExtResource("11_qe0rt")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0.352595, -3.25)
 
+[node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.28438, -3.29834)
+targets = [NodePath("../door")]
+
+[node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.296557, -6.03798)
+targets = [NodePath("../exit")]
+
+[node name="Source2" parent="logic" instance=ExtResource("15_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49985, 0.450121, -2.77569)
+
+[node name="Source" parent="logic" instance=ExtResource("15_apeqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.83686, 0.450121, 1.17755)
+reach = 8.0
+
 [node name="CharacterBody3D" parent="." instance=ExtResource("16_3mu2x")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.558774, 0.397211, -2.12076)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.659146, 0.400868, -2.10952)

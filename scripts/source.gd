@@ -21,7 +21,7 @@ func _ready():
 	
 func plug(switch: Switch):
 	self.switch = switch
-	cable._on_plug(switch.global_position)
+	cable._on_plug(switch.marker.global_position)
 
 func _on_closest(interactor: CowInteractor):
 	pass
@@ -38,9 +38,10 @@ func _on_interacted(interactor: CowInteractor):
 		cable._on_pick()
 
 func _on_cable_dropped(interactor: CowInteractor):
-	cable._on_drop()
-	connected = false
-	interactor.disconnect("cable_dropped", _on_cable_dropped)
+	if interactor.linked_source == self:
+		cable._on_drop()
+		connected = false
+		interactor.disconnect("cable_dropped", _on_cable_dropped)
 
 func drop_cable():
 	cable._on_drop()
