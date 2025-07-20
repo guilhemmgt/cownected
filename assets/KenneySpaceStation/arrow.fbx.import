@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bhtbnipt2qyk8"
-path="res://.godot/imported/arrow.fbx-60fbd089a8126e28ef5ef44a32ca9a06.scn"
+path="res://.godot/imported/arrow.fbx-702c5b012a02b36c0b3369885010293f.scn"
 
 [deps]
 
-source_file="res://assets/KenneyConveyor/arrow.fbx"
-dest_files=["res://.godot/imported/arrow.fbx-60fbd089a8126e28ef5ef44a32ca9a06.scn"]
+source_file="res://assets/KenneySpaceStation/arrow.fbx"
+dest_files=["res://.godot/imported/arrow.fbx-702c5b012a02b36c0b3369885010293f.scn"]
 
 [params]
 

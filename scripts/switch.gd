@@ -59,7 +59,3 @@ func _on_interacted(interactor: CowInteractor):
 		interactor.linked_source = null
 	else:
 		clear_sources()
-
-func _process(delta: float) -> void:
-	pass
-	# print("I'm linked to ", sources)

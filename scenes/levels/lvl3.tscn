@@ -63,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, -0.00259501, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, -0.00259501, -3)
 
 [node name="wall12" parent="-walls" instance=ExtResource("16_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, -0.00259501, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, -0.25)
 
 [node name="wall13" parent="-walls" instance=ExtResource("16_apeqx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.00259501, -0.25)
@@ -158,6 +158,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
+[node name="connectioin7" parent="-items/in_exit" instance=ExtResource("9_xnfqt")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -1.5, 0, -2.875)
+
 [node name="connectioin2" parent="-items/in_exit" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2)
 
@@ -178,6 +181,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
 [node name="connectioin" parent="-items/in_exit2" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
+
+[node name="connectioin7" parent="-items/in_exit2" instance=ExtResource("9_xnfqt")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -1.5, 0, -2.875)
 
 [node name="connectioin2" parent="-items/in_exit2" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2)
@@ -264,11 +270,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.311
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0.352595, -3.25)
 
 [node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.28438, -3.29834)
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.35, -3.25)
 targets = [NodePath("../door")]
 
 [node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.296557, -6.03798)
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.35, -6)
 targets = [NodePath("../exit")]
 
 [node name="Source2" parent="logic" instance=ExtResource("15_apeqx")]
