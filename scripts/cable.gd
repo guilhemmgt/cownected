@@ -28,10 +28,6 @@ func _process(_delta: float) -> void:
 	if not updating and not plugged:
 		update_waypoints()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug"):
-		_on_drop()
-
 func get_direction_authorized_player(dir_player:Vector3)->Vector3:
 	if max_length - curve_mesh_3d.curve.get_baked_length() > 0:
 		return dir_player
@@ -77,9 +73,10 @@ func update_waypoints():
 func init_cable(positions:Array[Vector3]):
 	in_hand = false
 	plugged = true
+	curve_mesh_3d.visible = true
 	curve_mesh_3d.curve.clear_points()
 	for point in positions:
-		curve_mesh_3d.add_point(point - global_position)
+		curve_mesh_3d.curve.add_point(point - global_position)
 
 func update_cable():
 	curve_mesh_3d.curve.clear_points()
