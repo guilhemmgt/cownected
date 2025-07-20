@@ -14,13 +14,22 @@ func _on_end_area_body_shape_entered(body_rid: RID, body: Node3D, body_shape_ind
 var door_list: Array[Door] = []
 func _ready() -> void:
 	# Find all Door instances in the scene and add them to the door_list
-	for logicelem in logic.get_children():
+	print("Searching for doors in logic node")
+	var listdoor=[]
+	#get all children children
+	for node in get_children():
+		for child in node.get_children():
+			if child is Door:
+				listdoor.append(child)
+				print("Found door:", child.name)
+	for logicelem in listdoor:
 		if logicelem is Door:
 			door_list.append(logicelem)
+			print("Found door:", logicelem.name)
 			# Connect the activate and deactivate signals to the door's methods
 			logicelem.activated.connect(door_activate)
 			logicelem.deactivated.connect(door_deactivate)
-
+	
 
 func _process(delta: float) -> void:
 	# Update the game manager reference if it exists
