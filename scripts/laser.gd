@@ -12,11 +12,12 @@ var curve_list: Array[Curve3D] = []
 var curve_collision_tolerance: float = 0.1
 
 func _ready():
+	deactivate(1)
+	visible = false
 	# Set initial raycast properties
 	enabled = true
 	#target position
 	target_position = Vector3(0, -max_laser_length, 0)
-	activate(1)
 
 	#debug lines curve list
 	for curve in curve_list:
@@ -129,6 +130,7 @@ func _process(delta):
 		beam_particles.process_material.set_emission_box_extents(Vector3(beam_mesh.mesh.top_radius, abs(cast_point.y)/2, beam_mesh.mesh.top_radius))
 
 func activate(time: float):
+	scale = Vector3(1, 1, 1)
 	tween = get_tree().create_tween()
 	visible = true
 	beam_particles.emitting = true
