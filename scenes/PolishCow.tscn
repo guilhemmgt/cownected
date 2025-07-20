@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bufgvbqf3iol0"]
+[gd_scene load_steps=13 format=3 uid="uid://bufgvbqf3iol0"]
 
 [ext_resource type="Script" uid="uid://b84qclixi1768" path="res://scripts/game_manager.gd" id="1_bj85x"]
 [ext_resource type="Theme" uid="uid://p75k0fsmia7" path="res://theme.tres" id="2_cj4fi"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cg2kdqgp2eeo3" path="res://assets/KenneyUI/audioOn.png" id="7_ik0sd"]
 [ext_resource type="StyleBox" uid="uid://cp7va0ld2kbqc" path="res://ui/pannel_box_win.tres" id="8_ik0sd"]
 [ext_resource type="StyleBox" uid="uid://km1oqifqf48n" path="res://ui/pannel_box_lost.tres" id="8_ypjh0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik0sd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jum7f"]
 
@@ -25,6 +28,7 @@ offset_right = -934.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_cj4fi")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ik0sd")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 1
