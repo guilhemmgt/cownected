@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dphluhhps7wnb"]
+
+[ext_resource type="Theme" uid="uid://p75k0fsmia7" path="res://theme.tres" id="1_dyyen"]
+
+[node name="Button" type="Button"]
+offset_right = 193.0
+offset_bottom = 104.0
+size_flags_horizontal = 4
+theme = ExtResource("1_dyyen")
+text = "Play"

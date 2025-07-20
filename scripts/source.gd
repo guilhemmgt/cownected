@@ -21,7 +21,7 @@ func _ready():
 	
 func plug(switch: Switch):
 	self.switch = switch
-	cable._on_plug(switch.marker.global_position)
+	cable._on_plug(switch, switch.marker.global_position)
 
 func _on_closest(interactor: CowInteractor):
 	pass
