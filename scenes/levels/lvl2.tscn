@@ -22,9 +22,9 @@ script = ExtResource("1_76lpn")
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, 0.126891, 0.991917, 0, -0.991917, 0.126891, 0, 7.02347, 0.631779)
-light_energy = 0.3
+transform = Transform3D(0.760678, 0.643882, -0.0823687, 0, 0.126891, 0.991917, 0.64913, -0.754529, 0.0965232, -1.98617, 7.02347, 0.631779)
 shadow_enabled = true
+shadow_opacity = 0.4
 
 [node name="-floors" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)

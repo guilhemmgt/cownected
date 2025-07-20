@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://ce52uvc7yfrch"]
 
-[ext_resource type="Script" uid="uid://cr2770pwumwm" path="res://scripts/level.gd" id="1_48vl6"]
+[ext_resource type="Script" uid="uid://jqu4senqu651" path="res://scripts/lvl_6.gd" id="1_5ei35"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="2_3vvh0"]
 [ext_resource type="PackedScene" uid="uid://onxrej6x53o6" path="res://assets/KenneyPrototype/floor-square.fbx" id="2_5ei35"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="3_rddok"]
@@ -25,14 +25,14 @@
 size = Vector3(0.25, 1.5, 0.25)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_48vl6")
+script = ExtResource("1_5ei35")
 
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, 0.618765, 0.785576, 0, -0.785576, 0.618765, 0, 6.68029, 1.73452)
-light_energy = 0.3
+transform = Transform3D(1, 0, 0, 0, 0.618765, 0.785576, 0, -0.785576, 0.618765, -1, 6.68029, 1.73452)
 shadow_enabled = true
+shadow_opacity = 0.4
 
 [node name="-floors" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
@@ -391,11 +391,8 @@ transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, -0.5
 [node name="connectioin15" parent="-items/in_exit" instance=ExtResource("8_78itq")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, -8.88178e-16, 0, 1, 4.84288e-08, -0.25, -2.65)
 
-[node name="door" parent="-items/in_exit" instance=ExtResource("14_ej7c5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.35, -0.00259501, 3.5)
-
 [node name="pillar" type="Node3D" parent="-items"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.75)
+transform = Transform3D(1.8, 0, 0, 0, 1, 0, 0, 0, 1.8, -0.775, 0, -1.75)
 
 [node name="pipe" parent="-items/pillar" instance=ExtResource("10_f0ypn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00259501, 0)
@@ -410,7 +407,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -4.76837e-07)
 shape = SubResource("BoxShape3D_5ei35")
 
 [node name="pillar2" type="Node3D" parent="-items"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.5)
+transform = Transform3D(1.8, 0, 0, 0, 1, 0, 0, 0, 1.8, 0.775, 0, -1.75)
 
 [node name="pipe" parent="-items/pillar2" instance=ExtResource("10_f0ypn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00259501, 0)
@@ -425,7 +422,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -4.76837e-07)
 shape = SubResource("BoxShape3D_5ei35")
 
 [node name="pillar3" type="Node3D" parent="-items"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.75)
+transform = Transform3D(1.8, 0, 0, 0, 1, 0, 0, 0, 1.8, -0.775, 0, 0.535)
 
 [node name="pipe" parent="-items/pillar3" instance=ExtResource("10_f0ypn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00259501, 0)
@@ -440,7 +437,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -4.76837e-07)
 shape = SubResource("BoxShape3D_5ei35")
 
 [node name="pillar4" type="Node3D" parent="-items"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.75)
+transform = Transform3D(1.8, 0, 0, 0, 1, 0, 0, 0, 1.8, 0.775, 0, 0.535)
 
 [node name="pipe" parent="-items/pillar4" instance=ExtResource("10_f0ypn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00259501, 0)
@@ -451,36 +448,6 @@ transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.9
 [node name="StaticBody3D" type="StaticBody3D" parent="-items/pillar4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="-items/pillar4/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -4.76837e-07)
-shape = SubResource("BoxShape3D_5ei35")
-
-[node name="pillar5" type="Node3D" parent="-items"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.5)
-
-[node name="pipe" parent="-items/pillar5" instance=ExtResource("10_f0ypn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00259501, 0)
-
-[node name="pipe2" parent="-items/pillar5" instance=ExtResource("10_f0ypn")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.997405, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="-items/pillar5"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="-items/pillar5/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -4.76837e-07)
-shape = SubResource("BoxShape3D_5ei35")
-
-[node name="pillar6" type="Node3D" parent="-items"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.75)
-
-[node name="pipe" parent="-items/pillar6" instance=ExtResource("10_f0ypn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00259501, 0)
-
-[node name="pipe2" parent="-items/pillar6" instance=ExtResource("10_f0ypn")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.997405, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="-items/pillar6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="-items/pillar6/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -4.76837e-07)
 shape = SubResource("BoxShape3D_5ei35")
 
@@ -557,14 +524,20 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 41.75)
 
 [node name="logic" type="Node3D" parent="."]
 
-[node name="Switch" parent="logic" instance=ExtResource("15_htb8i")]
+[node name="door" parent="logic" instance=ExtResource("14_ej7c5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.35, 0.35, 0.5)
+
+[node name="Switch" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("15_htb8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0.35, 0.5)
+targets = [NodePath("../turret"), NodePath("../exit")]
 
 [node name="Source2" parent="logic" instance=ExtResource("16_muqld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.5, 1)
+reach = 15.0
 
 [node name="Source" parent="logic" instance=ExtResource("16_muqld")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75, 0.5, -0.5)
+reach = 20.0
 
 [node name="turret" parent="logic" node_paths=PackedStringArray("target") instance=ExtResource("14_48vl6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -3.5)
@@ -577,10 +550,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.311
 [node name="EndArea" parent="logic" instance=ExtResource("17_vf7st")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877323, -6.79127)
 
-[node name="Switch2" parent="logic" instance=ExtResource("15_htb8i")]
+[node name="Switch2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("15_htb8i")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0.35, -0.5)
+targets = [NodePath("../door")]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("18_08pa3")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.84085, 0.400868, -1.85952)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.55477, 0.400868, -1.01104)
 
 [connection signal="body_shape_entered" from="logic/EndArea" to="." method="_on_end_area_body_shape_entered"]

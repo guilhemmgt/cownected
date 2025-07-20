@@ -12,11 +12,12 @@ var curve_list: Array[Curve3D] = []
 var curve_collision_tolerance: float = 0.1
 
 func _ready():
+	deactivate(1)
+	visible = false
 	# Set initial raycast properties
 	enabled = true
 	#target position
 	target_position = Vector3(0, -max_laser_length, 0)
-	activate(1)
 
 	#debug lines curve list
 	for curve in curve_list:
@@ -44,12 +45,15 @@ func clear_curves():
 	curve_list.clear()
 
 func check_curve_intersections() -> Array:
+	
 	"""Check for intersections with all curves in the list"""
 	var intersections: Array = []
+	
 	var laser_start = global_position
 	var laser_direction = -global_transform.basis.y.normalized()
 	var closest_intersection = {"point": Vector3.ZERO, "distance": max_laser_length, "found": false}
 	for curve in curve_list:
+		
 		if not curve:
 			continue
 			
@@ -67,7 +71,7 @@ func check_curve_intersections() -> Array:
 			segment_end = Vector2(segment_end.x, segment_end.z)
 			var laser_start_temp = Vector2(laser_start.x, laser_start.z)
 			var laser_direction_temp = Vector2(laser_direction.x, laser_direction.z)
-			# Check for intersection
+
 			var intersection = Geometry2D.segment_intersects_segment(
 				laser_start_temp,
 				laser_start_temp + laser_direction_temp * max_laser_length,
@@ -90,20 +94,23 @@ func _process(delta):
 	var cast_point
 	var hit_distance = max_laser_length
 	var hit_found = false
+
 	
 	force_raycast_update()
-	
+	var playcol=false
+	var pipecol=false
 	# Check regular raycast collision first
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
 		hit_distance = abs(cast_point.y)
 		hit_found = true
+		playcol=true
 
 		#test if charbody
-		if get_collider().get_class() == "CharacterBody3D":
-			emit_signal("player_hit")
+		
 	# Check curve intersections
 	var curve_intersections = check_curve_intersections()
+	
 	if curve_intersections.size() > 0:
 		for intersection in curve_intersections:
 			var intersection_distance = (intersection - global_position).length()
@@ -111,6 +118,14 @@ func _process(delta):
 				cast_point = to_local(intersection)
 				hit_distance = intersection_distance
 				hit_found = true
+				pipecol=true
+	if playcol and not pipecol:
+		if get_collider().get_class() == "CharacterBody3D":
+			emit_signal("player_hit")
+		
+				
+	
+	
 				
 	# Update beam visualization
 	if hit_found:
@@ -129,6 +144,7 @@ func _process(delta):
 		beam_particles.process_material.set_emission_box_extents(Vector3(beam_mesh.mesh.top_radius, abs(cast_point.y)/2, beam_mesh.mesh.top_radius))
 
 func activate(time: float):
+	scale = Vector3(1, 1, 1)
 	tween = get_tree().create_tween()
 	visible = true
 	beam_particles.emitting = true

@@ -31,7 +31,6 @@ script = ExtResource("1_tl53s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
 transform = Transform3D(1, 0, 0, 0, 0.618765, 0.785576, 0, -0.785576, 0.618765, 0, 6.68029, 1.73452)
-light_energy = 0.3
 shadow_enabled = true
 
 [node name="-floors" type="Node3D" parent="."]

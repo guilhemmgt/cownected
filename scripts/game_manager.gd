@@ -44,7 +44,10 @@ func _ready() -> void:
 func _on_end_level():
 	if current_level_id > max_current_level_unlocked:
 		max_current_level_unlocked = current_level_id
-	between_levels_win.visible = true
+	if current_level_id < len(levels):
+		between_levels_win.visible = true
+	else :
+		active_menu()
 	# get_tree().paused = true
 
 func go_to_next_level():
@@ -98,7 +101,6 @@ func _on_play_button_button_up() -> void:
 
 func _on_select_level_button_button_up() -> void:
 	active_SelectLevel()
-
 
 func _on_sound_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
