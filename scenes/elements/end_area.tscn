@@ -15,4 +15,5 @@ shape = SubResource("BoxShape3D_cpdva")
 debug_color = Color(0.421509, 2.30065e-05, 0.339831, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_cpdva")

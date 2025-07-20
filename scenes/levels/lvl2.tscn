@@ -210,6 +210,8 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 52)
 
 [node name="Source" parent="logic" instance=ExtResource("14_5ei7m")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.96714, 0.47636, 0.887408)
+voltage = null
+reach = null
 
 [node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_76lpn")]
 transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -7.1215e-15, -4.37114e-08, 2.36367, 0.328732, 0.825)
@@ -217,6 +219,8 @@ targets = [NodePath("../door")]
 
 [node name="Source2" parent="logic" instance=ExtResource("14_5ei7m")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.97144, 0.364888, -1.72012)
+voltage = null
+reach = null
 
 [node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_76lpn")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.294422, -3.14776)
