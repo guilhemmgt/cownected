@@ -23,6 +23,8 @@ func remove_source(source: Source):
 	check_active()
 	
 func clear_sources():
+	for source in sources:
+		source._on_cable_dropped()
 	sources.clear()
 	check_active()
 
@@ -50,7 +52,7 @@ func _on_not_closest(interactor: CowInteractor):
 func _on_interacted(interactor: CowInteractor):
 	if interactor.linked_source:
 		add_source(interactor.linked_source)
-		interactor.linked_source.switch = self
+		interactor.linked_source.plug(self)
 		interactor.linked_source = null
 	else:
 		clear_sources()

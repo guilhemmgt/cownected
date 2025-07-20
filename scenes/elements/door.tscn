@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=4 uid="uid://f37404ql16dx"]
+
+[ext_resource type="Texture2D" uid="uid://dcew74hbq8akk" path="res://assets/KenneyPrototype/Textures/colormap.png" id="1_2xcpy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nr5u6"]
+resource_name = "colormap"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_2xcpy")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nr7rg"]
+_surfaces = [{
+"aabb": AABB(-0.175, -5.00927e-33, 1.44382e-15, 0.35, 0.8, 0.7),
+"format": 34359742465,
+"index_count": 264,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAQAAAAQAAAADAAUAAwABAAYAAAAHAAQABwABAAQABwAAAAUAAQAHAAYAAwAHAAUABwADAAYAGgAbABwAGwAdABwAHQAaABwAGwAaAB4AGgAdAB8AHQAbACAAGgAhAB4AIQAbAB4AIQAaAB8AGwAhACAAHQAhAB8AIQAdACAACAAiAAoAIgAjAAoAIgAIAAsACwAJACIAJAAiAAkAIgAkACMACQALACUAJQAkAAkAJAAlACYAJgAjACQAJQAnACYAIwAmACcAJwAlAAsAJwALAAwADAAjACcADAALAAgAIwAMAA0ACgAjAA0ADAAIAA4ACgAoAAgAKQANAAwADgApAAwADgAIABEAEQAIABIAEgAIACgAEwAOABEAEgATABEACgANABMAKAAKABQAEwAUAAoAFAAPACgADgATABkAEwANABkAFAATABYAEwASABYAFAAWACoADwAUACoAEgAXABYAGQANABcAKgAWABcAGQAYAA4AGAAZABcAKQAOABgAFwASABgAFwANACsADQApACsAKgAXACsAKQAYABAAEAAYABIAEAArACkAEAASACgAEAAoAA8AKwAQABUAKgArABUAEAAsABUAKgAtAA8AEAAPAC4ALgAPAC0ALAAQAC4ALQAqAC8AKgAVAC8ALwAuAC0ALwAVACwALgAvACwA"),
+"lods": [0.0997445, PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAQAAAAQAAAADAAUAAwABAAYAAAAHAAQABwABAAQABwAAAAUAAQAHAAYAAwAHAAUABwADAAYACAAJAAoACQAIAAsACQALAAwADAALAAgACQAMAA0ACgAJAA0ADAAIAA4ACgAPAAgAEAANAAwADgAQAAwADgAIABEAEQAIABIAEgAIAA8AEwAOABEAEgATABEACgANABMAEAASAA8ADwAKABQAEwAUAAoAFQAQAA8ADwAUABUADQAQABUAFAATABYAFAAWABUAEwASABYAFQAWABcAEgAXABYAFwANABUAEAAYABIAFwASABgAEAAOABgAGQANABcAEwANABkAGAAZABcADgATABkAGQAYAA4A")],
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("zcxMPakT0ImpE9AmzcxMvc3MTD+pE9AmzcxMvakT0ImpE9AmzcxMvakT0IkzMzM/zcxMPc3MTD+pE9AmzcxMPakT0IkzMzM/zcxMvc3MTD8zMzM/zcxMPc3MTD8zMzM/NjMzvgAAgD79/x8/AwAAvs3MTD4wMxM/NjMzvgAAgD4wMxM/amYmvpqZWT79/x8/MDMzPgAAgD79/x8/MDMzPgAAgD4wMxM/+v//PQAAgD79/x8/amYmvmZmxj79/x8/YmYmPmZmxj79/x8/AwAAvgAAgD79/x8/AwAAvjQzsz79/x8/AwAAvgAAgD4wMxM/NjMzvjQzsz4wMxM/YmYmPmZmxj4wMxM/AwAAvjQzsz4wMxM/+v//PTQzsz4wMxM/+v//PTQzsz79/x8/+v//PQAAgD4wMxM/mpmZPZqZ2T5lZiY/mpmZvZqZ2T7LzAw/mpmZPZqZ2T7LzAw/mpmZPTQzMz7LzAw/mpmZvZqZ2T5lZiY/mpmZPTQzMz5lZiY/mpmZvTQzMz7LzAw/mpmZvTQzMz5lZiY/amYmvpqZWT4wMxM/YmYmPpqZWT4wMxM/+v//Pc3MTD4wMxM/AwAAvs3MTD79/x8/+v//Pc3MTD79/x8/YmYmPpqZWT79/x8/NjMzvjQzsz79/x8/MDMzPjQzsz79/x8/amYmvmZmxj4wMxM/MDMzPjQzsz4wMxM/+v//Pc3MzD4wMxM/AwAAvs3MzD79/x8/+v//Pc3MzD79/x8/AwAAvs3MzD4wMxM/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gospl"]
+resource_name = "Scene"
+_surfaces = [{
+"aabb": AABB(-0.175, -5.00927e-33, 1.44382e-15, 0.35, 0.8, 0.7),
+"attribute_data": PackedByteArray("AADwPpqZeT8AAPA+ZmZGPwAA8D6amXk/AADwPmZmRj8AAPA+mpl5PwAA8D5mZkY/AADwPpqZeT8AAPA+mpl5PwAA8D6amXk/AADwPmZmRj8AAPA+ZmZGPwAA8D5mZkY/AAAYP2ZmBj8AABg/mpk5PwAAGD+amTk/AAAYP2ZmBj8AABg/mpk5PwAAGD9mZgY/AAAYP2ZmBj8AABg/mpk5PwAAYD7NzGw/AABgPpqZeT8AAGA+zcxsPwAAYD5mZnY/AABgPpqZST8AAGA+zcxsPwAAYD4zM1M/AABgPs3MbD8AAGA+mplJPwAAYD6amUk/AABgPs3MbD8AAGA+MzNTPwAAYD4zM1M/AABgPs3MbD8AAGA+MzNTPwAAYD4zM1M/AABgPjMzUz8AAGA+MzNTPwAAYD4zM1M/AABgPs3MbD8AAGA+mplJPwAAYD4zM1M/AABgPs3MbD8AAGA+MzNTPwAAYD7NzGw/AABgPs3MbD8AAGA+mpl5PwAAYD4zM1M/AABgPs3MbD8AAGA+MzNTPwAAYD7NzGw/AABgPpqZST8AAGA+MzNTPwAAYD6amUk/AABgPjMzUz8AAGA+zcxsPwAAYD7NzGw/AABgPs3MbD8AAGA+ZmZ2PwAAYD7NzGw/AABgPs3MbD8AAGA+zcxsPwAAYD7NzGw/AABgPs3MbD8AAPA+ZmZGPwAA8D5mZkY/AADwPmZmRj8AAPA+ZmZGPwAA8D5mZkY/AADwPmZmRj8AAPA+mpl5PwAA8D6amXk/AADwPpqZeT8AAPA+mpl5PwAA8D6amXk/AADwPpqZeT8AAPA+ZmZGPwAA8D5mZkY/AADwPmZmRj8AAPA+mpl5PwAA8D6amXk/AADwPmZmRj8AAPA+mpl5PwAA8D5mZkY/AADwPmZmRj8AAPA+mpl5PwAAYD5mZnY/AABgPpqZeT8AAGA+MzNTPwAAYD6amUk/AABgPmZmRj8AAGA+ZmZGPwAAYD5mZnY/AABgPjMzUz8AAGA+ZmZ2PwAAYD6amXk/AABgPpqZeT8AAGA+MzNTPwAAYD5mZkY/AABgPmZmRj8AAGA+ZmZGPwAAYD5mZkY/AABgPpqZST8AAGA+MzNTPwAAYD5mZnY/AABgPmZmdj8AAGA+mpl5PwAAYD5mZkY/AABgPmZmRj8AAGA+ZmZGPwAAYD5mZkY/AABgPmZmRj8AAGA+ZmZGPwAAYD4zM1M/AABgPjMzUz8AAGA+ZmZ2PwAAYD6amXk/AABgPpqZeT8AAGA+mpl5PwAAYD6amXk/AABgPpqZeT8AAGA+mpl5Pw=="),
+"format": 34359742487,
+"index_count": 264,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABQAEAAkABwAEAAYABAAHAAgAQAAKAAsACgBAAEEAQgBDAEQAQwBCAEUAQwBGAEQARgBDAEcASABJAEoASQBIAEsASQBMAEoATABJAE0ATgBPAFAATwBOAFEAUgBTAFQAUwBSAFUADAANAA4ADQAMAA8AEAARABIAEQAQABMAFABWABYAVgAUABcAFwAVAFYAFQAXAFcAFgBYABQAWAAWABoAGgAYAFgAGAAaAFkAWQBaABgAWgBZAFsAHgAfACAAHwAeACEAXAAZABsAXQAbABkAGQBcAF4AXABfAF4AXwBcAGAAGwBdAGEAHQBhAF0AYQAdABwAHQBiABwAYgAdAGMAIgAjACQAIwAiACUAZAAoAGUAZgAoAGQAZgBnACgAZgAmAGcAZgApACYAKwApAGYAJgAnAGcAKwAsACkAKgAnACYALAAnACoALAArAC0ALQAnACwALQBoACcAaQBoAC0AaQBqAGgAagBpAC4ALwAwADEAMAAvADIAawBsAG0AbABrAG4AbwA1AHAAMwA1AG8AMwBxADUAMwA0AHEAMwA2ADQAcgA2ADMANAA4AHEAcgA3ADYAOwA4ADQANwA4ADsANwByADkAOQA4ADcAOQA6ADgAcwA6ADkAcwB0ADoAdABzAHUAPAA9AD4APQA8AD8AdgB3AHgAdwB2AHkA"),
+"lods": [0.0997445, PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABwAEAAYABAAHAAgABQAEAAkACgAFAAkABQAKAAsADAANAA4ADQAMAA8AEAARABIAEQAQABMAFAAVABYAFQAUABcAFgAYABQAFQAXABkAGAAWABoAFQAZABsAGAAaABwAHQAbABkAHAAdABgAGwAdABwAHgAfACAAHwAeACEAIgAjACQAIwAiACUAJgAnACgAKAApACYAKgAnACYAKwApACgAKwAsACkALAAnACoALAArAC0ALQAnACwALQAuACcALwAwADEAMAAvADIAMwA0ADUAMwA2ADQAMwA3ADYANAA4ADUANwAzADkAOQA4ADcAOQA6ADgANwA4ADsAOwA4ADQAPAA9AD4APQA8AD8A")],
+"material": SubResource("StandardMaterial3D_nr5u6"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 122,
+"vertex_data": PackedByteArray("zcxMPakT0ImpE9AmzcxMvc3MTD+pE9AmzcxMvakT0ImpE9AmzcxMPc3MTD+pE9AmzcxMvakT0IkzMzM/zcxMPc3MTD8zMzM/zcxMPakT0IkzMzM/zcxMPakT0ImpE9AmzcxMvakT0ImpE9AmzcxMvc3MTD8zMzM/zcxMvc3MTD+pE9AmzcxMPc3MTD+pE9AmzcxMvc3MTD+pE9AmzcxMvakT0IkzMzM/zcxMvakT0ImpE9AmzcxMvc3MTD8zMzM/zcxMPakT0ImpE9AmzcxMPc3MTD8zMzM/zcxMPc3MTD+pE9AmzcxMPakT0IkzMzM/NjMzvgAAgD79/x8/AwAAvs3MTD4wMxM/NjMzvgAAgD4wMxM/amYmvpqZWT79/x8/amYmvmZmxj79/x8/MDMzPgAAgD79/x8/NjMzvjQzsz4wMxM/MDMzPgAAgD4wMxM/YmYmPmZmxj4wMxM/YmYmPmZmxj79/x8/AwAAvgAAgD4wMxM/AwAAvjQzsz79/x8/AwAAvjQzsz4wMxM/AwAAvgAAgD79/x8/+v//PTQzsz4wMxM/AwAAvjQzsz79/x8/+v//PTQzsz79/x8/AwAAvjQzsz4wMxM/+v//PTQzsz4wMxM/MDMzPgAAgD4wMxM/YmYmPmZmxj4wMxM/AwAAvjQzsz4wMxM/+v//PQAAgD4wMxM/NjMzvjQzsz4wMxM/AwAAvgAAgD4wMxM/NjMzvgAAgD4wMxM/AwAAvs3MTD4wMxM/+v//PTQzsz79/x8/+v//PQAAgD4wMxM/+v//PTQzsz4wMxM/+v//PQAAgD79/x8/YmYmPmZmxj79/x8/AwAAvjQzsz79/x8/amYmvmZmxj79/x8/+v//PTQzsz79/x8/+v//PQAAgD79/x8/NjMzvgAAgD79/x8/MDMzPgAAgD79/x8/amYmvpqZWT79/x8/AwAAvgAAgD79/x8/+v//PQAAgD79/x8/AwAAvgAAgD4wMxM/+v//PQAAgD4wMxM/AwAAvgAAgD79/x8/zcxMPc3MTD8zMzM/zcxMvc3MTD8zMzM/mpmZPZqZ2T5lZiY/mpmZvZqZ2T7LzAw/mpmZPZqZ2T7LzAw/mpmZvZqZ2T5lZiY/mpmZPTQzMz7LzAw/mpmZvTQzMz7LzAw/mpmZPTQzMz7LzAw/mpmZvTQzMz5lZiY/mpmZPTQzMz5lZiY/mpmZvTQzMz7LzAw/mpmZPZqZ2T5lZiY/mpmZvZqZ2T5lZiY/mpmZvZqZ2T7LzAw/mpmZvTQzMz5lZiY/mpmZvTQzMz7LzAw/mpmZvZqZ2T5lZiY/mpmZPTQzMz7LzAw/mpmZPZqZ2T5lZiY/mpmZPZqZ2T7LzAw/mpmZPTQzMz5lZiY/amYmvpqZWT4wMxM/AwAAvs3MTD79/x8/NjMzvjQzsz79/x8/amYmvmZmxj4wMxM/AwAAvs3MzD79/x8/AwAAvs3MzD4wMxM/YmYmPpqZWT4wMxM/MDMzPjQzsz79/x8/YmYmPpqZWT79/x8/+v//Pc3MTD79/x8/+v//Pc3MTD4wMxM/MDMzPjQzsz4wMxM/+v//Pc3MzD4wMxM/+v//Pc3MzD79/x8/AwAAvs3MzD4wMxM/+v//Pc3MzD4wMxM/amYmvmZmxj4wMxM/MDMzPjQzsz4wMxM/YmYmPpqZWT4wMxM/amYmvpqZWT4wMxM/+v//Pc3MTD4wMxM/+v//Pc3MzD79/x8/AwAAvs3MzD4wMxM/+v//Pc3MzD4wMxM/AwAAvs3MzD79/x8/+v//Pc3MzD79/x8/AwAAvs3MzD79/x8/NjMzvjQzsz79/x8/MDMzPjQzsz79/x8/YmYmPpqZWT79/x8/AwAAvs3MTD79/x8/+v//Pc3MTD79/x8/+v//Pc3MTD4wMxM/AwAAvs3MTD79/x8/+v//Pc3MTD79/x8/AwAAvs3MTD4wMxM//////wAA/7//////AAD/v/////8AAP+//////wAA/7//f/8/////v/9//7////+//3//P////7//fwAA////v/9/AAD///+//3//v////7//f///AAD/v/9///8AAP+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7////9//////////3//////////f/////////9//////98RIG7/f/+/IG7fEf9//7/fESBu/3//v/8//z//f/+//z//v/9//78f7iBu/////98R3pH/f/+/H+4gbv//////v/+///////+//7//////////f/////////9//////////3//////////f///////fwAA////v/9/AAD///+//38AAP///7//fwAA////v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f/+/AAD/v/9//78AAP+//3//vwAA/7//v///AAD/v/+///8AAP+//3//vwAA/7//vwAAAAD/v/+/AAAAAP+//78AAP///7//f/8/////v/9//z////+//78AAP///7//f/+/////v/9//7////+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7////9//////////3//////////f/////////9///////8//z//f/+/IG7fEf9//7/fEd6R/3//v/8//7//f/+/IG4f7v9//78gbh/u/3//v/+//z//////H+7ekf//////v/8//////96R3xH/////3pHfEf////8f7t6R/////96RH+7/////3pEf7v//////////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v96RH+7fEe7IIG4f7t8RD7fekR/u3xHuyCBuH+7fEQ+3/3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7/ekd8RH+7uyCBu3xEf7g+33pHfER/u7sggbt8RH+4Ptw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nr7rg")
+
+[sub_resource type="Animation" id="Animation_exd5p"]
+resource_name = "close"
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("door-sliding/door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.55, 0.0333333, 1, 0, 0, -0.543412, 0.0666667, 1, 0, 0, -0.531514, 0.1, 1, 0, 0, -0.508406, 0.133333, 1, 0, 0, -0.476056, 0.166667, 1, 0, 0, -0.434461, 0.2, 1, 0, 0, -0.383625, 0.233333, 1, 0, 0, -0.323545, 0.266667, 1, 0, 0, -0.254222, 0.3, 1, 0, 0, -0.165344, 0.333333, 1, 0, 0, -0.0878472, 0.366667, 1, 0, 0, -0.0543903, 0.4, 1, 0, 0, -0.0495, 0.433333, 1, 0, 0, -0.0766185, 0.466667, 1, 0, 0, -0.111681, 0.5, 1, 0, 0, -0.128906, 0.533333, 1, 0, 0, -0.136889, 0.566667, 1, 0, 0, -0.135628, 0.6, 1, 0, 0, -0.125125, 0.633333, 1, 0, 0, -0.104519, 0.666667, 1, 0, 0, -0.0763889, 0.7, 1, 0, 0, -0.0355786, 0.733333, 1, 0, 0, -0.00443056, 0.766667, 1, 0, 0, -0.0147435, 0.8, 1, 0, 0, -0.033, 0.833333, 1, 0, 0, -0.0317011, 0.866667, 1, 0, 0, -0.0245972, 0.9, 1, 0, 0, -0.0155547, 0.933333, 1, 0, 0, -0.00672223, 0.966667, 1, 0, 0, -0.00256009, 1, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_1gqer"]
+resource_name = "open"
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("door-sliding/door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, 0, -0.068153, 0.0666667, 1, 0, 0, -0.132641, 0.1, 1, 0, 0, -0.189151, 0.133333, 1, 0, 0, -0.239708, 0.166667, 1, 0, 0, -0.284767, 0.2, 1, 0, 0, -0.32472, 0.233333, 1, 0, 0, -0.35999, 0.266667, 1, 0, 0, -0.390937, 0.3, 1, 0, 0, -0.417951, 0.333333, 1, 0, 0, -0.441358, 0.366667, 1, 0, 0, -0.461516, 0.4, 1, 0, 0, -0.47872, 0.433333, 1, 0, 0, -0.493294, 0.466667, 1, 0, 0, -0.5055, 0.5, 1, 0, 0, -0.515631, 0.533333, 1, 0, 0, -0.523915, 0.566667, 1, 0, 0, -0.530613, 0.6, 1, 0, 0, -0.53592, 0.633333, 1, 0, 0, -0.540065, 0.666667, 1, 0, 0, -0.54321, 0.7, 1, 0, 0, -0.545551, 0.733333, 1, 0, 0, -0.547219, 0.766667, 1, 0, 0, -0.548376, 0.833333, 1, 0, 0, -0.549582, 1, 1, 0, 0, -0.55)
+
+[sub_resource type="Animation" id="Animation_20w3o"]
+resource_name = "open-and-close"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("door-sliding/door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, 0, -0.132641, 0.0666667, 1, 0, 0, -0.239708, 0.1, 1, 0, 0, -0.32472, 0.133333, 1, 0, 0, -0.390937, 0.166667, 1, 0, 0, -0.441358, 0.2, 1, 0, 0, -0.47872, 0.233333, 1, 0, 0, -0.5055, 0.266667, 1, 0, 0, -0.523915, 0.3, 1, 0, 0, -0.53592, 0.333333, 1, 0, 0, -0.54321, 0.366667, 1, 0, 0, -0.547219, 0.4, 1, 0, 0, -0.54912, 0.533333, 1, 0, 0, -0.550292, 0.566667, 1, 0, 0, -0.551076, 0.6, 1, 0, 0, -0.552229, 0.633333, 1, 0, 0, -0.553627, 0.7, 1, 0, 0, -0.556666, 0.733333, 1, 0, 0, -0.558062, 0.766667, 1, 0, 0, -0.55921, 0.833333, 1, 0, 0, -0.560275, 0.866667, 1, 0, 0, -0.559945, 0.9, 1, 0, 0, -0.558875, 0.933333, 1, 0, 0, -0.556943, 0.966667, 1, 0, 0, -0.554026, 1, 1, 0, 0, -0.55, 1.03333, 1, 0, 0, -0.544223, 1.06667, 1, 0, 0, -0.531514, 1.1, 1, 0, 0, -0.508406, 1.13333, 1, 0, 0, -0.476056, 1.16667, 1, 0, 0, -0.434461, 1.2, 1, 0, 0, -0.383625, 1.23333, 1, 0, 0, -0.323545, 1.26667, 1, 0, 0, -0.254222, 1.3, 1, 0, 0, -0.165344, 1.33333, 1, 0, 0, -0.0878472, 1.36667, 1, 0, 0, -0.0543903, 1.4, 1, 0, 0, -0.0495, 1.43333, 1, 0, 0, -0.0766185, 1.46667, 1, 0, 0, -0.111681, 1.5, 1, 0, 0, -0.128906, 1.53333, 1, 0, 0, -0.136889, 1.56667, 1, 0, 0, -0.135628, 1.6, 1, 0, 0, -0.125125, 1.63333, 1, 0, 0, -0.104519, 1.66667, 1, 0, 0, -0.0763889, 1.7, 1, 0, 0, -0.0355787, 1.73333, 1, 0, 0, -0.00443056, 1.76667, 1, 0, 0, -0.0147435, 1.8, 1, 0, 0, -0.033, 1.83333, 1, 0, 0, -0.0317011, 1.86667, 1, 0, 0, -0.0245972, 1.9, 1, 0, 0, -0.0155547, 1.93333, 1, 0, 0, -0.00672223, 1.96667, 1, 0, 0, -0.0025601, 2, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n050i"]
+_data = {
+&"close": SubResource("Animation_exd5p"),
+&"open": SubResource("Animation_1gqer"),
+&"open-and-close": SubResource("Animation_20w3o")
+}
+
+[node name="door" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="door-sliding" type="Node3D" parent="."]
+
+[node name="door" type="MeshInstance3D" parent="door-sliding"]
+mesh = SubResource("ArrayMesh_gospl")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n050i")
+}

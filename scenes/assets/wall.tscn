@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://du1hoa58xj0l"]
+
+[ext_resource type="PackedScene" uid="uid://cstsl736jxrp7" path="res://assets/KenneySpaceStation/wall.fbx" id="1_nf7vw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjfcr"]
+size = Vector3(1, 1, 0.3)
+
+[node name="wall" instance=ExtResource("1_nf7vw")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.98023e-08)
+shape = SubResource("BoxShape3D_hjfcr")

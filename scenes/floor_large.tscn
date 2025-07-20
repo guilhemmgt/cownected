@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4rw427ysjyf3"]
+
+[ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_ubhwq"]
+
+[node name="floor-large" instance=ExtResource("1_ubhwq")]
