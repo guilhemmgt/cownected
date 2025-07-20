@@ -17,7 +17,7 @@ func _ready():
 	cable = scene.instantiate() as Cable
 	cable.source = self
 	cable.max_length = reach
-	self.add_child(cable)
+	get_parent().add_child.call_deferred(cable)
 	
 func plug(switch: Switch):
 	self.switch = switch
@@ -30,16 +30,18 @@ func _on_not_closest(interactor: CowInteractor):
 	pass
 	
 func _on_interacted(interactor: CowInteractor):
-	if not connected:
+	if not connected and not interactor.linked_source:
 		interactor.connect("cable_dropped", _on_cable_dropped)
 		connected = true
-	interactor.linked_source = self
-	cable.player = interactor.get_parent()
-	cable._on_pick()
-	
-	if switch != null:
-		switch.remove_source(self)
-		switch = null
+		interactor.linked_source = self
+		cable.player = interactor.get_parent()
+		cable._on_pick()
 
-func _on_cable_dropped():
+func _on_cable_dropped(interactor: CowInteractor):
 	cable._on_drop()
+	connected = false
+	interactor.disconnect("cable_dropped", _on_cable_dropped)
+
+func drop_cable():
+	cable._on_drop()
+	connected = false

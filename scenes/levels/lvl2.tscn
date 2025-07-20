@@ -5,35 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="2_iix5d"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="3_5ei7m"]
 [ext_resource type="PackedScene" uid="uid://ckv3ypkfeagek" path="res://scenes/assets/corner.tscn" id="5_dxt8t"]
-[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="9_76lpn"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="9_76lpn"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="9_kji3t"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_n3axc"]
-[ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="12_kji3t"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="12_vdui8"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="13_n24p8"]
-
-[sub_resource type="Environment" id="Environment_tpdyh"]
-background_mode = 1
-background_color = Color(0.415686, 0.443137, 0.529412, 1)
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="14_5ei7m"]
+[ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="14_dxt8t"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.644951, 0.764224, 0, -0.764224, 0.644951, 0, 4.6193, 2.99226)
-environment = SubResource("Environment_tpdyh")
-current = true
-fov = 60.0
 
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
-light_energy = 0.1
-shadow_enabled = true
+transform = Transform3D(1, 0, 0, 0, 0.126891, 0.991917, 0, -0.991917, 0.126891, 0, 7.02347, 0.631779)
 
 [node name="-floors" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
@@ -124,9 +111,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 
 [node name="in_exit" type="Node3D" parent="-items"]
 
-[node name="input" parent="-items/in_exit" instance=ExtResource("9_76lpn")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
-
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("9_dxt8t")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
@@ -148,9 +132,6 @@ transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5
 [node name="in_exit2" type="Node3D" parent="-items"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
-[node name="input" parent="-items/in_exit2" instance=ExtResource("9_76lpn")]
-transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -7.1215e-15, -4.37114e-08, 2.425, 0.15, -1.925)
-
 [node name="connectioin8" parent="-items/in_exit2" instance=ExtResource("9_dxt8t")]
 transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 1.925, -0.25, -1.925)
 
@@ -168,12 +149,6 @@ transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, 0.45
 
 [node name="door" parent="-items" instance=ExtResource("12_kji3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, -0.25)
-
-[node name="output" parent="-items" instance=ExtResource("12_dxt8t")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 1)
-
-[node name="output2" parent="-items" instance=ExtResource("12_dxt8t")]
-transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 2, 0, -1.7)
 
 [node name="-env" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
@@ -231,3 +206,21 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -53)
 
 [node name="floor4" parent="-env/background" instance=ExtResource("13_n24p8")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 52)
+
+[node name="logic" type="Node3D" parent="."]
+
+[node name="Source" parent="logic" instance=ExtResource("14_5ei7m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.96714, 0.47636, 0.887408)
+
+[node name="input" parent="logic" instance=ExtResource("9_76lpn")]
+transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -7.1215e-15, -4.37114e-08, 2.36367, 0.328732, 0.825)
+
+[node name="Source2" parent="logic" instance=ExtResource("14_5ei7m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.97144, 0.364888, -1.72012)
+
+[node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_76lpn")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.294422, -3.14776)
+targets = [NodePath("../../-items/exit")]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("14_dxt8t")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.575706, 1.38081)
