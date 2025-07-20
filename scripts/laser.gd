@@ -49,7 +49,6 @@ func check_curve_intersections() -> Array:
 	var laser_start = global_position
 	var laser_direction = -global_transform.basis.y.normalized()
 	var closest_intersection = {"point": Vector3.ZERO, "distance": max_laser_length, "found": false}
-	print(target_position)
 	for curve in curve_list:
 		if not curve:
 			continue
@@ -112,8 +111,7 @@ func _process(delta):
 				cast_point = to_local(intersection)
 				hit_distance = intersection_distance
 				hit_found = true
-	
-	print(hit_found,cast_point)
+				
 	# Update beam visualization
 	if hit_found:
 		beam_mesh.mesh.height = abs(cast_point.y)
