@@ -21,6 +21,7 @@ func _ready() -> void:
 	curve_mesh_3d.curve = Curve3D.new()
 	curve_mesh_3d.visible = false
 	waypoints.append(source.global_position)
+	print("I'm ready")
 
 func _process(_delta: float) -> void:
 	if not updating and not plugged:

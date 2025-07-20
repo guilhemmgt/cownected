@@ -1,5 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://uu4p3h6vf0i7"]
+[gd_scene load_steps=40 format=3 uid="uid://uu4p3h6vf0i7"]
 
+[ext_resource type="Script" uid="uid://bdc6huq31fqbm" path="res://scripts/lvl_5.gd" id="1_862lw"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_ax80q"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="2_248k1"]
 [ext_resource type="PackedScene" uid="uid://ckv3ypkfeagek" path="res://scenes/assets/corner.tscn" id="3_2njnh"]
@@ -18,10 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dpqcwvvve2m4g" path="res://assets/KenneySpaceStation/rail.fbx" id="11_ppbie"]
 [ext_resource type="PackedScene" uid="uid://bg3kwwik68wat" path="res://assets/KenneySpaceStation/computer-screen.fbx" id="11_qvn60"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="11_teufw"]
-[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="11_yecvk"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="11_yecvk"]
 [ext_resource type="PackedScene" uid="uid://biscvwyuwc56h" path="res://assets/KenneyPrototype/hat-cap.fbx" id="12_1h63a"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="12_2njnh"]
-[ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_248k1"]
 [ext_resource type="PackedScene" uid="uid://dcrbq7gtrrsbh" path="res://assets/KenneySpaceStation/wall-switch.fbx" id="12_cy3ix"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="12_htilh"]
 [ext_resource type="PackedScene" uid="uid://dm4t7me552q7e" path="res://assets/KenneyFood/burger-cheese-double.fbx" id="13_siquy"]
@@ -32,13 +32,10 @@
 [ext_resource type="PackedScene" uid="uid://hitdbw11tjwh" path="res://assets/KenneyFood/cup-tea.fbx" id="24_qvn60"]
 [ext_resource type="PackedScene" uid="uid://dsojjq82w7fui" path="res://assets/KenneyPrototype/indicator-square-a.fbx" id="29_cy3ix"]
 [ext_resource type="PackedScene" uid="uid://5dx1xdub51ho" path="res://assets/KenneyPrototype/ladder-color.fbx" id="32_0704a"]
+[ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="32_svlt5"]
 [ext_resource type="PackedScene" uid="uid://b4ybeoi1cg4v6" path="res://assets/KenneyPrototype/ladder-top.fbx" id="33_svlt5"]
-
-[sub_resource type="Environment" id="Environment_tpdyh"]
-background_mode = 1
-background_color = Color(0.415686, 0.443137, 0.529412, 1)
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="34_svlt5"]
+[ext_resource type="PackedScene" uid="uid://b3c8rs2ywwqhe" path="res://scenes/elements/end_area.tscn" id="36_862lw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2njnh"]
 size = Vector3(1.4, 0.925, 0.9)
@@ -50,25 +47,20 @@ size = Vector3(0.5, 1.75, 0.35)
 size = Vector3(1.5, 2.5, 3)
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.644951, 0.764224, 0, -0.764224, 0.644951, 0, 4.6193, 2.99226)
-environment = SubResource("Environment_tpdyh")
-current = true
-fov = 60.0
+script = ExtResource("1_862lw")
 
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
-light_energy = 0.1
+transform = Transform3D(1, 0, 0, 0, 0.427342, 0.90409, 0, -0.90409, 0.427342, 0, 6.50032, 2.26904)
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="-floors" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 
 [node name="floor-large" parent="-floors" instance=ExtResource("1_ax80q")]
-transform = Transform3D(14.1523, 0, 0, 0, 1, 0, 0, 0, 12.2114, 0.25, 0, -0.5)
+transform = Transform3D(14.1523, 0, 0, 0, 1, 0, 0, 0, 12.2114, 0.25, -0.0242982, -0.5)
 
 [node name="-walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
@@ -203,7 +195,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.75, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.75, 0, -7.5)
 
 [node name="wall12" parent="-walls" instance=ExtResource("2_248k1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.25, 0, -5.5)
+transform = Transform3D(-4.37114e-08, 0, 1, -0.00523596, 0.999986, -2.28871e-10, -0.999986, -0.00523596, -4.37108e-08, -2.25, 0, -5.5)
 
 [node name="wall13" parent="-walls" instance=ExtResource("2_248k1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.25, 0, -5.5)
@@ -357,281 +349,17 @@ shape = SubResource("BoxShape3D_igwag")
 [node name="conveyor2" parent="-items" instance=ExtResource("15_yecvk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.20206e-07, -0.277595, -6.8)
 
-[node name="door" parent="-items" instance=ExtResource("9_k88i1")]
+[node name="door_finale" parent="-items" instance=ExtResource("9_k88i1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, -3.5)
 
-[node name="door2" parent="-items" instance=ExtResource("9_k88i1")]
+[node name="door_gauche" parent="-items" instance=ExtResource("9_k88i1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, 1.75)
 
-[node name="door4" parent="-items" instance=ExtResource("9_k88i1")]
+[node name="door_droite" parent="-items" instance=ExtResource("9_k88i1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.975, 0, 1.75)
 
-[node name="door3" parent="-items" instance=ExtResource("9_k88i1")]
+[node name="door_millieu" parent="-items" instance=ExtResource("9_k88i1")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.25, 0, -0.05)
-
-[node name="input" parent="-items" instance=ExtResource("11_yecvk")]
-transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -2.4, 0.15, -4.75)
-
-[node name="connectioin" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 5.29396e-23, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, -0.4, 0.65)
-
-[node name="connectioin2" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 5.29396e-23, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, -0.4, 1.65)
-
-[node name="connectioin3" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.45, -0.4, 2.15)
-
-[node name="connectioin4" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.1, -0.4, 2.15)
-
-[node name="connectioin32" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, -1.42109e-14, 0, -1.77636e-15, 1, 1.62921e-07, 0, -1.62921e-07, 1, -0.0250001, 0.625, -0.175)
-
-[node name="connectioin33" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -0.525, 0.625, -0.625001)
-
-[node name="connectioin34" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -1.525, 0.625, -0.625001)
-
-[node name="connectioin35" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -2.525, 0.625, -0.625001)
-
-[node name="connectioin36" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -3.525, 0.625, -0.625001)
-
-[node name="connectioin37" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -4.525, 0.625, -0.625001)
-
-[node name="connectioin38" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -5.525, 0.625, -0.625001)
-
-[node name="connectioin39" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -6.05, 0.625, -0.625001)
-
-[node name="connectioin40" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, -0.100002)
-
-[node name="connectioin41" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, 0.724998)
-
-[node name="connectioin42" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, 1.725)
-
-[node name="connectioin43" parent="-items/input" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, 1.975)
-
-[node name="input3" parent="-items" instance=ExtResource("11_yecvk")]
-transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -2.4, 0.15, 4)
-
-[node name="connectioin" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 5.29396e-23, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, -0.4, 0.65)
-
-[node name="connectioin2" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 1.05879e-22, 1, 1.62921e-07, 0, -1.62921e-07, 1, -5.96046e-08, -0.4, 1.65)
-
-[node name="connectioin3" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 1.58819e-22, 1, 1.62921e-07, 0, -1.62921e-07, 1, -1.19209e-07, -0.399999, 2.65)
-
-[node name="connectioin4" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.45, -0.399999, 3.15)
-
-[node name="connectioin5" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.45, -0.399999, 3.15)
-
-[node name="connectioin6" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 2.45, -0.399999, 3.15)
-
-[node name="connectioin7" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 3.45, -0.399999, 3.15)
-
-[node name="connectioin8" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 4.45, -0.399999, 3.15)
-
-[node name="connectioin9" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 5.45, -0.399999, 3.15)
-
-[node name="connectioin10" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 6, -0.399999, 3.15)
-
-[node name="connectioin14" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 7, -0.399999, 3.15)
-
-[node name="connectioin15" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 8, -0.399999, 3.15)
-
-[node name="connectioin16" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 8.5, -0.399999, 3.15)
-
-[node name="connectioin18" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 9.5, -0.399999, 2.65)
-
-[node name="connectioin19" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 10, -0.399999, 2.65)
-
-[node name="connectioin17" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 5.0822e-21, -5.24537e-08, -3.52056e-16, 1, -9.77526e-08, 8.74228e-09, -1.62921e-07, -0.6, 9, -0.399999, 2.9)
-
-[node name="connectioin11" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 6.95, -0.399999, 2.45)
-
-[node name="connectioin13" parent="-items/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 5.0822e-21, -6.12571e-08, -3.52056e-16, 1, -1.14159e-07, 8.74228e-09, -1.62921e-07, -0.7007, 6.45, -0.399999, 2.74982)
-
-[node name="input2" parent="-items" instance=ExtResource("11_yecvk")]
-transform = Transform3D(1, -3.38813e-21, 1.06581e-14, 0, 1, -1.62921e-07, -1.06581e-14, 1.62921e-07, 1, 1.35, 0.15, -3.675)
-
-[node name="connectioin22" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 1.2)
-
-[node name="connectioin26" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 0.7)
-
-[node name="connectioin27" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.45, 0.625, 0.2)
-
-[node name="connectioin28" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -1.74846e-08, -3.52056e-16, 1, -3.25842e-08, 8.74228e-09, -1.62921e-07, -0.2, -0.05, 0.625, 0.25)
-
-[node name="connectioin23" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 2.2)
-
-[node name="connectioin24" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 3.2)
-
-[node name="connectioin25" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 1.42108e-14, -1.77636e-15, -1.77636e-15, 0.8, 1.62921e-07, 1.77636e-16, -1.30337e-07, 1, 0.9, 0.685, 3.525)
-
-[node name="connectioin29" parent="-items/input2" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, -1.42109e-14, -0.2156, 1.62921e-08, 0.8, -1.5354e-15, 0.1, -1.30337e-07, -9.42418e-09, 0.841856, 0.685, 3.975)
-
-[node name="input6" parent="-items" instance=ExtResource("11_yecvk")]
-transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -7.12151e-15, -4.37114e-08, 4.675, 0.15, 0.0749998)
-
-[node name="connectioin16" parent="-items/input6" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, -0.4, 0.675)
-
-[node name="connectioin17" parent="-items/input6" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 4.85634e-21, 0, -1.77636e-15, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0.0250001, -0.4, 0.85)
-
-[node name="connectioin20" parent="-items/input6" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 4.85634e-21, 0, -1.77636e-15, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0.275, -0.4, 1.85)
-
-[node name="connectioin18" parent="-items/input6" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.18468, -0.4, 1.325)
-
-[node name="connectioin19" parent="-items/input6" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.475, -0.4, 1.325)
-
-[node name="input4" parent="-items" instance=ExtResource("11_yecvk")]
-transform = Transform3D(1, -3.38813e-21, 1.06581e-14, 0, 1, -1.62921e-07, -1.06581e-14, 1.62921e-07, 1, 3.35, 0.15, -1.175)
-
-[node name="connectioin16" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -0.3)
-
-[node name="connectioin24" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.525, 0.625, -0.3)
-
-[node name="connectioin25" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.275, 0.625, -0.3)
-
-[node name="connectioin26" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 0.15)
-
-[node name="connectioin27" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 1.15)
-
-[node name="connectioin28" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 1.9)
-
-[node name="connectioin29" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 2.4)
-
-[node name="connectioin30" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.525, 0.625, 2.925)
-
-[node name="connectioin31" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.325, 0.625, 2.925)
-
-[node name="connectioin17" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -1.3)
-
-[node name="connectioin18" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -2.3)
-
-[node name="connectioin19" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -3.3)
-
-[node name="connectioin20" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -4.3)
-
-[node name="connectioin21" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.00974e-28, 1, -1.62921e-08, 1, 1.42109e-14, -0.1, -1.62921e-07, -4.37114e-08, -0.425, 0.624999, -7.3)
-
-[node name="connectioin23" parent="-items/input4" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.00974e-28, 1, -1.62921e-08, 1, 1.42109e-14, -0.1, -1.62921e-07, -4.37114e-08, -2.175, 0.624999, -7.3)
-
-[node name="input5" parent="-items" instance=ExtResource("11_yecvk")]
-transform = Transform3D(1, -3.38813e-21, 1.06581e-14, 0, 1, -1.62921e-07, -1.06581e-14, 1.62921e-07, 1, 3.35, 0.15, -1.175)
-
-[node name="connectioin16" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -0.15)
-
-[node name="connectioin24" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.525, 0.625, -0.3)
-
-[node name="connectioin25" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.275, 0.625, -0.3)
-
-[node name="connectioin26" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 0.15)
-
-[node name="connectioin27" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 1.15)
-
-[node name="connectioin28" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 1.9)
-
-[node name="connectioin29" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 2.4)
-
-[node name="connectioin30" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.525, 0.625, 2.925)
-
-[node name="connectioin31" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.325, 0.625, 2.925)
-
-[node name="connectioin17" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -1.3)
-
-[node name="connectioin18" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -2.3)
-
-[node name="connectioin19" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -3.3)
-
-[node name="connectioin20" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -4.3)
-
-[node name="connectioin21" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -5.3)
-
-[node name="connectioin23" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -6.3)
-
-[node name="connectioin32" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -6.8)
-
-[node name="connectioin22" parent="-items/input5" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 1.00974e-28, 1, -1.62921e-08, 1, 1.42109e-14, -0.1, -1.62921e-07, -4.37114e-08, -1.425, 0.624999, -7.3)
-
-[node name="output" parent="-items" instance=ExtResource("12_248k1")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.375, -0.00259501, -6.25)
-
-[node name="output3" parent="-items" instance=ExtResource("12_248k1")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1.75, -0.00259501, 2)
-
-[node name="output4" parent="-items" instance=ExtResource("12_248k1")]
-transform = Transform3D(3.05981e-07, 0, -1, 0, 1, 0, 1, 0, 3.05981e-07, 4.25, -0.00259501, 3.5)
 
 [node name="cup-tea" parent="-items" instance=ExtResource("24_qvn60")]
 transform = Transform3D(0.425667, 0, 0.262312, 0, 0.5, 0, -0.262312, 0, 0.425667, 2.24293, 1.00293, 1.69768)
@@ -696,7 +424,7 @@ transform = Transform3D(2, 0, 1.74846e-06, 0, 1, 0, -3.49691e-07, 0, 10, -1.75, 
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 54.5, 0.75, -1.25)
 
 [node name="floor2" parent="-env/background" instance=ExtResource("12_htilh")]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -52.25, 0.75, -1.25)
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -52, 0.75, -1.25)
 
 [node name="floor3" parent="-env/background" instance=ExtResource("12_htilh")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -72.75)
@@ -710,8 +438,249 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.3
 [node name="box-small" parent="." instance=ExtResource("9_teufw")]
 transform = Transform3D(0.935307, 0, -0.225, 0, 0.45, 0, 0.54, 0, 0.389711, 2.5875, 1.4, -8.9)
 
+[node name="logic" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.025, 0.375, -7)
+
+[node name="input5" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
+transform = Transform3D(1, -3.38813e-21, 1.06581e-14, 0, 1, -1.62921e-07, -1.06581e-14, 1.62921e-07, 1, 1.325, 0.127595, 2.98587)
+targets = [NodePath("../../exit"), NodePath("../../-items/door_droite")]
+
+[node name="connectioin16" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -0.338076)
+
+[node name="connectioin24" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.525, 0.625, -0.3)
+
+[node name="connectioin25" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.275, 0.625, -0.3)
+
+[node name="connectioin26" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 0.15)
+
+[node name="connectioin27" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 1.15)
+
+[node name="connectioin28" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.099995, 2.84217e-14, -0.00998321, 1.62646e-10, 1, -1.62913e-07, 0.000998321, -1.62921e-07, -0.99995, 1.775, 0.625, 1.71585)
+
+[node name="connectioin29" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 2.84217e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, 1.775, 0.625, 2.33694)
+
+[node name="connectioin30" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.525, 0.625, 2.77792)
+
+[node name="connectioin31" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.325, 0.625, 2.78009)
+
+[node name="connectioin17" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -1.306)
+
+[node name="connectioin18" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.625, -2.3)
+
+[node name="connectioin19" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -3.3)
+
+[node name="connectioin20" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -4.3)
+
+[node name="connectioin21" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -5.3)
+
+[node name="connectioin23" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -6.3)
+
+[node name="connectioin32" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, 0.624999, -6.8)
+
+[node name="connectioin22" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.00974e-28, 1, -1.62921e-08, 1, 1.42109e-14, -0.1, -1.62921e-07, -4.37114e-08, -1.425, 0.624999, -7.3)
+
+[node name="connectioin34" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 0, 1, -1.62921e-08, 1, 1.42109e-14, -0.1, -1.62921e-07, -4.37114e-08, -2.175, 0.624999, -7.3)
+
+[node name="connectioin33" parent="logic/input5" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 0, 1, -1.62921e-08, 1, 1.42109e-14, -0.1, -1.62921e-07, -4.37114e-08, -0.425, 0.624999, -7.3)
+
+[node name="input6" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
+transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -7.12151e-15, -4.37114e-08, 2.48136, 0.127595, 4.075)
+targets = [NodePath("../../-items/door_millieu"), NodePath("../../-items/door_droite")]
+
+[node name="connectioin16" parent="logic/input6" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.0250001, -0.4, 0.675)
+
+[node name="connectioin17" parent="logic/input6" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 4.85634e-21, 0, -1.77636e-15, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0.0250001, -0.4, 0.85)
+
+[node name="connectioin20" parent="logic/input6" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 4.85634e-21, 0, -1.77636e-15, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0.275, -0.4, 1.85)
+
+[node name="connectioin18" parent="logic/input6" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.18468, -0.4, 1.325)
+
+[node name="connectioin19" parent="logic/input6" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.475, -0.4, 1.325)
+
+[node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
+transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.27299, 0.121478, -0.75)
+targets = [NodePath("../../-items/door_gauche")]
+
+[node name="connectioin" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.0822e-21, 0, 5.29396e-23, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, -0.4, 0.65)
+
+[node name="connectioin2" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.0822e-21, 0, 5.29396e-23, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, -0.4, 1.65)
+
+[node name="connectioin3" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.45, -0.4, 2.15)
+
+[node name="connectioin4" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, -7.1215e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.1, -0.4, 2.15)
+
+[node name="connectioin32" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, -1.42109e-14, 0, -1.77636e-15, 1, 1.62921e-07, 0, -1.62921e-07, 1, -0.0250001, 0.625, -0.175)
+
+[node name="connectioin33" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -0.525, 0.625, -0.625001)
+
+[node name="connectioin34" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -1.525, 0.625, -0.625001)
+
+[node name="connectioin35" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -2.525, 0.625, -0.625001)
+
+[node name="connectioin36" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -3.525, 0.625, -0.625001)
+
+[node name="connectioin37" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -4.525, 0.625, -0.625001)
+
+[node name="connectioin38" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -5.525, 0.625, -0.625001)
+
+[node name="connectioin39" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 2.84217e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, -6.05, 0.625, -0.625001)
+
+[node name="connectioin40" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, -0.100002)
+
+[node name="connectioin41" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, 0.724998)
+
+[node name="connectioin42" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, 1.725)
+
+[node name="connectioin43" parent="logic/input" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 1.42109e-14, -8.74228e-08, -3.52056e-16, 1, -1.62921e-07, 8.74228e-09, -1.62921e-07, -1, -6.5, 0.625, 1.975)
+
+[node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
+transform = Transform3D(1, -3.38813e-21, 1.06581e-14, 0, 1, -1.62921e-07, -1.06581e-14, 1.62921e-07, 1, -0.675, 0.127595, 0.416544)
+targets = [NodePath("../../-items/door_millieu")]
+
+[node name="connectioin22" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 1.2)
+
+[node name="connectioin26" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 0.7)
+
+[node name="connectioin27" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 1.42109e-14, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.45, 0.625, 0.157252)
+
+[node name="connectioin28" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 2.84217e-14, -1.74846e-08, -3.52056e-16, 1, -3.25842e-08, 8.74228e-09, -1.62921e-07, -0.2, -0.05, 0.625, 0.147174)
+
+[node name="connectioin23" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 2.2)
+
+[node name="connectioin24" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.12457e-21, 0, -1.77636e-15, 1, 1.62921e-07, 1.77636e-16, -1.62921e-07, 1, 0.9, 0.625, 3.2)
+
+[node name="connectioin25" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 1.42108e-14, -1.77636e-15, -1.77636e-15, 0.8, 1.62921e-07, 1.77636e-16, -1.30337e-07, 1, 0.9, 0.685, 3.525)
+
+[node name="connectioin29" parent="logic/input2" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, -1.42109e-14, -0.2156, 1.62921e-08, 0.8, -1.5354e-15, 0.1, -1.30337e-07, -9.42418e-09, 0.841856, 0.685, 3.975)
+
+[node name="Source" parent="logic" instance=ExtResource("32_svlt5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.10925, 0, 7.52108)
+reach = 20.0
+
+[node name="Source2" parent="logic" instance=ExtResource("32_svlt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245147, -0.0176876, 6.18559)
+reach = 20.0
+
+[node name="Source3" parent="logic" instance=ExtResource("32_svlt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52672, 0, -2.11624)
+reach = 20.0
+
+[node name="input3" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
+transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.25869, 0.127595, 8)
+targets = [NodePath("../../-items/conveyor2"), NodePath("../../-items/door_finale")]
+
+[node name="connectioin" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.0822e-21, 0, 5.29396e-23, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, -0.4, 0.65)
+
+[node name="connectioin2" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.0822e-21, 0, 1.05879e-22, 1, 1.62921e-07, 0, -1.62921e-07, 1, -5.96046e-08, -0.4, 1.65)
+
+[node name="connectioin3" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(0.1, 5.0822e-21, 0, 1.58819e-22, 1, 1.62921e-07, 0, -1.62921e-07, 1, -1.19209e-07, -0.399999, 2.65)
+
+[node name="connectioin4" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.45, -0.399999, 3.15)
+
+[node name="connectioin5" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.45, -0.399999, 3.15)
+
+[node name="connectioin6" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 2.45, -0.399999, 3.15)
+
+[node name="connectioin7" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 3.45, -0.399999, 3.15)
+
+[node name="connectioin8" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 4.45, -0.399999, 3.15)
+
+[node name="connectioin9" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 5.45, -0.399999, 3.15)
+
+[node name="connectioin10" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 6, -0.399999, 3.15)
+
+[node name="connectioin14" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 7, -0.399999, 3.15)
+
+[node name="connectioin15" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 8, -0.399999, 3.15)
+
+[node name="connectioin16" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 8.5, -0.399999, 3.15)
+
+[node name="connectioin18" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 9.5, -0.399999, 2.65)
+
+[node name="connectioin19" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 10, -0.399999, 2.65)
+
+[node name="connectioin17" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 5.0822e-21, -5.24537e-08, -3.52056e-16, 1, -9.77526e-08, 8.74228e-09, -1.62921e-07, -0.6, 9, -0.399999, 2.9)
+
+[node name="connectioin11" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 6.95, -0.399999, 2.45)
+
+[node name="connectioin13" parent="logic/input3" instance=ExtResource("12_2njnh")]
+transform = Transform3D(-0.1, 5.0822e-21, -6.12571e-08, -3.52056e-16, 1, -1.14159e-07, 8.74228e-09, -1.62921e-07, -0.7007, 6.45, -0.399999, 2.74982)
+
 [node name="ladder-color" parent="." instance=ExtResource("32_0704a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.025, 0.375, -7)
 
 [node name="ladder-top" parent="ladder-color" instance=ExtResource("33_svlt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1, 0)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("34_svlt5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.89299, 0.372726, 0.610162)
+
+[node name="EndArea" parent="." instance=ExtResource("36_862lw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105271, 0.817027, -12.1229)
+
+[connection signal="body_shape_entered" from="EndArea" to="." method="_on_end_area_body_shape_entered"]

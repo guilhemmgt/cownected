@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0b6gu0nj705k"]
+[gd_scene load_steps=3 format=3 uid="uid://d0b6gu0nj705k"]
 
 [ext_resource type="PackedScene" uid="uid://bosrm5uk2kv26" path="res://assets/KenneyConveyor/conveyor-bars-high.fbx" id="1_doxnv"]
+[ext_resource type="Script" uid="uid://d1lq5ynjodlwc" path="res://scripts/targets/conveyor.gd" id="2_clxcn"]
 
 [node name="conveyor" instance=ExtResource("1_doxnv")]
+script = ExtResource("2_clxcn")

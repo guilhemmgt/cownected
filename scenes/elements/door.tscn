@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://f37404ql16dx"]
 
 [ext_resource type="Texture2D" uid="uid://dcew74hbq8akk" path="res://assets/KenneyPrototype/Textures/colormap.png" id="1_2xcpy"]
-[ext_resource type="Script" uid="uid://b43ojr6v4ead" path="res://scripts/door.gd" id="1_e708x"]
+[ext_resource type="Script" uid="uid://b43ojr6v4ead" path="res://scripts/targets/door.gd" id="1_e708x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nr5u6"]
 resource_name = "colormap"
