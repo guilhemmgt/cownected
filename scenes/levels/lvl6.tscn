@@ -498,7 +498,8 @@ vertical_alignment = 2
 [node name="instructions" type="Label3D" parent="-env"]
 transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.67052e-22, -4.37114e-08, 1, 1, -1.31134e-07, -5.73205e-15, 2.25, 1.06, -1.625)
 modulate = Color(1, 0.819608, 0.372549, 1)
-text = "Use your environment !"
+text = "your options seems limited,
+but this hall is splendid"
 font = ExtResource("9_a04h2")
 font_size = 40
 outline_size = 0
