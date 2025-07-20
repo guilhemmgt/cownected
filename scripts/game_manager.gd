@@ -21,6 +21,8 @@ const AUDIO_ON = preload("res://assets/KenneyUI/audioOn.png")
 @onready var sound_button: Button = $UIGame/MarginContainer/HBoxContainer/SoundButton
 @onready var ui_game: Panel = $UIGame
 @onready var credit: Panel = $Credit
+@onready var between_levels_lost: Panel = $BetweenLevelsLost
+@onready var between_levels_win: Panel = $BetweenLevelsWin
 
 var levels = [PLAYGROUND, LVL_1, LVL_2, LVL_3, LVL_4, LVL_5, LVL_6]
 var max_current_level_unlocked : int = 1
@@ -40,12 +42,18 @@ func _ready() -> void:
 	active_menu()
 
 func _on_end_level():
-	go_to_next_level()
+	if current_level_id > max_current_level_unlocked:
+		max_current_level_unlocked = current_level_id
+	between_levels_win.visible = true
+	# get_tree().paused = true
 
 func go_to_next_level():
 	change_level(current_level_id+1)
 
 func change_level(num:int):
+	# get_tree().paused = false
+	between_levels_win.visible = false
+	between_levels_lost.visible = false
 	activate_game_ui()
 	current_level_id=num
 	if current_level:
@@ -61,6 +69,9 @@ func activate_game_ui():
 	ui_game.visible = true
 
 func active_menu():
+	credit.visible = false
+	between_levels_win.visible = false
+	between_levels_lost.visible = false
 	ui_game.visible = false
 	menu.visible = true
 
@@ -76,6 +87,9 @@ func deactive_SelectLevel():
 func return_to_menu():
 	if current_level:
 		current_level.queue_free()
+	credit.visible = false
+	between_levels_lost.visible = false
+	between_levels_win.visible = false
 	deactive_SelectLevel()
 	active_menu()
 
@@ -84,7 +98,6 @@ func _on_play_button_button_up() -> void:
 
 func _on_select_level_button_button_up() -> void:
 	active_SelectLevel()
-
 
 func _on_sound_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -96,3 +109,11 @@ func _on_sound_button_toggled(toggled_on: bool) -> void:
 		
 func _on_restart_button_button_up() -> void:
 	change_level(current_level_id)
+
+
+func _on_credit_button_button_up() -> void:
+	credit.visible = true
+
+
+func _on_replay_button_button_up() -> void:
+	pass # Replace with function body.
