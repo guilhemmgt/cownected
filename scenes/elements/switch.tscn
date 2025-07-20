@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ucfnurm4w1p" path="res://assets/KenneySpaceStation/custom.fbx" id="2_f772o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwosh"]
-size = Vector3(1, 0.56665, 0.797852)
+size = Vector3(1, 0.56665, 0.581055)
 
 [node name="Switch" type="Area3D"]
 script = ExtResource("2_dcilb")
@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dvjxdm8x1wwve"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.148928)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.569468, 0.338245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.569468, 0.446644)
 shape = SubResource("BoxShape3D_jwosh")
 
 [node name="Marker3D" type="Marker3D" parent="."]
