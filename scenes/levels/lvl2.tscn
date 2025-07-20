@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="14_dxt8t"]
 [ext_resource type="PackedScene" uid="uid://b3c8rs2ywwqhe" path="res://scenes/elements/end_area.tscn" id="15_kji3t"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 script = ExtResource("1_76lpn")
 
 [node name="-lights" type="Node3D" parent="."]
