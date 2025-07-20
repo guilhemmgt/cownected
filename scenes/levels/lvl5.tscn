@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://dcrbq7gtrrsbh" path="res://assets/KenneySpaceStation/wall-switch.fbx" id="12_cy3ix"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="12_htilh"]
 [ext_resource type="PackedScene" uid="uid://dm4t7me552q7e" path="res://assets/KenneyFood/burger-cheese-double.fbx" id="13_siquy"]
-[ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="15_8wj6w"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="16_7xmos"]
 [ext_resource type="PackedScene" uid="uid://nxdvpqqxa7df" path="res://assets/KenneySpaceStation/table-large.fbx" id="16_248k1"]
 [ext_resource type="PackedScene" uid="uid://hitdbw11tjwh" path="res://assets/KenneyFood/cup-tea.fbx" id="24_qvn60"]
@@ -693,7 +692,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.1092
 reach = 20.0
 
 [node name="Source2" parent="logic" instance=ExtResource("32_svlt5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245147, 0.332312, 6.18559)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245147, 0.332312, 6.29548)
 reach = 20.0
 
 [node name="Source3" parent="logic" instance=ExtResource("32_svlt5")]
