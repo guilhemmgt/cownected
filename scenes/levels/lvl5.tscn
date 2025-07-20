@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dpqcwvvve2m4g" path="res://assets/KenneySpaceStation/rail.fbx" id="11_ppbie"]
 [ext_resource type="PackedScene" uid="uid://bg3kwwik68wat" path="res://assets/KenneySpaceStation/computer-screen.fbx" id="11_qvn60"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="11_teufw"]
-[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="11_yecvk"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="11_yecvk"]
 [ext_resource type="PackedScene" uid="uid://biscvwyuwc56h" path="res://assets/KenneyPrototype/hat-cap.fbx" id="12_1h63a"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="12_2njnh"]
 [ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_248k1"]

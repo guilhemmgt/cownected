@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_ch5s6"]
 [ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_taen3"]
-[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/turret.tscn" id="4_ch5s6"]
+[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/elements/turret.tscn" id="4_ch5s6"]
 [ext_resource type="PackedScene" uid="uid://bmji3eioqtbpk" path="res://scenes/cable.tscn" id="5_b27nj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
