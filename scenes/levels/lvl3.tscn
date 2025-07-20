@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bn71p1b80dhlq"]
+[gd_scene load_steps=17 format=3 uid="uid://bhxlern0h63q7"]
 
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_qe0rt"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_3mu2x"]
