@@ -1,5 +1,6 @@
-[gd_scene load_steps=53 format=4 uid="uid://bur8ie4r05pru"]
+[gd_scene load_steps=54 format=4 uid="uid://bur8ie4r05pru"]
 
+[ext_resource type="PackedScene" uid="uid://bufgvbqf3iol0" path="res://scenes/PolishCow.tscn" id="1_1soop"]
 [ext_resource type="PackedScene" uid="uid://byb0yycdorl8b" path="res://assets/KenneyPrototype/wall-doorway-wide.fbx" id="2_5gmqu"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_kgokd"]
 [ext_resource type="PackedScene" uid="uid://388y7sc3xvd0" path="res://assets/KenneySpaceStation/pipe-ring-colored.fbx" id="4_b3j4y"]
@@ -386,90 +387,93 @@ shadow_mesh = SubResource("ArrayMesh_t6ysv")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="PolishCow" parent="." instance=ExtResource("1_1soop")]
+
+[node name="decors" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="decors"]
 transform = Transform3D(-0.950516, 0.243475, -0.192976, 0, 0.621148, 0.783693, 0.310676, 0.744913, -0.590411, -3.76265, 2.48488, 0.276965)
 environment = SubResource("Environment_tpdyh")
-current = true
 fov = 74.0
 
-[node name="-lights" type="Node3D" parent="."]
+[node name="-lights" type="Node3D" parent="decors"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="decors/-lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
 light_energy = 0.1
 shadow_enabled = true
 
-[node name="-floors" type="Node3D" parent="."]
+[node name="-floors" type="Node3D" parent="decors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 
-[node name="-walls" type="Node3D" parent="."]
+[node name="-walls" type="Node3D" parent="decors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 
-[node name="wall-doorway-wide" parent="-walls" instance=ExtResource("2_5gmqu")]
+[node name="wall-doorway-wide" parent="decors/-walls" instance=ExtResource("2_5gmqu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3)
 
-[node name="wall-doorway-wide2" parent="-walls" instance=ExtResource("2_5gmqu")]
+[node name="wall-doorway-wide2" parent="decors/-walls" instance=ExtResource("2_5gmqu")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.25, 0, 5.00833)
 
-[node name="pipe-end-colored" parent="-walls" instance=ExtResource("3_kgokd")]
+[node name="pipe-end-colored" parent="decors/-walls" instance=ExtResource("3_kgokd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -2.775)
 visible = false
 
-[node name="pipe-ring-colored" parent="-walls" instance=ExtResource("4_b3j4y")]
+[node name="pipe-ring-colored" parent="decors/-walls" instance=ExtResource("4_b3j4y")]
 transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.75, 1, -2.775)
 visible = false
 
-[node name="pipe-end-colored2" parent="-walls" instance=ExtResource("3_kgokd")]
+[node name="pipe-end-colored2" parent="decors/-walls" instance=ExtResource("3_kgokd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, -2.74258)
 visible = false
 
-[node name="pipe-ring-colored2" parent="-walls" instance=ExtResource("4_b3j4y")]
+[node name="pipe-ring-colored2" parent="decors/-walls" instance=ExtResource("4_b3j4y")]
 transform = Transform3D(-1, -9.67191e-08, 0, 8.74228e-08, -1.10634, 0, 0, 0, 1, -0.75, 1.03709, -2.74258)
 visible = false
 
-[node name="wall-corner6" parent="-walls" instance=ExtResource("5_0lbta")]
+[node name="wall-corner6" parent="decors/-walls" instance=ExtResource("5_0lbta")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -9.47629, 0, 4.75)
 
-[node name="wall-corner4" parent="-walls" instance=ExtResource("5_0lbta")]
+[node name="wall-corner4" parent="decors/-walls" instance=ExtResource("5_0lbta")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, -2.75)
 
-[node name="wall18" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall18" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.25, 0, -3)
 
-[node name="wall19" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall19" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.25, 0, -3)
 
-[node name="wall29" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall29" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.47629, 0, 2)
 
-[node name="wall32" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall32" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97629, 0, 5)
 
-[node name="wall33" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall33" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.97629, 0, 5)
 
-[node name="wall41" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall41" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72629, 1, 5.75)
 
-[node name="wall34" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall34" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.72629, 0, 5)
 
-[node name="wall8" parent="-walls" instance=ExtResource("6_wlfxu")]
+[node name="wall8" parent="decors/-walls" instance=ExtResource("6_wlfxu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.25, 0, -2)
 
-[node name="-items" type="Node3D" parent="."]
+[node name="-items" type="Node3D" parent="decors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 
-[node name="exit" parent="-items" instance=ExtResource("8_dfmx8")]
+[node name="exit" parent="decors/-items" instance=ExtResource("8_dfmx8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3)
 
-[node name="exit2" parent="-items" instance=ExtResource("8_dfmx8")]
+[node name="exit2" parent="decors/-items" instance=ExtResource("8_dfmx8")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.25, 0, 5.00833)
 
-[node name="-env" type="Node3D" parent="."]
+[node name="-env" type="Node3D" parent="decors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 
-[node name="level" type="Label3D" parent="-env"]
+[node name="level" type="Label3D" parent="decors/-env"]
 transform = Transform3D(-0.933743, 0.357944, 1.56462e-08, 0, -4.37114e-08, 1, 0.357944, 0.933743, 4.08152e-08, -1.96212, 0.106651, -0.192041)
 modulate = Color(1, 0.819608, 0.372549, 1)
 text = "Cownected !"
@@ -479,7 +483,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
 
-[node name="level2" type="Label3D" parent="-env"]
+[node name="level2" type="Label3D" parent="decors/-env"]
 transform = Transform3D(-0.964548, 0.263907, 1.15357e-08, -7.80627e-16, -4.37114e-08, 1, 0.263907, 0.964548, 4.21618e-08, -4.34041, 0.106651, 0.629551)
 modulate = Color(1, 0.819608, 0.372549, 1)
 text = "a kenney jam game"
@@ -489,7 +493,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
 
-[node name="exit" type="Label3D" parent="-env"]
+[node name="exit" type="Label3D" parent="decors/-env"]
 transform = Transform3D(1, 3.55271e-15, -1.05879e-21, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 0, 1.06, -6.25)
 modulate = Color(1, 0.819608, 0.372549, 1)
 text = "EXIT"
@@ -497,19 +501,19 @@ font = ExtResource("13_q3yie")
 font_size = 80
 outline_size = 0
 
-[node name="arrow1" type="Sprite3D" parent="-env/exit"]
+[node name="arrow1" type="Sprite3D" parent="decors/-env/exit"]
 transform = Transform3D(2, -7.10543e-15, 2.11758e-21, 7.10543e-15, 2, 3.55271e-14, 1.26218e-28, 2.13163e-14, 2, 0.6, 0, 0)
 modulate = Color(1, 0.819608, 0.372549, 1)
 texture_filter = 0
 texture = ExtResource("14_b2wub")
 
-[node name="arrow2" type="Sprite3D" parent="-env/exit"]
+[node name="arrow2" type="Sprite3D" parent="decors/-env/exit"]
 transform = Transform3D(2, -7.10543e-15, 2.11758e-21, 7.10543e-15, 2, 3.55271e-14, 1.26218e-28, 2.13163e-14, 2, -0.6, 0, 0)
 modulate = Color(1, 0.819608, 0.372549, 1)
 texture_filter = 0
 texture = ExtResource("14_b2wub")
 
-[node name="exit2" type="Label3D" parent="-env"]
+[node name="exit2" type="Label3D" parent="decors/-env"]
 transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 1.55294e-22, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -4.25, 1.06, 2.25833)
 modulate = Color(1, 0.819608, 0.372549, 1)
 text = "EXIT"
@@ -517,241 +521,241 @@ font = ExtResource("13_q3yie")
 font_size = 80
 outline_size = 0
 
-[node name="arrow1" type="Sprite3D" parent="-env/exit2"]
+[node name="arrow1" type="Sprite3D" parent="decors/-env/exit2"]
 transform = Transform3D(2, -7.10543e-15, 2.11758e-21, 7.10543e-15, 2, 3.55271e-14, 1.26218e-28, 2.13163e-14, 2, 0.6, 0, 0)
 modulate = Color(1, 0.819608, 0.372549, 1)
 texture_filter = 0
 texture = ExtResource("14_b2wub")
 
-[node name="arrow2" type="Sprite3D" parent="-env/exit2"]
+[node name="arrow2" type="Sprite3D" parent="decors/-env/exit2"]
 transform = Transform3D(2, -7.10543e-15, 2.11758e-21, 7.10543e-15, 2, 3.55271e-14, 1.26218e-28, 2.13163e-14, 2, -0.6, 0, 0)
 modulate = Color(1, 0.819608, 0.372549, 1)
 texture_filter = 0
 texture = ExtResource("14_b2wub")
 
-[node name="background" type="Node3D" parent="-env"]
+[node name="background" type="Node3D" parent="decors/-env"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.25)
 
-[node name="floor5" parent="-env/background" instance=ExtResource("15_j0x21")]
+[node name="floor5" parent="decors/-env/background" instance=ExtResource("15_j0x21")]
 transform = Transform3D(-4.37114e-06, 1, 0, -100, -4.37114e-08, 0, 0, 0, 100, -8.75, 0.75, -6.75)
 
-[node name="floor6" parent="-env/background" instance=ExtResource("15_j0x21")]
+[node name="floor6" parent="decors/-env/background" instance=ExtResource("15_j0x21")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -8.75, -0.25, -6.75)
 
-[node name="floor7" parent="-env/background" instance=ExtResource("15_j0x21")]
+[node name="floor7" parent="decors/-env/background" instance=ExtResource("15_j0x21")]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 50, -8.75, 0.75, 15.75)
 
-[node name="floor8" parent="-env/background" instance=ExtResource("15_j0x21")]
+[node name="floor8" parent="decors/-env/background" instance=ExtResource("15_j0x21")]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 50, 8.5, 0.75, -4.75)
 
-[node name="wall-corner-banner" parent="." instance=ExtResource("10_dlivn")]
+[node name="wall-corner-banner" parent="decors" instance=ExtResource("10_dlivn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.75, 0.35, 1.75)
 
-[node name="container-flat-open" parent="." instance=ExtResource("11_wlfxu")]
+[node name="container-flat-open" parent="decors" instance=ExtResource("11_wlfxu")]
 transform = Transform3D(-4.37114e-08, 0, -0.999999, 0, 0.999998, 0, 0.999999, 0, -4.37113e-08, -1.44502, 0.64249, 0.441611)
 
-[node name="wall-corner-banner2" parent="." instance=ExtResource("10_dlivn")]
+[node name="wall-corner-banner2" parent="decors" instance=ExtResource("10_dlivn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 1.35, 2.5)
 
-[node name="wall-banner" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.35, 2)
 
-[node name="wall-banner8" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner8" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, 1.35, 2.75)
 
-[node name="wall-banner13" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner13" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75, 1.35, 2.75)
 
-[node name="wall-banner14" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner14" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 1.35, 2.75)
 
-[node name="wall-banner9" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner9" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 1.35, 2.75)
 
-[node name="wall-banner10" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner10" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.35, 2.75)
 
-[node name="wall-banner11" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner11" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.75, 1.35, 1.75)
 
-[node name="wall-banner12" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner12" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.75, 1.35, 0.75)
 
-[node name="wall-banner2" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner2" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.35, 2)
 
-[node name="wall-banner3" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner3" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.35, 2)
 
-[node name="wall-banner6" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner6" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0.35, 1)
 
-[node name="wall-banner7" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner7" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0.35, 0)
 
-[node name="wall-banner5" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner5" parent="decors" instance=ExtResource("11_p5pig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.35, 2)
 
-[node name="wall-banner4" parent="." instance=ExtResource("11_p5pig")]
+[node name="wall-banner4" parent="decors" instance=ExtResource("11_p5pig")]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="decors"]
 transform = Transform3D(-0.395322, -0.345323, -0.851159, -0.657875, 0.753127, -1.00542e-09, 0.641031, 0.559956, -0.524907, -3.6056, 0.40769, 1.32573)
 collision_layer = 4
 
-[node name="animal-bison" type="Node3D" parent="CharacterBody3D"]
+[node name="animal-bison" type="Node3D" parent="decors/CharacterBody3D"]
 
-[node name="animal-bison" type="Node3D" parent="CharacterBody3D/animal-bison"]
+[node name="animal-bison" type="Node3D" parent="decors/CharacterBody3D/animal-bison"]
 
-[node name="root" type="Node3D" parent="CharacterBody3D/animal-bison/animal-bison"]
+[node name="root" type="Node3D" parent="decors/CharacterBody3D/animal-bison/animal-bison"]
 
-[node name="torso" type="MeshInstance3D" parent="CharacterBody3D/animal-bison/animal-bison/root"]
+[node name="torso" type="MeshInstance3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/root"]
 transform = Transform3D(1, 2.98023e-08, 0, -5.96046e-08, 1, 0, -2.98023e-08, 0, 1, 0, 0.25, 0)
 mesh = SubResource("ArrayMesh_wj2jd")
 skeleton = NodePath("")
 
-[node name="leg-back-left" type="MeshInstance3D" parent="CharacterBody3D/animal-bison/animal-bison/root/torso"]
+[node name="leg-back-left" type="MeshInstance3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
 mesh = SubResource("ArrayMesh_awl2s")
 skeleton = NodePath("")
 
-[node name="leg-back-right" type="MeshInstance3D" parent="CharacterBody3D/animal-bison/animal-bison/root/torso"]
+[node name="leg-back-right" type="MeshInstance3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
 mesh = SubResource("ArrayMesh_lcr4q")
 skeleton = NodePath("")
 
-[node name="leg-front-left" type="MeshInstance3D" parent="CharacterBody3D/animal-bison/animal-bison/root/torso"]
+[node name="leg-front-left" type="MeshInstance3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, 0.09375)
 mesh = SubResource("ArrayMesh_uqses")
 skeleton = NodePath("")
 
-[node name="leg-front-right" type="MeshInstance3D" parent="CharacterBody3D/animal-bison/animal-bison/root/torso"]
+[node name="leg-front-right" type="MeshInstance3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, -0.09375)
 mesh = SubResource("ArrayMesh_bhoup")
 skeleton = NodePath("")
 
-[node name="head" type="MeshInstance3D" parent="CharacterBody3D/animal-bison/animal-bison/root/torso"]
+[node name="head" type="MeshInstance3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.1625, 0)
 mesh = SubResource("ArrayMesh_q7yfq")
 skeleton = NodePath("")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="CharacterBody3D/animal-bison/animal-bison/root/torso"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300661, -0.25, 0)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_nmhor")
 draw_pass_1 = ExtResource("14_0lbta")
 
-[node name="Area3D" type="Area3D" parent="CharacterBody3D/animal-bison/animal-bison"]
+[node name="Area3D" type="Area3D" parent="decors/CharacterBody3D/animal-bison/animal-bison"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702267, 0, 0.724732)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/animal-bison/animal-bison/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="decors/CharacterBody3D/animal-bison/animal-bison/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375791, 0.520875, -0.683864)
 shape = SubResource("BoxShape3D_sswyl")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/animal-bison"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="decors/CharacterBody3D/animal-bison"]
 libraries = {
 &"": ExtResource("15_wlfxu")
 }
 autoplay = "rest"
 
-[node name="mow" type="AudioStreamPlayer" parent="CharacterBody3D"]
+[node name="mow" type="AudioStreamPlayer" parent="decors/CharacterBody3D"]
 stream = SubResource("AudioStreamRandomizer_e54bv")
 
-[node name="walksfx" type="AudioStreamPlayer" parent="CharacterBody3D"]
+[node name="walksfx" type="AudioStreamPlayer" parent="decors/CharacterBody3D"]
 stream = SubResource("AudioStreamRandomizer_4xreo")
 volume_db = 10.543
 
-[node name="walksfx2" type="AudioStreamPlayer" parent="CharacterBody3D"]
+[node name="walksfx2" type="AudioStreamPlayer" parent="decors/CharacterBody3D"]
 stream = SubResource("AudioStreamRandomizer_4xreo")
 volume_db = 10.543
 
-[node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="decors"]
 transform = Transform3D(0.74257, 0.648652, 0.166855, -0.657875, 0.753127, -1.26724e-08, -0.125663, -0.109769, 0.985981, -2.52947, 0.40769, 0.925994)
 collision_layer = 4
 
-[node name="animal-bison" type="Node3D" parent="CharacterBody3D2"]
+[node name="animal-bison" type="Node3D" parent="decors/CharacterBody3D2"]
 
-[node name="animal-bison" type="Node3D" parent="CharacterBody3D2/animal-bison"]
+[node name="animal-bison" type="Node3D" parent="decors/CharacterBody3D2/animal-bison"]
 
-[node name="root" type="Node3D" parent="CharacterBody3D2/animal-bison/animal-bison"]
+[node name="root" type="Node3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison"]
 
-[node name="torso" type="MeshInstance3D" parent="CharacterBody3D2/animal-bison/animal-bison/root"]
+[node name="torso" type="MeshInstance3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("ArrayMesh_wj2jd")
 skeleton = NodePath("")
 
-[node name="leg-back-left" type="MeshInstance3D" parent="CharacterBody3D2/animal-bison/animal-bison/root/torso"]
+[node name="leg-back-left" type="MeshInstance3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
 mesh = SubResource("ArrayMesh_awl2s")
 skeleton = NodePath("")
 
-[node name="leg-back-right" type="MeshInstance3D" parent="CharacterBody3D2/animal-bison/animal-bison/root/torso"]
+[node name="leg-back-right" type="MeshInstance3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
 mesh = SubResource("ArrayMesh_lcr4q")
 skeleton = NodePath("")
 
-[node name="leg-front-left" type="MeshInstance3D" parent="CharacterBody3D2/animal-bison/animal-bison/root/torso"]
+[node name="leg-front-left" type="MeshInstance3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, 0.09375)
 mesh = SubResource("ArrayMesh_uqses")
 skeleton = NodePath("")
 
-[node name="leg-front-right" type="MeshInstance3D" parent="CharacterBody3D2/animal-bison/animal-bison/root/torso"]
+[node name="leg-front-right" type="MeshInstance3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, -0.09375)
 mesh = SubResource("ArrayMesh_bhoup")
 skeleton = NodePath("")
 
-[node name="head" type="MeshInstance3D" parent="CharacterBody3D2/animal-bison/animal-bison/root/torso"]
+[node name="head" type="MeshInstance3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.1625, 0)
 mesh = SubResource("ArrayMesh_q7yfq")
 skeleton = NodePath("")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="CharacterBody3D2/animal-bison/animal-bison/root/torso"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/root/torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300661, -0.25, 0)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_nmhor")
 draw_pass_1 = ExtResource("14_0lbta")
 
-[node name="Area3D" type="Area3D" parent="CharacterBody3D2/animal-bison/animal-bison"]
+[node name="Area3D" type="Area3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702267, 0, 0.724732)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2/animal-bison/animal-bison/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="decors/CharacterBody3D2/animal-bison/animal-bison/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375791, 0.520875, -0.683864)
 shape = SubResource("BoxShape3D_sswyl")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D2/animal-bison"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="decors/CharacterBody3D2/animal-bison"]
 libraries = {
 &"": ExtResource("15_wlfxu")
 }
 autoplay = "rest"
 
-[node name="burger-cheese-double" parent="CharacterBody3D2/animal-bison" instance=ExtResource("18_fi4vy")]
+[node name="burger-cheese-double" parent="decors/CharacterBody3D2/animal-bison" instance=ExtResource("18_fi4vy")]
 transform = Transform3D(0.728782, -0.657875, -0.189942, 0.636608, 0.753127, -0.165919, 0.252204, -7.46017e-08, 0.967674, 0.158533, 1.47351, 0.999554)
 
-[node name="mow" type="AudioStreamPlayer" parent="CharacterBody3D2"]
+[node name="mow" type="AudioStreamPlayer" parent="decors/CharacterBody3D2"]
 stream = SubResource("AudioStreamRandomizer_e54bv")
 
-[node name="walksfx" type="AudioStreamPlayer" parent="CharacterBody3D2"]
+[node name="walksfx" type="AudioStreamPlayer" parent="decors/CharacterBody3D2"]
 stream = SubResource("AudioStreamRandomizer_4xreo")
 volume_db = 10.543
 
-[node name="walksfx2" type="AudioStreamPlayer" parent="CharacterBody3D2"]
+[node name="walksfx2" type="AudioStreamPlayer" parent="decors/CharacterBody3D2"]
 stream = SubResource("AudioStreamRandomizer_4xreo")
 volume_db = 10.543
 
-[node name="output" type="MeshInstance3D" parent="."]
+[node name="output" type="MeshInstance3D" parent="decors"]
 transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, -2.63489, 0.5, 1.74757)
 mesh = SubResource("ArrayMesh_ypwf3")
 skeleton = NodePath("")
 
-[node name="screen" type="MeshInstance3D" parent="output"]
+[node name="screen" type="MeshInstance3D" parent="decors/output"]
 transform = Transform3D(0.30353, -1.24897e-08, -1.3274e-08, 0, 0.0141919, -0.382118, 5.30711e-08, 0.0714323, 0.075918, 3.55271e-15, 0.426, 0.015)
 mesh = SubResource("ArrayMesh_rhcxt")
 skeleton = NodePath("")
 
-[node name="text" type="Label3D" parent="output"]
+[node name="text" type="Label3D" parent="decors/output"]
 transform = Transform3D(1, 0, 0, 0, 0.980955, 0.194234, 0, -0.194234, 0.980955, 0.0117014, 0.441, 0.04)
 pixel_size = 0.001
 modulate = Color(0, 0, 0, 1)
@@ -760,24 +764,24 @@ font = ExtResource("20_lwbwd")
 font_size = 130
 outline_size = 0
 
-[node name="pipe-corner3" type="MeshInstance3D" parent="output"]
+[node name="pipe-corner3" type="MeshInstance3D" parent="decors/output"]
 transform = Transform3D(1.31135e-07, 0, 1, 0, 1, 0, -1, 0, 1.31135e-07, -0.425, -0.102595, -0.25)
 mesh = SubResource("ArrayMesh_55rli")
 skeleton = NodePath("")
 
-[node name="pipe-corner4" type="MeshInstance3D" parent="output"]
+[node name="pipe-corner4" type="MeshInstance3D" parent="decors/output"]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.425, -0.102595, 5.96046e-08)
 mesh = SubResource("ArrayMesh_55rli")
 skeleton = NodePath("")
 
-[node name="box-small" parent="output" instance=ExtResource("21_dfmx8")]
+[node name="box-small" parent="decors/output" instance=ExtResource("21_dfmx8")]
 transform = Transform3D(-0.4688, 0, 0.519834, 0, 0.523279, 0, -0.519834, 0, -0.4688, -0.135348, 0.895028, -0.550831)
 
-[node name="box-small2" parent="output" instance=ExtResource("21_dfmx8")]
+[node name="box-small2" parent="decors/output" instance=ExtResource("21_dfmx8")]
 transform = Transform3D(0.0574547, 0, 0.697638, 0, 0.367769, 0, -0.697638, 0, 0.0574547, 0.474266, 0.895028, -0.550831)
 
-[node name="rail" parent="." instance=ExtResource("22_lwbwd")]
+[node name="rail" parent="decors" instance=ExtResource("22_lwbwd")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.55174, 1.34459, 0.672173)
 
-[node name="wall-detail" parent="." instance=ExtResource("23_lwbwd")]
+[node name="wall-detail" parent="decors" instance=ExtResource("23_lwbwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3, 1.25, 2.525)

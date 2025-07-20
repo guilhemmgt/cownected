@@ -20,6 +20,8 @@ script = ExtResource("1_bj85x")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -6.0
+offset_right = -934.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_cj4fi")
@@ -36,11 +38,12 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_cj4fi")
 theme_override_font_sizes/normal_font_size = 128
-text = "Polish Cow Electrician"
+text = "Cow-nected"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -68,6 +71,7 @@ layout_mode = 2
 text = "Credit"
 
 [node name="SelectLevel" type="Panel" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -139,6 +143,7 @@ layout_mode = 2
 text = "return"
 
 [node name="UIGame" type="Panel" parent="."]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -187,6 +192,7 @@ icon = ExtResource("7_ik0sd")
 icon_alignment = 1
 
 [node name="Credit" type="Panel" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -237,6 +243,7 @@ layout_mode = 2
 text = "return"
 
 [node name="BetweenLevelsWin" type="Panel" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -290,6 +297,7 @@ layout_mode = 2
 text = "return"
 
 [node name="BetweenLevelsLost" type="Panel" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

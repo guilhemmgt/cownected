@@ -23,7 +23,8 @@ const AUDIO_ON = preload("res://assets/KenneyUI/audioOn.png")
 @onready var credit: Panel = $Credit
 @onready var between_levels_lost: Panel = $BetweenLevelsLost
 @onready var between_levels_win: Panel = $BetweenLevelsWin
-
+@onready var decors: Node3D = $"../decors"
+@onready var cam: Camera3D = $"../decors/Camera3D"
 var levels = [PLAYGROUND, LVL_1, LVL_2, LVL_3, LVL_4, LVL_5, LVL_6]
 var max_current_level_unlocked : int = 1
 var current_level : Level
@@ -54,6 +55,8 @@ func go_to_next_level():
 	change_level(current_level_id+1)
 
 func change_level(num:int):
+	decors.visible = false
+	cam.current = false
 	# get_tree().paused = false
 	between_levels_win.visible = false
 	between_levels_lost.visible = false
@@ -72,6 +75,7 @@ func activate_game_ui():
 	ui_game.visible = true
 
 func active_menu():
+	decors.visible = true
 	credit.visible = false
 	between_levels_win.visible = false
 	between_levels_lost.visible = false
@@ -119,4 +123,4 @@ func _on_credit_button_button_up() -> void:
 
 
 func _on_replay_button_button_up() -> void:
-	pass # Replace with function body.
+	change_level(current_level_id)
