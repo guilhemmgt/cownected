@@ -30,6 +30,12 @@ func clear_sources():
 	sources.clear()
 	check_active()
 
+func clear_source(source: Source):
+	if source in sources:
+		sources.erase(source)
+		source.drop_cable()
+		check_active()
+
 func check_active():
 	var current_voltage: int = 0
 
@@ -59,7 +65,3 @@ func _on_interacted(interactor: CowInteractor):
 		interactor.linked_source = null
 	else:
 		clear_sources()
-
-func _process(delta: float) -> void:
-	pass
-	# print("I'm linked to ", sources)

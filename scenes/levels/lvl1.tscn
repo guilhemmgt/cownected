@@ -102,6 +102,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("8_7x113")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
+[node name="connectioin7" parent="-items/in_exit" instance=ExtResource("8_7x113")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -1.5, 0, -2.85)
+
 [node name="connectioin2" parent="-items/in_exit" instance=ExtResource("8_7x113")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2)
 
@@ -189,13 +192,13 @@ voltage = null
 reach = 4.0
 
 [node name="Switch" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("12_7x113")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44464, 0.367867, -2.82757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.35, -3)
 targets = [NodePath("../exit")]
 
 [node name="exit" parent="logic" instance=ExtResource("7_7x113")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.352595, -3)
 
 [node name="EndArea" parent="logic" instance=ExtResource("13_7x113")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01296, -3.72889)
+transform = Transform3D(1, 0, 0, 0, 0.786601, 0, 0, 0, 1, 0, 0.947735, -3.72889)
 
 [connection signal="body_shape_entered" from="logic/EndArea" to="." method="_on_end_area_body_shape_entered"]
