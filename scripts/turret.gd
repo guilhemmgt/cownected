@@ -1,4 +1,4 @@
-extends Node3D
+extends Target
 @export var target: Node3D
 @export var rotation_speed: float = 1.0
 @export var laser_radius: float = 0.05
@@ -17,6 +17,7 @@ func _ready() -> void:
 
 	
 func _process(delta: float) -> void:
+	print("er")
 	if not target:
 		return
 	
@@ -40,3 +41,10 @@ func _process(delta: float) -> void:
 		var angle_to_target = current_facing.signed_angle_to(flat_direction, Vector3.UP)
 		var rotation_amount = clamp(angle_to_target, -rotation_speed * delta, rotation_speed * delta)
 		rotate_y(rotation_amount)
+
+
+func activate():
+	laser.activate(1)
+	
+func deactivate():
+	laser.deactivate(1)

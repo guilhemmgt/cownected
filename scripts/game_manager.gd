@@ -102,7 +102,6 @@ func _on_play_button_button_up() -> void:
 func _on_select_level_button_button_up() -> void:
 	active_SelectLevel()
 
-
 func _on_sound_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		sound_button.icon = AUDIO_OFF

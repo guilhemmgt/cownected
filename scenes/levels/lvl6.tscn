@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://ce52uvc7yfrch"]
 
-[ext_resource type="Script" uid="uid://cr2770pwumwm" path="res://scripts/level.gd" id="1_48vl6"]
+[ext_resource type="Script" uid="uid://jqu4senqu651" path="res://scripts/lvl_6.gd" id="1_5ei35"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="2_3vvh0"]
 [ext_resource type="PackedScene" uid="uid://onxrej6x53o6" path="res://assets/KenneyPrototype/floor-square.fbx" id="2_5ei35"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="3_rddok"]
@@ -25,7 +25,7 @@
 size = Vector3(0.25, 1.5, 0.25)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_48vl6")
+script = ExtResource("1_5ei35")
 
 [node name="-lights" type="Node3D" parent="."]
 
@@ -391,9 +391,6 @@ transform = Transform3D(-4.37114e-09, 0, -1, 0, 1, 0, 0.1, 0, -4.37114e-08, -0.5
 [node name="connectioin15" parent="-items/in_exit" instance=ExtResource("8_78itq")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, -8.88178e-16, 0, 1, 4.84288e-08, -0.25, -2.65)
 
-[node name="door" parent="-items/in_exit" instance=ExtResource("14_ej7c5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.35, -0.00259501, 3.5)
-
 [node name="pillar" type="Node3D" parent="-items"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.75)
 
@@ -557,14 +554,20 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 41.75)
 
 [node name="logic" type="Node3D" parent="."]
 
-[node name="Switch" parent="logic" instance=ExtResource("15_htb8i")]
+[node name="door" parent="logic" instance=ExtResource("14_ej7c5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.35, 0.35, 0.5)
+
+[node name="Switch" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("15_htb8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0.35, 0.5)
+targets = [NodePath("../turret"), NodePath("../exit")]
 
 [node name="Source2" parent="logic" instance=ExtResource("16_muqld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.5, 1)
+reach = 15.0
 
 [node name="Source" parent="logic" instance=ExtResource("16_muqld")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75, 0.5, -0.5)
+reach = 15.0
 
 [node name="turret" parent="logic" node_paths=PackedStringArray("target") instance=ExtResource("14_48vl6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -3.5)
@@ -577,10 +580,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.311
 [node name="EndArea" parent="logic" instance=ExtResource("17_vf7st")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877323, -6.79127)
 
-[node name="Switch2" parent="logic" instance=ExtResource("15_htb8i")]
+[node name="Switch2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("15_htb8i")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0.35, -0.5)
+targets = [NodePath("../door")]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("18_08pa3")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.84085, 0.400868, -1.85952)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.55477, 0.400868, -1.01104)
 
 [connection signal="body_shape_entered" from="logic/EndArea" to="." method="_on_end_area_body_shape_entered"]

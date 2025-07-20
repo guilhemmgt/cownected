@@ -12,6 +12,7 @@ func _on_end_area_body_shape_entered(body_rid: RID, body: Node3D, body_shape_ind
 		body.stop_movement()
 		
 var door_list: Array[Door] = []
+
 func _ready() -> void:
 	# Find all Door instances in the scene and add them to the door_list
 	for logicelem in logic.get_children():
