@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dcrbq7gtrrsbh" path="res://assets/KenneySpaceStation/wall-switch.fbx" id="12_cy3ix"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="12_htilh"]
 [ext_resource type="PackedScene" uid="uid://dm4t7me552q7e" path="res://assets/KenneyFood/burger-cheese-double.fbx" id="13_siquy"]
+[ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="15_8wj6w"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="16_7xmos"]
 [ext_resource type="PackedScene" uid="uid://nxdvpqqxa7df" path="res://assets/KenneySpaceStation/table-large.fbx" id="16_248k1"]
 [ext_resource type="PackedScene" uid="uid://hitdbw11tjwh" path="res://assets/KenneyFood/cup-tea.fbx" id="24_qvn60"]
@@ -357,9 +358,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -8.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.75, 0.5)
 shape = SubResource("BoxShape3D_igwag")
 
-[node name="box-small3" parent="-items/boxes" instance=ExtResource("9_teufw")]
-transform = Transform3D(0.935307, 0, -0.225, 0, 0.45, 0, 0.54, 0, 0.389711, 2.5875, 1.4, -8.9)
-
 [node name="door_finale" parent="-items" instance=ExtResource("9_k88i1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, -3.5)
 
@@ -681,7 +679,7 @@ targets = [NodePath("../../-items/door_millieu"), NodePath("../../-items/door_dr
 
 [node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
 transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.25, 0.35, -0.75)
-targets = [NodePath("../../-items/door_gauche"), NodePath("../conveyor")]
+targets = [NodePath("../../-items/door_gauche"), NodePath("../conveyor2")]
 
 [node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
 transform = Transform3D(1, -3.38813e-21, 1.06581e-14, 0, 1, -1.62921e-07, -1.06581e-14, 1.62921e-07, 1, -0.725, 0.35, 0.5)
@@ -692,7 +690,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.1092
 reach = 20.0
 
 [node name="Source2" parent="logic" instance=ExtResource("32_svlt5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245147, 0.332312, 6.29548)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245147, 0.332312, 6.31125)
 reach = 20.0
 
 [node name="Source3" parent="logic" instance=ExtResource("32_svlt5")]
@@ -701,10 +699,13 @@ reach = 20.0
 
 [node name="input3" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
 transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.25, 0.35, 8)
-targets = [NodePath("../conveyor"), NodePath("../../-items/door_finale")]
+targets = [NodePath("../conveyor2"), NodePath("../../-items/door_finale")]
 
-[node name="conveyor" parent="logic" instance=ExtResource("32_862lw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.0787, 0, -3.27902)
+[node name="EndArea" parent="logic" instance=ExtResource("36_862lw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39769, 0.325491, -6.06055)
+
+[node name="conveyor2" parent="logic" instance=ExtResource("32_862lw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.0576, 0.0429204, -3.08097)
 
 [node name="ladder-color" parent="." instance=ExtResource("32_0704a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.025, 0.375, -7)
@@ -718,4 +719,5 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.89299, 0.372726, 0.61
 [node name="EndArea" parent="." instance=ExtResource("36_862lw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105271, 0.817027, -12.1229)
 
+[connection signal="body_shape_entered" from="logic/EndArea" to="." method="_on_end_area_body_shape_entered"]
 [connection signal="body_shape_entered" from="EndArea" to="." method="_on_end_area_body_shape_entered"]
