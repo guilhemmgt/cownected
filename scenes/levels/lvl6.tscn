@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="11_rw0tk"]
 [ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="12_xm08y"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="13_q3sbx"]
-[ext_resource type="PackedScene" uid="uid://dnc6pc36lc4nr" path="res://scenes/elements/turret.tscn" id="14_48vl6"]
+[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/elements/turret.tscn" id="14_48vl6"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="14_ej7c5"]
 [ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="15_htb8i"]
 [ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="16_muqld"]

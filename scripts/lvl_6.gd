@@ -1,6 +1,8 @@
 extends Level
 
 @onready var turret = $logic/turret
+@onready var player = $CharacterBody3D
+@onready var player_animation = $"CharacterBody3D/animal-bison/AnimationPlayer"
 
 func _ready() -> void:
 	call_deferred("get_cables")
@@ -19,3 +21,10 @@ func get_cables():
 			list_path.append(child.curve_mesh_3d.curve)
 	print(list_path)
 	turret.laser.curve_list = list_path
+	
+	turret.laser.player_hit.connect(_player_hit)
+	
+	
+func _player_hit():
+	player_animation.play("down")
+	

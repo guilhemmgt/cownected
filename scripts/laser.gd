@@ -71,7 +71,6 @@ func check_curve_intersections() -> Array:
 			segment_end = Vector2(segment_end.x, segment_end.z)
 			var laser_start_temp = Vector2(laser_start.x, laser_start.z)
 			var laser_direction_temp = Vector2(laser_direction.x, laser_direction.z)
-			print("Checking segment:", segment_start, segment_end)
 
 			var intersection = Geometry2D.segment_intersects_segment(
 				laser_start_temp,
@@ -98,16 +97,17 @@ func _process(delta):
 
 	
 	force_raycast_update()
-	
+	var playcol=false
+	var pipecol=false
 	# Check regular raycast collision first
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
 		hit_distance = abs(cast_point.y)
 		hit_found = true
+		playcol=true
 
 		#test if charbody
-		if get_collider().get_class() == "CharacterBody3D":
-			emit_signal("player_hit")
+		
 	# Check curve intersections
 	var curve_intersections = check_curve_intersections()
 	
@@ -118,6 +118,14 @@ func _process(delta):
 				cast_point = to_local(intersection)
 				hit_distance = intersection_distance
 				hit_found = true
+				pipecol=true
+	if playcol and not pipecol:
+		if get_collider().get_class() == "CharacterBody3D":
+			emit_signal("player_hit")
+		
+				
+	
+	
 				
 	# Update beam visualization
 	if hit_found:
