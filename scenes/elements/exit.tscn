@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://d3ua2qqlh40rp"]
+[gd_scene load_steps=14 format=4 uid="uid://d3ua2qqlh40rp"]
 
 [ext_resource type="Texture2D" uid="uid://dcew74hbq8akk" path="res://assets/KenneyPrototype/Textures/colormap.png" id="1_0fpi2"]
+[ext_resource type="Script" uid="uid://cyhiy0bigk8mx" path="res://scripts/targets/exit.gd" id="1_gu4cw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ybtd"]
 resource_name = "colormap"
@@ -42,6 +43,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mjc5p")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0fpi2"]
+size = Vector3(0.192383, 0.810791, 0.553955)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_8waym"]
 _surfaces = [{
 "aabb": AABB(-0.125, -9.02389e-17, -0.55, 0.175, 0.8, 0.55),
@@ -75,6 +79,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8waym")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu4cw"]
+size = Vector3(0.109985, 0.817505, 0.598206)
 
 [sub_resource type="Animation" id="Animation_f8cq4"]
 resource_name = "close"
@@ -137,6 +144,8 @@ _data = {
 
 [node name="exit" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_gu4cw")
+metadata/_custom_type_script = "uid://blbh2s3pu3101"
 
 [node name="door-sliding-double-round" type="Node3D" parent="."]
 
@@ -144,9 +153,22 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 mesh = SubResource("ArrayMesh_osbn1")
 skeleton = NodePath("")
 
+[node name="exit-right" type="StaticBody3D" parent="door-sliding-double-round/door-right"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door-sliding-double-round/door-right/exit-right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375977, 0.403931, 0.285795)
+shape = SubResource("BoxShape3D_0fpi2")
+
 [node name="door-left" type="MeshInstance3D" parent="door-sliding-double-round"]
 mesh = SubResource("ArrayMesh_xsxj7")
 skeleton = NodePath("")
+
+[node name="exit-left" type="StaticBody3D" parent="door-sliding-double-round/door-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67272e-08, 0, 0.017326)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door-sliding-double-round/door-left/exit-left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014038, 0.401794, -0.28537)
+shape = SubResource("BoxShape3D_gu4cw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

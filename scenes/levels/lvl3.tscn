@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhxlern0h63q7"]
+[gd_scene load_steps=19 format=3 uid="uid://cailth8xh8d2f"]
 
+[ext_resource type="Script" uid="uid://cr2770pwumwm" path="res://scripts/level.gd" id="1_cmjrl"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_qe0rt"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_3mu2x"]
 [ext_resource type="PackedScene" uid="uid://ckv3ypkfeagek" path="res://scenes/assets/corner.tscn" id="3_qe0rt"]
@@ -7,34 +8,25 @@
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="6_apeqx"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="9_apeqx"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_xnfqt"]
-[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="11_apeqx"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="11_apeqx"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="11_qe0rt"]
-[ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_qe0rt"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="13_cng8y"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="14_3i44f"]
 [ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="15_3mu2x"]
+[ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="15_apeqx"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="15_mhuq4"]
+[ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="16_3mu2x"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="16_apeqx"]
-
-[sub_resource type="Environment" id="Environment_tpdyh"]
-background_mode = 1
-background_color = Color(0.415686, 0.443137, 0.529412, 1)
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://b3c8rs2ywwqhe" path="res://scenes/elements/end_area.tscn" id="17_4xwvl"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.644951, 0.764224, 0, -0.764224, 0.644951, 0, 4.6193, 2.99226)
-environment = SubResource("Environment_tpdyh")
-current = true
-fov = 60.0
+script = ExtResource("1_cmjrl")
 
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
-light_energy = 0.1
+transform = Transform3D(1, 0, 0, 0, 0.618765, 0.785576, 0, -0.785576, 0.618765, 0, 6.68029, 1.73452)
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="-floors" type="Node3D" parent="."]
@@ -161,13 +153,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.278
 [node name="-items" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 
-[node name="exit" parent="-items" instance=ExtResource("9_apeqx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31134e-07, 0, -3)
-
 [node name="in_exit" type="Node3D" parent="-items"]
-
-[node name="input2" parent="-items/in_exit" instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
 
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
@@ -190,9 +176,6 @@ transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5
 [node name="in_exit2" type="Node3D" parent="-items"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
-[node name="input" parent="-items/in_exit2" instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
-
 [node name="connectioin" parent="-items/in_exit2" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
@@ -210,15 +193,6 @@ transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -1, 
 
 [node name="connectioin4" parent="-items/in_exit2" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5, -0.25, -1.55)
-
-[node name="door" parent="-items" instance=ExtResource("11_qe0rt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, -0.25)
-
-[node name="output" parent="-items" instance=ExtResource("12_qe0rt")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 4.175)
-
-[node name="output2" parent="-items" instance=ExtResource("12_qe0rt")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1.25, 0, -2.18557e-07)
 
 [node name="-env" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
@@ -280,3 +254,34 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
 
 [node name="wall-doorway" parent="." instance=ExtResource("15_3mu2x")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.18557e-08, 0.35, -3.25)
+
+[node name="logic" type="Node3D" parent="."]
+
+[node name="exit" parent="logic" instance=ExtResource("9_apeqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31134e-07, 0.352595, -6)
+
+[node name="door" parent="logic" instance=ExtResource("11_qe0rt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0.352595, -3.25)
+
+[node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.28438, -3.29834)
+targets = [NodePath("../door")]
+
+[node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.296557, -6.03798)
+targets = [NodePath("../exit")]
+
+[node name="Source2" parent="logic" instance=ExtResource("15_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49985, 0.450121, -2.77569)
+
+[node name="Source" parent="logic" instance=ExtResource("15_apeqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.83686, 0.450121, 1.17755)
+reach = 8.0
+
+[node name="EndArea" parent="logic" instance=ExtResource("17_4xwvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877323, -6.79127)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("16_3mu2x")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.659146, 0.400868, -2.10952)
+
+[connection signal="body_shape_entered" from="logic/EndArea" to="." method="_on_end_area_body_shape_entered"]

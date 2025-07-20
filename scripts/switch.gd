@@ -7,12 +7,14 @@ var sources: Array[Source] = []
 @export var voltage_needed: int = 1
 
 var active: bool = false
+var marker: Marker3D
 
 func _ready():
 	collision_layer = 2
 	connect("closest", _on_closest)
 	connect("not_closest", _on_not_closest)
 	connect("interacted", _on_interacted)
+	marker = $Marker3D
 
 func add_source(source: Source):
 	sources.append(source)
@@ -24,7 +26,7 @@ func remove_source(source: Source):
 	
 func clear_sources():
 	for source in sources:
-		source._on_cable_dropped()
+		source.drop_cable()
 	sources.clear()
 	check_active()
 
@@ -53,6 +55,7 @@ func _on_interacted(interactor: CowInteractor):
 	if interactor.linked_source:
 		add_source(interactor.linked_source)
 		interactor.linked_source.plug(self)
+		interactor.linked_source.disconnect("cable_dropped", interactor.linked_source._on_cable_dropped)
 		interactor.linked_source = null
 	else:
 		clear_sources()

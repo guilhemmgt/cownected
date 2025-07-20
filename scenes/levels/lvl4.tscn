@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bn71p1b80dhlq"]
+[gd_scene load_steps=25 format=3 uid="uid://bn71p1b80dhlq"]
 
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_jbuoe"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="2_jbuoe"]
@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://388y7sc3xvd0" path="res://assets/KenneySpaceStation/pipe-ring-colored.fbx" id="4_27t0g"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="6_x2qb3"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="8_ekmji"]
-[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="9_sa1ue"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="9_sa1ue"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="10_vtoag"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="11_u54p2"]
-[ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_7to5e"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="13_nngoc"]
 [ext_resource type="PackedScene" uid="uid://d4gow3isnjj6w" path="res://assets/KenneySpaceStation/table.fbx" id="13_vsueq"]
 [ext_resource type="PackedScene" uid="uid://c6sq7iy4jmxiw" path="res://assets/KenneySpaceStation/computer.fbx" id="14_ekmji"]
@@ -21,12 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://hitdbw11tjwh" path="res://assets/KenneyFood/cup-tea.fbx" id="16_vtoag"]
 [ext_resource type="PackedScene" uid="uid://hlv3bjgsiux2" path="res://assets/KenneyFood/croissant.fbx" id="17_u54p2"]
 [ext_resource type="PackedScene" uid="uid://baxbm4cvooof6" path="res://assets/KenneyFood/fish-bones.fbx" id="18_7to5e"]
-
-[sub_resource type="Environment" id="Environment_tpdyh"]
-background_mode = 1
-background_color = Color(0.415686, 0.443137, 0.529412, 1)
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="22_ekmji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nngoc"]
 size = Vector3(1.1, 2.25, 0.6)
@@ -39,17 +33,11 @@ size = Vector3(0.3, 0.55, 2.25)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.644951, 0.764224, 0, -0.764224, 0.644951, 0, 4.6193, 2.99226)
-environment = SubResource("Environment_tpdyh")
-current = true
-fov = 60.0
-
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
-light_energy = 0.1
+transform = Transform3D(1, 0, 0, 0, 0.608678, 0.793417, 0, -0.793417, 0.608678, 0, 8.06141, 5.14323)
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="-floors" type="Node3D" parent="."]
@@ -260,9 +248,6 @@ transform = Transform3D(1.31134e-08, 0, 1, 0, 1, 0, -0.1, 0, 1.31134e-07, -2.75,
 [node name="in_exit2" type="Node3D" parent="-items"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.75, 0, 0.25)
 
-[node name="input" parent="-items/in_exit2" instance=ExtResource("9_sa1ue")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
-
 [node name="connectioin" parent="-items/in_exit2" instance=ExtResource("10_vtoag")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
@@ -314,12 +299,6 @@ transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5
 [node name="in_exit3" type="Node3D" parent="-items"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 0)
 
-[node name="input" parent="-items/in_exit3" instance=ExtResource("9_sa1ue")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
-
-[node name="input2" parent="-items/in_exit3" instance=ExtResource("9_sa1ue")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -2.5, 0.15, -0.925)
-
 [node name="connectioin" parent="-items/in_exit3" instance=ExtResource("10_vtoag")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
@@ -364,15 +343,6 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3.55, 0,
 
 [node name="door3" parent="-items" instance=ExtResource("11_u54p2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0, 3)
-
-[node name="output" parent="-items" instance=ExtResource("12_7to5e")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5.75, 0, 4.05)
-
-[node name="output2" parent="-items" instance=ExtResource("12_7to5e")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1.75, 0, -0.5)
-
-[node name="output3" parent="-items" instance=ExtResource("12_7to5e")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3.25, 0, -2.75)
 
 [node name="bureau" parent="-items" instance=ExtResource("13_vsueq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.425, -0.00259501, 3.925)
@@ -524,3 +494,23 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -67.25)
 
 [node name="floor4" parent="-env/background" instance=ExtResource("15_42xf2")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
+
+[node name="logic" type="Node3D" parent="."]
+
+[node name="input2" parent="logic" instance=ExtResource("9_sa1ue")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 5.25, 0.223759, -6.01799)
+
+[node name="input3" parent="logic" instance=ExtResource("9_sa1ue")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 4.25, 0.322791, -3.69958)
+
+[node name="input" parent="logic" instance=ExtResource("9_sa1ue")]
+transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, 0.712795, 0.290851, -1.25)
+
+[node name="Source" parent="logic" instance=ExtResource("22_ekmji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75126, 0.422005, -3.34687)
+
+[node name="Source2" parent="logic" instance=ExtResource("22_ekmji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80983, 0.321126, -5.60236)
+
+[node name="Source3" parent="logic" instance=ExtResource("22_ekmji")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.47742, 0.472234, 1.04553)

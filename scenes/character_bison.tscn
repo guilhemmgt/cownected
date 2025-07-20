@@ -309,7 +309,7 @@ libraries = {
 autoplay = "rest"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 3)
+transform = Transform3D(1, 0, 0, 0, 0.382684, 0.92388, 0, -0.92388, 0.382684, 0, 9, 3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111177, 0.376071, -0.000228718)

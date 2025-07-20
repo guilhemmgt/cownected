@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://q48wk5he7o4c"]
+[gd_scene load_steps=13 format=4 uid="uid://q48wk5he7o4c"]
 
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_ch5s6"]
 [ext_resource type="PackedScene" uid="uid://cpsqr2vjk85e1" path="res://assets/KenneyPrototype/flag.fbx" id="2_taen3"]
+[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/turret.tscn" id="4_ch5s6"]
 [ext_resource type="PackedScene" uid="uid://bmji3eioqtbpk" path="res://scenes/cable.tscn" id="5_b27nj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slch6"]
@@ -91,7 +92,16 @@ shadow_mesh = SubResource("ArrayMesh_b27nj")
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_ch5s6")]
 
 [node name="leg-back-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="0"]
-transform = Transform3D(0.999516, -0.0310968, 0, 0.0310968, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+transform = Transform3D(0.999516, -0.0310969, 0, 0.0310969, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
+
+[node name="leg-back-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="1"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
+
+[node name="leg-front-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="2"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, 0.09375)
+
+[node name="leg-front-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="3"]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -0.1875, 0.0625, -0.09375)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 10)
@@ -124,5 +134,8 @@ shape = SubResource("BoxShape3D_b27nj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_xbtgf")
+
+[node name="turret" parent="." instance=ExtResource("4_ch5s6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607739, 0, 2.03399)
 
 [editable path="CharacterBody3D"]
