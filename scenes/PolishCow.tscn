@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bufgvbqf3iol0"]
+[gd_scene load_steps=11 format=3 uid="uid://bufgvbqf3iol0"]
 
 [ext_resource type="Script" uid="uid://b84qclixi1768" path="res://scripts/game_manager.gd" id="1_bj85x"]
 [ext_resource type="Theme" uid="uid://p75k0fsmia7" path="res://theme.tres" id="2_cj4fi"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://k5saubh2w3k7" path="res://assets/KenneyUI/arrow_clockwise.svg" id="5_jum7f"]
 [ext_resource type="Texture2D" uid="uid://hsfmgt2k75ck" path="res://assets/KenneyUI/structure_house.svg" id="6_ypjh0"]
 [ext_resource type="Texture2D" uid="uid://cg2kdqgp2eeo3" path="res://assets/KenneyUI/audioOn.png" id="7_ik0sd"]
+[ext_resource type="StyleBox" uid="uid://km1oqifqf48n" path="res://ui/pannel_box_lost.tres" id="8_ypjh0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jum7f"]
 
@@ -57,6 +58,7 @@ layout_mode = 2
 text = "Select Level"
 
 [node name="ParametersButton" parent="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+visible = false
 layout_mode = 2
 text = "Parameters"
 
@@ -184,7 +186,6 @@ icon = ExtResource("7_ik0sd")
 icon_alignment = 1
 
 [node name="Credit" type="Panel" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -208,29 +209,147 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_cj4fi")
 theme_override_font_sizes/normal_font_size = 128
-text = "Select A level"
+text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Credit/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credit/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 128
+theme_override_constants/separation = 64
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 46
+text = "Game made during the kenney game jam 2025 by Lighar, DuntyTelessia, Kazzad, Flocondeglace and Neother !
+
+All assets used come from https://www.kenney.nl/assets"
+fit_content = true
 
 [node name="ReturnButton" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
 layout_mode = 2
 text = "return"
 
+[node name="BetweenLevelsWin" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_cj4fi")
+theme_override_styles/panel = ExtResource("8_ypjh0")
+
+[node name="MarginContainer" type="MarginContainer" parent="BetweenLevelsWin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BetweenLevelsWin/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BetweenLevelsWin/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_cj4fi")
+theme_override_font_sizes/normal_font_size = 128
+text = "You won !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BetweenLevelsWin/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="ReturnButton" parent="BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "next level"
+
+[node name="ReturnButton2" parent="BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "return"
+
+[node name="BetweenLevelsLost" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_cj4fi")
+theme_override_styles/panel = ExtResource("8_ypjh0")
+
+[node name="MarginContainer" type="MarginContainer" parent="BetweenLevelsLost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BetweenLevelsLost/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BetweenLevelsLost/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_cj4fi")
+theme_override_font_sizes/normal_font_size = 128
+text = "You lost !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BetweenLevelsLost/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="ReplayButton" parent="BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "retry"
+
+[node name="ReturnButton2" parent="BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "return"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("5_134e1")
 autoplay = true
 parameters/looping = true
 
 [connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SelectLevelButton" to="." method="_on_select_level_button_button_up"]
+[connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/CreditButton" to="." method="_on_credit_button_button_up"]
 [connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button" to="." method="change_level" binds= [1]]
 [connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button2" to="." method="change_level" binds= [2]]
 [connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button3" to="." method="change_level" binds= [3]]
@@ -242,3 +361,7 @@ parameters/looping = true
 [connection signal="button_up" from="UIGame/MarginContainer/HBoxContainer/HomeButton" to="." method="return_to_menu"]
 [connection signal="toggled" from="UIGame/MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
 [connection signal="button_up" from="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton" to="." method="return_to_menu"]
+[connection signal="button_up" from="BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton" to="." method="go_to_next_level"]
+[connection signal="button_up" from="BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton2" to="." method="return_to_menu"]
+[connection signal="button_up" from="BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReplayButton" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton2" to="." method="return_to_menu"]
