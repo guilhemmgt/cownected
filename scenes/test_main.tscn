@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dvjxdm8x1wwve" path="res://scripts/switch.gd" id="6_bcbe7"]
 [ext_resource type="PackedScene" uid="uid://8otxog3voujq" path="res://assets/KenneyPrototype/weapon-sword.fbx" id="7_dra30"]
 [ext_resource type="Script" uid="uid://dp68guq6xy1ut" path="res://scripts/weapon_sword.gd" id="8_72mss"]
-[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/turret.tscn" id="8_dra30"]
+[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/elements/turret.tscn" id="8_dra30"]
 
 [sub_resource type="Curve" id="Curve_7vda6"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.626667, 0.146068), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
