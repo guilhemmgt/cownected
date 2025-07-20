@@ -13,10 +13,9 @@ func _on_end_area_body_shape_entered(body_rid: RID, body: Node3D, body_shape_ind
 
 func get_cables():
 	# get list of cables
-	var list_path: Array[Path3D] = []
+	var list_path: Array[Curve3D] = []
 	for child in logic.get_children():
 		if child is Cable:
-			list_path.append(child.curve_mesh_3d)
-	list_path.append($logic/Path3D)
+			list_path.append(child.curve_mesh_3d.curve)
 	print(list_path)
-	turret.list_Path3D = list_path
+	turret.laser.curve_list = list_path

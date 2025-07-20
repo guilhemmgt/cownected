@@ -45,12 +45,15 @@ func clear_curves():
 	curve_list.clear()
 
 func check_curve_intersections() -> Array:
+	
 	"""Check for intersections with all curves in the list"""
 	var intersections: Array = []
+	
 	var laser_start = global_position
 	var laser_direction = -global_transform.basis.y.normalized()
 	var closest_intersection = {"point": Vector3.ZERO, "distance": max_laser_length, "found": false}
 	for curve in curve_list:
+		
 		if not curve:
 			continue
 			
@@ -68,7 +71,8 @@ func check_curve_intersections() -> Array:
 			segment_end = Vector2(segment_end.x, segment_end.z)
 			var laser_start_temp = Vector2(laser_start.x, laser_start.z)
 			var laser_direction_temp = Vector2(laser_direction.x, laser_direction.z)
-			# Check for intersection
+			print("Checking segment:", segment_start, segment_end)
+
 			var intersection = Geometry2D.segment_intersects_segment(
 				laser_start_temp,
 				laser_start_temp + laser_direction_temp * max_laser_length,
@@ -91,6 +95,7 @@ func _process(delta):
 	var cast_point
 	var hit_distance = max_laser_length
 	var hit_found = false
+
 	
 	force_raycast_update()
 	
@@ -105,6 +110,7 @@ func _process(delta):
 			emit_signal("player_hit")
 	# Check curve intersections
 	var curve_intersections = check_curve_intersections()
+	
 	if curve_intersections.size() > 0:
 		for intersection in curve_intersections:
 			var intersection_distance = (intersection - global_position).length()

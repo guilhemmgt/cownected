@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ce52uvc7yfrch"]
+[gd_scene load_steps=23 format=3 uid="uid://ce52uvc7yfrch"]
 
 [ext_resource type="Script" uid="uid://jqu4senqu651" path="res://scripts/lvl_6.gd" id="1_5ei35"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="2_3vvh0"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="11_rw0tk"]
 [ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="12_xm08y"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="13_q3sbx"]
-[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/elements/turret.tscn" id="14_48vl6"]
+[ext_resource type="PackedScene" uid="uid://dnc6pc36lc4nr" path="res://scenes/elements/turret.tscn" id="14_48vl6"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="14_ej7c5"]
 [ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="15_htb8i"]
 [ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="16_muqld"]
@@ -24,13 +24,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ei35"]
 size = Vector3(0.25, 1.5, 0.25)
-
-[sub_resource type="Curve3D" id="Curve3D_5ei35"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.09764, 0, -1.30305, 0, 0, 0, 0, 0, 0, 0.25, 0, -1.25, 0, 0, 0, 0, 0, 0, 1.91457, 0, -2.35507),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_5ei35")
@@ -588,9 +581,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877323, -6.79127)
 [node name="Switch2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("15_htb8i")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0.35, -0.5)
 targets = [NodePath("../door")]
-
-[node name="Path3D" type="Path3D" parent="logic"]
-curve = SubResource("Curve3D_5ei35")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("18_08pa3")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.55477, 0.400868, -1.01104)
