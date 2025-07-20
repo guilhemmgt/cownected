@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bn71p1b80dhlq"]
+[gd_scene load_steps=30 format=4 uid="uid://bn71p1b80dhlq"]
 
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_jbuoe"]
 [ext_resource type="Script" uid="uid://c4f44vniwsmbu" path="res://scripts/lvl_4.gd" id="1_sa1ue"]
@@ -77,9 +77,9 @@ script = ExtResource("1_sa1ue")
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, 0.608678, 0.793417, 0, -0.793417, 0.608678, 0, 8.06141, 5.14323)
-light_energy = 0.3
+transform = Transform3D(0.899443, 0.346753, -0.266015, 0, 0.608678, 0.793417, 0.437037, -0.713634, 0.547472, -4.05156, 8.06141, 5.14323)
 shadow_enabled = true
+shadow_opacity = 0.4
 
 [node name="-floors" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
