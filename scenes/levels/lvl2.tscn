@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bseegxli8fljm"]
+[gd_scene load_steps=16 format=3 uid="uid://bseegxli8fljm"]
 
 [ext_resource type="Script" uid="uid://cr2770pwumwm" path="res://scripts/level.gd" id="1_76lpn"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_iix5d"]
-[ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="2_5ei7m"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="2_iix5d"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="3_5ei7m"]
 [ext_resource type="PackedScene" uid="uid://ckv3ypkfeagek" path="res://scenes/assets/corner.tscn" id="5_dxt8t"]
@@ -36,17 +35,20 @@ transform = Transform3D(2.7216, 0, 0, 0, 1, 0, 0, 0, 2.76276, 0.25, 0, -0.5)
 [node name="-walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
 
-[node name="wall-doorway" parent="-walls" instance=ExtResource("2_5ei7m")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.25)
-
 [node name="wall15" parent="-walls" instance=ExtResource("2_iix5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.25)
+
+[node name="wall19" parent="-walls" instance=ExtResource("2_iix5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -0.25)
 
 [node name="wall16" parent="-walls" instance=ExtResource("2_iix5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.25)
 
 [node name="wall17" parent="-walls" instance=ExtResource("2_iix5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.25)
+
+[node name="wall20" parent="-walls" instance=ExtResource("2_iix5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, -0.25)
 
 [node name="wall18" parent="-walls" instance=ExtResource("2_iix5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.25)
