@@ -537,7 +537,7 @@ reach = 15.0
 
 [node name="Source" parent="logic" instance=ExtResource("16_muqld")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75, 0.5, -0.5)
-reach = 15.0
+reach = 20.0
 
 [node name="turret" parent="logic" node_paths=PackedStringArray("target") instance=ExtResource("14_48vl6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -3.5)
