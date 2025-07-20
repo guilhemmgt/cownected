@@ -1,7 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmji3eioqtbpk"]
+[gd_scene load_steps=6 format=3 uid="uid://bmji3eioqtbpk"]
 
 [ext_resource type="Script" uid="uid://be2vpobvy0u4k" path="res://scripts/cable.gd" id="1_j3i3n"]
 [ext_resource type="Script" uid="uid://b2ttsm4muci3d" path="res://addons/curvemesh3d/curvemesh3d.gd" id="2_mrtv2"]
+
+[sub_resource type="Curve3D" id="Curve3D_j3i3n"]
+bake_interval = 0.1
+_data = {
+"points": PackedVector3Array(0.6, 0.46, 0, 0.6, 0.46, 0, 0, 0, 0, -0.6, -0.46, 0, -0.6, -0.46, 0, 0, 1, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [sub_resource type="Curve" id="Curve_rj3a4"]
 
@@ -14,6 +22,7 @@ script = ExtResource("1_j3i3n")
 
 [node name="CurveMesh3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271464, 0)
+curve = SubResource("Curve3D_j3i3n")
 script = ExtResource("2_mrtv2")
 radius_profile = SubResource("Curve_rj3a4")
 material = SubResource("StandardMaterial3D_ce67e")
