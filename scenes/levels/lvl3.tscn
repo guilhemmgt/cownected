@@ -8,32 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://cstsl736jxrp7" path="res://assets/KenneySpaceStation/wall.fbx" id="7_dsjva"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="9_apeqx"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_xnfqt"]
-[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="11_apeqx"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="11_apeqx"]
 [ext_resource type="PackedScene" uid="uid://bd6knao0af57o" path="res://assets/KenneyPrototype/wall-doorway.fbx" id="11_cp7et"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="11_qe0rt"]
-[ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_qe0rt"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="13_cng8y"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="14_3i44f"]
+[ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="15_apeqx"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="15_mhuq4"]
-
-[sub_resource type="Environment" id="Environment_tpdyh"]
-background_mode = 1
-background_color = Color(0.415686, 0.443137, 0.529412, 1)
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="16_3mu2x"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.644951, 0.764224, 0, -0.764224, 0.644951, 0, 4.6193, 2.99226)
-environment = SubResource("Environment_tpdyh")
-current = true
-fov = 60.0
 
 [node name="-lights" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="-lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
+transform = Transform3D(1, 0, 0, 0, 0.325106, 0.945678, 0, -0.945678, 0.325106, 0, 9.61998, 1.80528)
 light_energy = 0.1
 shadow_enabled = true
 
@@ -164,13 +153,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 [node name="-items" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 
-[node name="exit" parent="-items" instance=ExtResource("9_apeqx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31134e-07, 0, -3)
-
 [node name="in_exit" type="Node3D" parent="-items"]
-
-[node name="input2" parent="-items/in_exit" instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
 
 [node name="connectioin" parent="-items/in_exit" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
@@ -193,9 +176,6 @@ transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5
 [node name="in_exit2" type="Node3D" parent="-items"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
-[node name="input" parent="-items/in_exit2" instance=ExtResource("11_apeqx")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.15, -3.175)
-
 [node name="connectioin" parent="-items/in_exit2" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.25, -2.5)
 
@@ -213,15 +193,6 @@ transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -1, 
 
 [node name="connectioin4" parent="-items/in_exit2" instance=ExtResource("9_xnfqt")]
 transform = Transform3D(-4.37114e-09, 0, 1, 0, 1, 0, -0.1, 0, -4.37114e-08, -0.5, -0.25, -1.55)
-
-[node name="door" parent="-items" instance=ExtResource("11_qe0rt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, -0.25)
-
-[node name="output" parent="-items" instance=ExtResource("12_qe0rt")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 4.175)
-
-[node name="output2" parent="-items" instance=ExtResource("12_qe0rt")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1.25, 0, -2.18557e-07)
 
 [node name="-env" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, 0)
@@ -280,3 +251,30 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -67.25)
 
 [node name="floor4" parent="-env/background" instance=ExtResource("15_mhuq4")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
+
+[node name="logic" type="Node3D" parent="."]
+
+[node name="exit" parent="logic" instance=ExtResource("9_apeqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31134e-07, 0.352595, -6)
+
+[node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.337823, -6.05962)
+targets = [NodePath("../exit")]
+
+[node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.321248, -3.31429)
+targets = [NodePath("../door")]
+
+[node name="Source" parent="logic" instance=ExtResource("15_apeqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38619, 0.3798, -2.94252)
+reach = 4.0
+
+[node name="Source2" parent="logic" instance=ExtResource("15_apeqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.96452, 0.40332, 1.20334)
+reach = 4.0
+
+[node name="door" parent="logic" instance=ExtResource("11_qe0rt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0.352595, -3.25)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("16_3mu2x")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.558774, 0.397211, -2.12076)
