@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bn71p1b80dhlq"]
+[gd_scene load_steps=19 format=3 uid="uid://bn71p1b80dhlq"]
 
+[ext_resource type="Script" uid="uid://cr2770pwumwm" path="res://scripts/level.gd" id="1_apeqx"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_qe0rt"]
 [ext_resource type="PackedScene" uid="uid://byb0yycdorl8b" path="res://assets/KenneyPrototype/wall-doorway-wide.fbx" id="2_apeqx"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_3mu2x"]
@@ -8,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://cstsl736jxrp7" path="res://assets/KenneySpaceStation/wall.fbx" id="7_dsjva"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="9_apeqx"]
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_xnfqt"]
-[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/input.tscn" id="11_apeqx"]
+[ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="11_apeqx"]
 [ext_resource type="PackedScene" uid="uid://bd6knao0af57o" path="res://assets/KenneyPrototype/wall-doorway.fbx" id="11_cp7et"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="11_qe0rt"]
 [ext_resource type="PackedScene" uid="uid://coknr8g8u3f86" path="res://scenes/elements/output.tscn" id="12_qe0rt"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="13_cng8y"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="14_3i44f"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="15_mhuq4"]
+[ext_resource type="PackedScene" uid="uid://b3c8rs2ywwqhe" path="res://scenes/elements/end_area.tscn" id="17_3mu2x"]
 
 [sub_resource type="Environment" id="Environment_tpdyh"]
 background_mode = 1
@@ -23,6 +25,7 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_apeqx")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.644951, 0.764224, 0, -0.764224, 0.644951, 0, 4.6193, 2.99226)
@@ -280,3 +283,8 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -67.25)
 
 [node name="floor4" parent="-env/background" instance=ExtResource("15_mhuq4")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
+
+[node name="-logic" type="Node3D" parent="."]
+
+[node name="EndArea" parent="-logic" instance=ExtResource("17_3mu2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.862442, -6.83933)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3c8rs2ywwqhe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cpdva"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cpdva"]
+size = Vector3(2, 1, 1)
+
+[node name="EndArea" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_cpdva")
+debug_color = Color(0.421509, 2.30065e-05, 0.339831, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cpdva")
