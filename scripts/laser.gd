@@ -119,7 +119,7 @@ func _process(delta):
 				hit_distance = intersection_distance
 				hit_found = true
 				pipecol=true
-	if playcol and not pipecol:
+	if playcol and not pipecol and visible:
 		if get_collider().get_class() == "CharacterBody3D":
 			emit_signal("player_hit")
 		

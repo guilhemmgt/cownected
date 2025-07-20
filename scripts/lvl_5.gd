@@ -4,11 +4,12 @@ extends Level
 @onready var switch: Switch = $"logic/input"
 
 func _ready() -> void:
-	
+	super._ready()
 	source.switch = switch
 	source.connected = true
 	switch.add_source(source)
 	call_deferred("init")
+	
 
 func _on_end_area_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	print("Finish reached")

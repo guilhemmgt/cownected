@@ -697,7 +697,7 @@ shape = SubResource("BoxShape3D_tqic5")
 [node name="Source" type="Area3D" parent="logic"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75, 0.5, -0.5)
 script = ExtResource("17_shajw")
-reach = 20.0
+reach = 30.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
 
 [node name="output" type="MeshInstance3D" parent="logic/Source"]
