@@ -26,12 +26,12 @@
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="12_htilh"]
 [ext_resource type="PackedScene" uid="uid://dm4t7me552q7e" path="res://assets/KenneyFood/burger-cheese-double.fbx" id="13_siquy"]
 [ext_resource type="PackedScene" uid="uid://75wrwlj5vrjq" path="res://scenes/assets/doorway.tscn" id="15_8wj6w"]
+[ext_resource type="PackedScene" uid="uid://d0b6gu0nj705k" path="res://scenes/elements/conveyor.tscn" id="15_yecvk"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="16_7xmos"]
 [ext_resource type="PackedScene" uid="uid://nxdvpqqxa7df" path="res://assets/KenneySpaceStation/table-large.fbx" id="16_248k1"]
 [ext_resource type="PackedScene" uid="uid://hitdbw11tjwh" path="res://assets/KenneyFood/cup-tea.fbx" id="24_qvn60"]
 [ext_resource type="PackedScene" uid="uid://dsojjq82w7fui" path="res://assets/KenneyPrototype/indicator-square-a.fbx" id="29_cy3ix"]
 [ext_resource type="PackedScene" uid="uid://5dx1xdub51ho" path="res://assets/KenneyPrototype/ladder-color.fbx" id="32_0704a"]
-[ext_resource type="PackedScene" uid="uid://4trfq3t5x6wp" path="res://scenes/conveyorok.tscn" id="32_862lw"]
 [ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="32_svlt5"]
 [ext_resource type="PackedScene" uid="uid://b4ybeoi1cg4v6" path="res://assets/KenneyPrototype/ladder-top.fbx" id="33_svlt5"]
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="34_svlt5"]
@@ -681,8 +681,8 @@ transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -
 targets = [NodePath("../../-items/door_millieu"), NodePath("../../-items/door_droite")]
 
 [node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
-transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.27299, 0.121478, -0.75)
-targets = [NodePath("../../-items/door_gauche"), NodePath("../conveyor")]
+transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.25, 0.35, -0.75)
+targets = [NodePath("../../-items/door_gauche")]
 
 [node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
 transform = Transform3D(1, -3.38813e-21, 1.06581e-14, 0, 1, -1.62921e-07, -1.06581e-14, 1.62921e-07, 1, -0.725, 0.35, 0.5)
@@ -700,66 +700,9 @@ reach = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52672, 0.325, -2.11624)
 reach = 20.0
 
-[node name="conveyor" parent="logic" instance=ExtResource("32_862lw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.025, -0.408641, -2.97526)
-
 [node name="input3" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_yecvk")]
-transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.25869, 0.127595, 8)
-targets = [NodePath("../conveyor"), NodePath("../../-items/door_finale")]
-
-[node name="connectioin" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 5.29396e-23, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, -0.4, 0.65)
-
-[node name="connectioin2" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 1.05879e-22, 1, 1.62921e-07, 0, -1.62921e-07, 1, -5.96046e-08, -0.4, 1.65)
-
-[node name="connectioin3" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(0.1, 5.0822e-21, 0, 1.58819e-22, 1, 1.62921e-07, 0, -1.62921e-07, 1, -1.19209e-07, -0.399999, 2.65)
-
-[node name="connectioin4" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 0.45, -0.399999, 3.15)
-
-[node name="connectioin5" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 1.45, -0.399999, 3.15)
-
-[node name="connectioin6" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 2.45, -0.399999, 3.15)
-
-[node name="connectioin7" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 3.45, -0.399999, 3.15)
-
-[node name="connectioin8" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 4.45, -0.399999, 3.15)
-
-[node name="connectioin9" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 5.45, -0.399999, 3.15)
-
-[node name="connectioin10" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 6, -0.399999, 3.15)
-
-[node name="connectioin14" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 7, -0.399999, 3.15)
-
-[node name="connectioin15" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 8, -0.399999, 3.15)
-
-[node name="connectioin16" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 8.5, -0.399999, 3.15)
-
-[node name="connectioin18" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 9.5, -0.399999, 2.65)
-
-[node name="connectioin19" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 10, -0.399999, 2.65)
-
-[node name="connectioin17" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 5.0822e-21, -5.24537e-08, -3.52056e-16, 1, -9.77526e-08, 8.74228e-09, -1.62921e-07, -0.6, 9, -0.399999, 2.9)
-
-[node name="connectioin11" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-4.37114e-09, 5.0822e-21, 1, -1.62921e-08, 1, 7.08935e-15, -0.1, -1.62921e-07, -4.37114e-08, 6.95, -0.399999, 2.45)
-
-[node name="connectioin13" parent="logic/input3" instance=ExtResource("12_2njnh")]
-transform = Transform3D(-0.1, 5.0822e-21, -6.12571e-08, -3.52056e-16, 1, -1.14159e-07, 8.74228e-09, -1.62921e-07, -0.7007, 6.45, -0.399999, 2.74982)
+transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, -4.25, 0.35, 8)
+targets = [null, NodePath("../../-items/door_finale")]
 
 [node name="ladder-color" parent="." instance=ExtResource("32_0704a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.025, 0.375, -7)

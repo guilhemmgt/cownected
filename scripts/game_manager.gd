@@ -7,7 +7,8 @@ const LVL_1 = preload("res://scenes/levels/lvl1.tscn")
 const LVL_2 = preload("res://scenes/levels/lvl2.tscn")
 const LVL_3 = preload("res://scenes/levels/lvl3.tscn")
 const LVL_4 = preload("res://scenes/levels/lvl4.tscn")
-const LVL_5 = preload("res://scenes/levels/lvl5.tscn")
+const LVL_5 = preload("res://scenes/levels/lvl6.tscn")
+const LVL_6 = preload("res://scenes/levels/lvl5.tscn")
 
 const AUDIO_OFF = preload("res://assets/KenneyUI/audioOff.png")
 const AUDIO_ON = preload("res://assets/KenneyUI/audioOn.png")
@@ -21,7 +22,7 @@ const AUDIO_ON = preload("res://assets/KenneyUI/audioOn.png")
 @onready var ui_game: Panel = $UIGame
 @onready var credit: Panel = $Credit
 
-var levels = [PLAYGROUND, LVL_1, LVL_2, LVL_3, LVL_4, LVL_5]
+var levels = [PLAYGROUND, LVL_1, LVL_2, LVL_3, LVL_4, LVL_5, LVL_6]
 var max_current_level_unlocked : int = 1
 var current_level : Level
 var current_level_id : int = 1
