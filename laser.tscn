@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c3tgplbqhx1rw"]
 
-[ext_resource type="Script" uid="uid://bkcci7wif48dj" path="res://scenes/laser.gd" id="1_fn5yt"]
+[ext_resource type="Script" uid="uid://cxi8rt68c65ry" path="res://scripts/laser.gd" id="1_fn5yt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vqwg"]
 albedo_color = Color(0.85098, 0.0745098, 0, 0.870588)
@@ -75,6 +75,7 @@ size = Vector2(0.02, 0.02)
 [node name="laser" type="RayCast3D"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -3.82137e-15, 4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
 target_position = Vector3(0, -1000, 0)
+collision_mask = 7
 script = ExtResource("1_fn5yt")
 
 [node name="BeamMesh" type="MeshInstance3D" parent="."]

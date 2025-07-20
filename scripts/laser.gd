@@ -5,7 +5,7 @@ extends RayCast3D
 
 signal player_hit
 
-var max_laser_length: float = 100.0
+var max_laser_length: float = 1000.0
 var tween: Tween
 var beam_radius: float = 0.03
 var curve_list: Array[Curve3D] = []
@@ -49,7 +49,7 @@ func check_curve_intersections() -> Array:
 	var laser_start = global_position
 	var laser_direction = -global_transform.basis.y.normalized()
 	var closest_intersection = {"point": Vector3.ZERO, "distance": max_laser_length, "found": false}
-	
+	print(target_position)
 	for curve in curve_list:
 		if not curve:
 			continue
@@ -87,6 +87,7 @@ func check_curve_intersections() -> Array:
 
 
 func _process(delta):
+
 	var cast_point
 	var hit_distance = max_laser_length
 	var hit_found = false
@@ -112,7 +113,7 @@ func _process(delta):
 				hit_distance = intersection_distance
 				hit_found = true
 	
-	
+	print(hit_found,cast_point)
 	# Update beam visualization
 	if hit_found:
 		beam_mesh.mesh.height = abs(cast_point.y)

@@ -2,11 +2,9 @@ extends Node3D
 @export var target: Node3D
 @export var rotation_speed: float = 1.0
 @export var laser_radius: float = 0.05
-@onready var raycast: RayCast3D = $RayCast3D
 @onready var laser: RayCast3D = $laser
 
 var debug_cube: MeshInstance3D
-var laser_end_point: Node3D  # Virtual point representing where laser actually ends
 
 @export var list_Path3D: Array[Path3D] = []
 
@@ -20,19 +18,8 @@ func _ready() -> void:
 	debug_cube.mesh = BoxMesh.new()
 	add_child(debug_cube)
 	
-	# Create laser end point node (invisible helper for laser endpoint)
-	laser_end_point = Node3D.new()
-	add_child(laser_end_point)
-	
-	
-	# Configure raycast
-	if not raycast:
-		raycast = RayCast3D.new()
-		add_child(raycast)
-	
-	raycast.enabled = true
-	raycast.collision_mask = 1  # Adjust collision layer as needed
 
+	
 func _process(delta: float) -> void:
 	if not target:
 		return

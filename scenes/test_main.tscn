@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dc7rwy62xj3p0"]
+[gd_scene load_steps=17 format=4 uid="uid://dc7rwy62xj3p0"]
 
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="1_tw0hx"]
 [ext_resource type="Script" uid="uid://cpq11uhbfqr5p" path="res://scripts/source.gd" id="4_31pel"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dvjxdm8x1wwve" path="res://scripts/switch.gd" id="6_bcbe7"]
 [ext_resource type="PackedScene" uid="uid://8otxog3voujq" path="res://assets/KenneyPrototype/weapon-sword.fbx" id="7_dra30"]
 [ext_resource type="Script" uid="uid://dp68guq6xy1ut" path="res://scripts/weapon_sword.gd" id="8_72mss"]
+[ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/turret.tscn" id="8_dra30"]
 
 [sub_resource type="Curve" id="Curve_7vda6"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.626667, 0.146068), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -63,12 +64,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sorjm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jmdl"]
+size = Vector3(1, 1, 0.275146)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bcbe7"]
 
 [node name="test_main" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_tw0hx")]
+
+[node name="leg-back-left" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="0"]
+transform = Transform3D(0.999516, -0.0310964, 0, 0.0310964, 0.999516, 0, 0, 0, 1, 0.179258, 0.0543879, 0.123035)
 
 [node name="leg-back-right" parent="CharacterBody3D/animal-bison/animal-bison/root/torso" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, 0.0625, -0.09375)
@@ -94,16 +99,19 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425318, 0, 1.38194)
 
 [node name="Source" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82109, 0.0925636, 0)
+transform = Transform3D(2.17685, 0, 0, 0, 2.21251, 0, 0, 0, 2.17685, -0.460965, 0.0925636, 0.902878)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("4_31pel")
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Source"]
-shape = SubResource("BoxShape3D_4jmdl")
-
 [node name="number-5" parent="Source" instance=ExtResource("5_bcbe7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Source"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Source/StaticBody3D"]
+transform = Transform3D(0.999963, 0, 0, 0, 1, 0, 0, 0, 1, -0.195969, 0.02653, -0.0450249)
+shape = SubResource("BoxShape3D_4jmdl")
 
 [node name="Switch" type="Area3D" parent="." node_paths=PackedStringArray("targets")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.62615)
@@ -119,5 +127,9 @@ shape = SubResource("BoxShape3D_bcbe7")
 [node name="weapon-sword" parent="." instance=ExtResource("7_dra30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.889165, 0, -2.82872)
 script = ExtResource("8_72mss")
+
+[node name="turret" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_dra30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00621, 0, 2.38245)
+target = NodePath("../CharacterBody3D")
 
 [editable path="CharacterBody3D"]

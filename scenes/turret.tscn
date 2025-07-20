@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://igygyj2hxpmv"]
 
-[ext_resource type="Script" uid="uid://c00ytntn4d7sx" path="res://scenes/turret.gd" id="1_485p4"]
+[ext_resource type="Script" uid="uid://bsdraughu6ga2" path="res://scripts/turret.gd" id="1_485p4"]
 [ext_resource type="Texture2D" uid="uid://bqfl546nryptv" path="res://assets/KenneyConveyor/Textures/colormap.png" id="1_el7wl"]
 [ext_resource type="Texture2D" uid="uid://gwk258w1yjqn" path="res://assets/gun/Textures/colormap.png" id="2_485p4"]
 [ext_resource type="PackedScene" uid="uid://c3tgplbqhx1rw" path="res://laser.tscn" id="5_6fjxm"]
