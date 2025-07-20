@@ -27,4 +27,6 @@ func get_cables():
 	
 func _player_hit():
 	player_animation.play("down")
+	player.movable = false
+	self.get_parent().cow_dead()
 	
