@@ -326,6 +326,7 @@ area = NodePath("../animal-bison/animal-bison/Area3D")
 
 [node name="mow" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_e54bv")
+volume_db = -17.643
 
 [node name="walksfx" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_4xreo")

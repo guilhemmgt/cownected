@@ -124,3 +124,8 @@ func _on_credit_button_button_up() -> void:
 
 func _on_replay_button_button_up() -> void:
 	change_level(current_level_id)
+	pass # Replace with function body.
+	
+
+func cow_dead():
+	between_levels_lost.visible = true
