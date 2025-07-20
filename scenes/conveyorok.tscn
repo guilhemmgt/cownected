@@ -1,7 +1,47 @@
-[gd_scene load_steps=9 format=4 uid="uid://4trfq3t5x6wp"]
+[gd_scene load_steps=11 format=4 uid="uid://4trfq3t5x6wp"]
 
 [ext_resource type="PackedScene" uid="uid://dfptxm6fucd5q" path="res://assets/KenneyConveyor/conveyor.fbx" id="1_odie4"]
 [ext_resource type="Texture2D" uid="uid://drsnp108nr8v5" path="res://assets/KenneySpaceStation/Textures/colormap.png" id="2_200tk"]
+[ext_resource type="Script" uid="uid://bruejetbr6m3c" path="res://scripts/targets/conveyorok.gd" id="2_e7rfn"]
+
+[sub_resource type="Animation" id="Animation_ooccd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.532941, 0.0679858, 0.0239259)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arrow:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("arrow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_clxcn"]
 resource_name = "move"
@@ -42,45 +82,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_ooccd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("arrow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.532941, 0.0679858, 0.0239259)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("arrow:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -1.5708)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("arrow:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kfhiu"]
@@ -129,7 +130,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_200tk")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_200tk"]
+size = Vector3(1, 1.0838, 1)
+
 [node name="conveyor" instance=ExtResource("1_odie4")]
+script = ExtResource("2_e7rfn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -139,8 +144,14 @@ autoplay = "move"
 speed_scale = 2.0
 
 [node name="arrow" type="Node3D" parent="." index="2"]
-transform = Transform3D(-3.0598e-08, 0.3, 0, -0.7, -1.31134e-08, 0, 0, 0, 0.7, 0.532941, 0.0679858, 0.0239259)
+transform = Transform3D(-2.53399e-06, 0.3, 0, -0.7, -1.086e-06, 0, 0, 0, 0.7, 0.532941, 0.0679858, 0.0239259)
 
 [node name="arrow" type="MeshInstance3D" parent="arrow" index="0"]
 mesh = SubResource("ArrayMesh_e7rfn")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532135, 0)
+shape = SubResource("BoxShape3D_200tk")

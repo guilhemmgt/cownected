@@ -232,7 +232,7 @@ scale_max = 0.3
 scale_curve = SubResource("CurveTexture_72mss")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sswyl"]
-size = Vector3(2.30347, 1.8335, 0.994141)
+size = Vector3(1.52088, 0.958254, 0.994141)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68x3o"]
 size = Vector3(0.924316, 0.722809, 0.547958)
@@ -249,7 +249,6 @@ stream_0/stream = ExtResource("6_e54bv")
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 0
 script = ExtResource("1_68x3o")
 
 [node name="animal-bison" type="Node3D" parent="."]
@@ -300,7 +299,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="animal-bison/animal-bison/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0155063, 0.083252, -0.683864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375791, 0.520875, -0.683864)
 shape = SubResource("BoxShape3D_sswyl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="animal-bison"]

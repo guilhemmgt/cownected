@@ -30,6 +30,12 @@ func clear_sources():
 	sources.clear()
 	check_active()
 
+func clear_source(source: Source):
+	if source in sources:
+		sources.erase(source)
+		source.drop_cable()
+		check_active()
+
 func check_active():
 	var current_voltage: int = 0
 

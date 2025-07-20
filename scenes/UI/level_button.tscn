@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://m28nogjmsko8"]
+
+[ext_resource type="Theme" uid="uid://p75k0fsmia7" path="res://theme.tres" id="1_djhdf"]
+
+[node name="Button" type="Button"]
+offset_right = 88.0
+offset_bottom = 104.0
+size_flags_horizontal = 4
+theme = ExtResource("1_djhdf")
+theme_override_constants/outline_size = 4
+text = "1
+"

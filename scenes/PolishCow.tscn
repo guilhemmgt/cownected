@@ -1,0 +1,271 @@
+[gd_scene load_steps=10 format=3 uid="uid://bufgvbqf3iol0"]
+
+[ext_resource type="Script" uid="uid://b84qclixi1768" path="res://scripts/game_manager.gd" id="1_bj85x"]
+[ext_resource type="Theme" uid="uid://p75k0fsmia7" path="res://theme.tres" id="2_cj4fi"]
+[ext_resource type="PackedScene" uid="uid://dphluhhps7wnb" path="res://scenes/UI/button.tscn" id="3_43xbm"]
+[ext_resource type="PackedScene" uid="uid://m28nogjmsko8" path="res://scenes/UI/level_button.tscn" id="4_3r7va"]
+[ext_resource type="AudioStream" uid="uid://cnomngj10re6n" path="res://assets/audio/music.mp3" id="5_134e1"]
+[ext_resource type="Texture2D" uid="uid://k5saubh2w3k7" path="res://assets/KenneyUI/arrow_clockwise.svg" id="5_jum7f"]
+[ext_resource type="Texture2D" uid="uid://hsfmgt2k75ck" path="res://assets/KenneyUI/structure_house.svg" id="6_ypjh0"]
+[ext_resource type="Texture2D" uid="uid://cg2kdqgp2eeo3" path="res://assets/KenneyUI/audioOn.png" id="7_ik0sd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jum7f"]
+
+[node name="PolishCow" type="Node3D"]
+script = ExtResource("1_bj85x")
+
+[node name="Menu" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cj4fi")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_cj4fi")
+theme_override_font_sizes/normal_font_size = 128
+text = "Polish Cow Electrician"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" parent="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+
+[node name="SelectLevelButton" parent="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "Select Level"
+
+[node name="ParametersButton" parent="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "Parameters"
+
+[node name="CreditButton" parent="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "Credit"
+
+[node name="SelectLevel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cj4fi")
+
+[node name="MarginContainer" type="MarginContainer" parent="SelectLevel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectLevel/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SelectLevel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_cj4fi")
+theme_override_font_sizes/normal_font_size = 128
+text = "Select A level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SelectLevel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="HFlowContainer" type="HFlowContainer" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 64
+alignment = 1
+last_wrap_alignment = 1
+
+[node name="Button" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "4"
+
+[node name="Button5" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "5"
+
+[node name="ReturnButton" parent="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "return"
+
+[node name="UIGame" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -492.0
+offset_bottom = 174.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jum7f")
+
+[node name="MarginContainer" type="MarginContainer" parent="UIGame"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -391.0
+offset_bottom = 136.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIGame/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="RestartButton" parent="UIGame/MarginContainer/HBoxContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "
+"
+icon = ExtResource("5_jum7f")
+icon_alignment = 1
+
+[node name="HomeButton" parent="UIGame/MarginContainer/HBoxContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "
+"
+icon = ExtResource("6_ypjh0")
+icon_alignment = 1
+
+[node name="SoundButton" parent="UIGame/MarginContainer/HBoxContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+toggle_mode = true
+text = "
+"
+icon = ExtResource("7_ik0sd")
+icon_alignment = 1
+
+[node name="Credit" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cj4fi")
+
+[node name="MarginContainer" type="MarginContainer" parent="Credit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credit/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credit/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_cj4fi")
+theme_override_font_sizes/normal_font_size = 128
+text = "Select A level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Credit/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credit/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 64
+alignment = 1
+last_wrap_alignment = 1
+
+[node name="Button" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "4"
+
+[node name="Button5" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("4_3r7va")]
+layout_mode = 2
+text = "5"
+
+[node name="ReturnButton" parent="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+layout_mode = 2
+text = "return"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_134e1")
+autoplay = true
+parameters/looping = true
+
+[connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SelectLevelButton" to="." method="_on_select_level_button_button_up"]
+[connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button" to="." method="change_level" binds= [1]]
+[connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button2" to="." method="change_level" binds= [2]]
+[connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button3" to="." method="change_level" binds= [3]]
+[connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button4" to="." method="change_level" binds= [4]]
+[connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button5" to="." method="change_level" binds= [5]]
+[connection signal="button_up" from="SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton" to="." method="return_to_menu"]
+[connection signal="button_up" from="UIGame/MarginContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="UIGame/MarginContainer/HBoxContainer/HomeButton" to="." method="return_to_menu"]
+[connection signal="toggled" from="UIGame/MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
+[connection signal="button_up" from="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button" to="." method="change_level" binds= [1]]
+[connection signal="button_up" from="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button2" to="." method="change_level" binds= [2]]
+[connection signal="button_up" from="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button3" to="." method="change_level" binds= [3]]
+[connection signal="button_up" from="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button4" to="." method="change_level" binds= [4]]
+[connection signal="button_up" from="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button5" to="." method="change_level" binds= [5]]
+[connection signal="button_up" from="Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton" to="." method="return_to_menu"]
