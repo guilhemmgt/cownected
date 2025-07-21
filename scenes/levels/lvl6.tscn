@@ -653,10 +653,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.35,
 
 [node name="Switch" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("15_htb8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0.35, 0.5)
+collision_layer = 2
 targets = [NodePath("../turret"), NodePath("../exit")]
 
 [node name="Source2" type="Area3D" parent="logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.5, 1)
+collision_layer = 2
 script = ExtResource("17_shajw")
 reach = 15.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
@@ -696,6 +698,7 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="Source" type="Area3D" parent="logic"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75, 0.5, -0.5)
+collision_layer = 2
 script = ExtResource("17_shajw")
 reach = 30.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
@@ -746,6 +749,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877323, -6.79127)
 
 [node name="Switch2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("15_htb8i")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0.35, -0.5)
+collision_layer = 2
 targets = [NodePath("../door")]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("18_08pa3")]

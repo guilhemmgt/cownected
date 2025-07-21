@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d1l1rc0lstfdr"]
+
+[ext_resource type="Texture2D" uid="uid://c3ki7to0gu8u4" path="res://assets/KenneyUiPackSpaceExpansion/Vector/Extra/panel_glass.svg" id="1_seabe"]
+
+[resource]
+texture = ExtResource("1_seabe")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.99, 0.6732, 0.6732, 0.792157)

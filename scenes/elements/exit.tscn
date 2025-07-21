@@ -150,6 +150,7 @@ metadata/_custom_type_script = "uid://blbh2s3pu3101"
 [node name="door-sliding-double-round" type="Node3D" parent="."]
 
 [node name="door-right" type="MeshInstance3D" parent="door-sliding-double-round"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 mesh = SubResource("ArrayMesh_osbn1")
 skeleton = NodePath("")
 
@@ -160,6 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375977, 0.403931, 0.28579
 shape = SubResource("BoxShape3D_0fpi2")
 
 [node name="door-left" type="MeshInstance3D" parent="door-sliding-double-round"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
 mesh = SubResource("ArrayMesh_xsxj7")
 skeleton = NodePath("")
 
@@ -169,6 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67272e-08, 0, 0.017326)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door-sliding-double-round/door-left/exit-left"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014038, 0.401794, -0.28537)
 shape = SubResource("BoxShape3D_gu4cw")
+debug_color = Color(0.6, 0.9, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -463,9 +463,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.25, 
 [node name="-items" type="Node3D" parent="decors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
 
-[node name="exit" parent="decors/-items" instance=ExtResource("8_dfmx8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3)
-
 [node name="exit2" parent="decors/-items" instance=ExtResource("8_dfmx8")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.25, 0, 5.00833)
 

@@ -17,7 +17,6 @@ func _ready() -> void:
 
 	
 func _process(delta: float) -> void:
-	print("er")
 	if not target:
 		return
 	

@@ -1,3 +1,4 @@
+@tool
 class_name Switch
 
 extends Interactable3D
@@ -51,10 +52,10 @@ func check_active():
 		for target in targets:
 			target.deactivate()
 
-func _on_closest(interactor: CowInteractor):
+func _on_closest(_interactor: CowInteractor):
 	pass
 	
-func _on_not_closest(interactor: CowInteractor):
+func _on_not_closest(_interactor: CowInteractor):
 	pass
 	
 func _on_interacted(interactor: CowInteractor):

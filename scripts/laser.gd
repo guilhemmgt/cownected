@@ -84,12 +84,10 @@ func check_curve_intersections() -> Array:
 				var intersection_3d = Vector3(closest_intersection.x, laser_start.y, closest_intersection.y)
 				intersections.append(intersection_3d)
 	return intersections
+	# return closest_intersection
 
 
-	return closest_intersection
-
-
-func _process(delta):
+func _process(_delta):
 
 	var cast_point
 	var hit_distance = max_laser_length

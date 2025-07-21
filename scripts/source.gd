@@ -1,3 +1,4 @@
+@tool
 class_name Source
 extends Interactable3D
 
@@ -19,14 +20,14 @@ func _ready():
 	cable.max_length = reach
 	get_parent().add_child.call_deferred(cable)
 	
-func plug(switch: Switch):
-	self.switch = switch
+func plug(new_switch: Switch):
+	self.switch = new_switch
 	cable._on_plug(switch, switch.marker.global_position)
 
-func _on_closest(interactor: CowInteractor):
+func _on_closest(_interactor: CowInteractor):
 	pass
 	
-func _on_not_closest(interactor: CowInteractor):
+func _on_not_closest(_interactor: CowInteractor):
 	pass
 	
 func _on_interacted(interactor: CowInteractor):

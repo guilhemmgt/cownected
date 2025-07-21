@@ -278,6 +278,7 @@ visible = false
 
 [node name="wall-doorway-wide" parent="-walls" instance=ExtResource("6_apeqx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.27835e-08, -0.002595, -3)
+visible = false
 
 [node name="-items" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352595, -3)
@@ -389,25 +390,23 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
 
 [node name="logic" type="Node3D" parent="."]
 
-[node name="exit" parent="logic" instance=ExtResource("9_apeqx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31134e-07, 0.352595, -6)
-
 [node name="door" parent="logic" instance=ExtResource("11_qe0rt")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0.352595, -3.25)
 
 [node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.35, -3.25)
+collision_layer = 2
 targets = [NodePath("../door")]
 
 [node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("11_apeqx")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.35, -6)
-targets = [NodePath("../exit")]
+collision_layer = 2
+targets = [NodePath("../exit2")]
 
 [node name="Source2" type="Area3D" parent="logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49985, 0.450121, -2.77569)
+collision_layer = 2
 script = ExtResource("15_dsjva")
-voltage = null
-reach = null
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
 
 [node name="output" type="MeshInstance3D" parent="logic/Source2"]
@@ -445,8 +444,8 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="Source" type="Area3D" parent="logic"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.83686, 0.450121, 1.17755)
+collision_layer = 2
 script = ExtResource("15_dsjva")
-voltage = null
 reach = 8.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
 
@@ -485,6 +484,9 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="EndArea" parent="logic" instance=ExtResource("17_4xwvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877323, -6.79127)
+
+[node name="exit2" parent="logic" instance=ExtResource("9_apeqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.31134e-07, 0.352595, -6)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("16_3mu2x")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.659146, 0.400868, -2.10952)

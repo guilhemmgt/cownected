@@ -339,9 +339,8 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 52)
 
 [node name="Source" type="Area3D" parent="logic"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.96714, 0.47636, 0.887408)
+collision_layer = 2
 script = ExtResource("10_gjjxq")
-voltage = null
-reach = null
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
 
 [node name="output" type="MeshInstance3D" parent="logic/Source"]
@@ -379,13 +378,13 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_76lpn")]
 transform = Transform3D(-4.37114e-08, -1.62921e-07, -1, 0, 1, -1.62921e-07, 1, -7.1215e-15, -4.37114e-08, 2.36367, 0.328732, 0.825)
+collision_layer = 2
 targets = [NodePath("../door")]
 
 [node name="Source2" type="Area3D" parent="logic"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.97144, 0.364888, -1.72012)
+collision_layer = 2
 script = ExtResource("10_gjjxq")
-voltage = null
-reach = null
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
 
 [node name="output" type="MeshInstance3D" parent="logic/Source2"]
@@ -423,6 +422,7 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_76lpn")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.5, 0.350001, -3)
+collision_layer = 2
 targets = [NodePath("../exit")]
 
 [node name="exit" parent="logic" instance=ExtResource("9_kji3t")]

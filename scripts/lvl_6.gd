@@ -8,7 +8,7 @@ func _ready() -> void:
 	call_deferred("get_cables")
 
 
-func _on_end_area_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_end_area_body_shape_entered(_body_rid: RID, _body: Node3D, _body_shape_index: int, _local_shape_index: int) -> void:
 	print("Finish reached")
 	if game_manager:
 		game_manager._on_end_level()

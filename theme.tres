@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://5at0gf5kf2yl" path="res://ui/hover_button.tres" id="1_cjfk0"]
 [ext_resource type="StyleBox" uid="uid://4c03wmrne0kr" path="res://ui/normal_button.tres" id="2_vj6dk"]
 [ext_resource type="StyleBox" uid="uid://738mjyaekry2" path="res://ui/pressed_button.tres" id="3_vj6dk"]
-[ext_resource type="StyleBox" uid="uid://btshhuqe7sni2" path="res://ui/pannel_box.tres" id="5_05tig"]
+[ext_resource type="StyleBox" uid="uid://bn4ujpis5to1l" path="res://ui/texture_pannel_box_.tres" id="5_05tig"]
 
 [resource]
 Button/colors/font_color = Color(0.41, 0.334833, 0, 1)

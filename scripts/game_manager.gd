@@ -16,13 +16,14 @@ const AUDIO_ON = preload("res://assets/KenneyUI/audioOn.png")
 @export var player: CharacterBody3D
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var menu: Panel = $Menu
-@onready var select_level: Panel = $SelectLevel
-@onready var sound_button: Button = $UIGame/MarginContainer/HBoxContainer/SoundButton
-@onready var ui_game: Panel = $UIGame
-@onready var credit: Panel = $Credit
-@onready var between_levels_lost: Panel = $BetweenLevelsLost
-@onready var between_levels_win: Panel = $BetweenLevelsWin
+@onready var menu: Panel = $CanvasLayer/HBoxContainer/Menu
+@onready var select_level: MarginContainer = $CanvasLayer/HBoxContainer/MenuSub/SelectLevel
+@onready var credit: MarginContainer = $CanvasLayer/HBoxContainer/MenuSub/Credit
+@onready var sound_button: Button = $CanvasLayer/UIGame/MarginContainer/HBoxContainer/SoundButton
+@onready var ui_game: Panel = $CanvasLayer/UIGame
+@onready var between_levels_lost: Panel = $CanvasLayer/BetweenLevelsLost
+@onready var between_levels_win: Panel = $CanvasLayer/BetweenLevelsWin
+@onready var last_level_finished: Panel = $CanvasLayer/LastLevelFinished
 @onready var decors_menu: Node3D = $DecorsMenu
 
 var levels = [PLAYGROUND, LVL_1, LVL_2, LVL_3, LVL_4, LVL_5, LVL_6]
@@ -45,10 +46,11 @@ func _ready() -> void:
 func _on_end_level():
 	if current_level_id > max_current_level_unlocked:
 		max_current_level_unlocked = current_level_id
-	if current_level_id < len(levels):
+	if current_level_id < len(levels)-1:
 		between_levels_win.visible = true
 	else :
-		active_menu()
+		print("Last Level reached")
+		last_level_finished.visible = true
 	# get_tree().paused = true
 
 func go_to_next_level():
@@ -74,10 +76,13 @@ func activate_game_ui():
 	ui_game.visible = true
 
 func active_menu():
+	if current_level:
+		current_level.queue_free()
 	decors_menu.visible=true
 	credit.visible = false
 	between_levels_win.visible = false
 	between_levels_lost.visible = false
+	last_level_finished.visible = false
 	ui_game.visible = false
 	menu.visible = true
 
@@ -87,6 +92,7 @@ func deactive_menu():
 
 func active_SelectLevel():
 	select_level.visible = true
+	credit.visible = false
 	
 func deactive_SelectLevel():
 	select_level.visible = false
@@ -119,6 +125,7 @@ func _on_restart_button_button_up() -> void:
 
 
 func _on_credit_button_button_up() -> void:
+	select_level.visible = false
 	credit.visible = true
 
 

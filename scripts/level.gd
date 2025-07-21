@@ -5,7 +5,7 @@ var game_manager:GameManager
 @onready var logic: Node3D = $logic
 var cable_list: Array[Cable] = []
 
-func _on_end_area_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_end_area_body_shape_entered(_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int) -> void:
 	print("Finish reached")
 	if game_manager:
 		game_manager._on_end_level()
@@ -32,7 +32,7 @@ func _ready() -> void:
 			logicelem.deactivated.connect(door_deactivate)
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Update the game manager reference if it exists
 	if Input.is_action_just_pressed("debug"):
 		for cable in logic.get_children():

@@ -11,12 +11,12 @@ func _ready() -> void:
 
 func activate():
 	activation_count += 1
-	
+	print("DoorActivated")
 	if activation_count == 1:
 		animation_player.play("open")
 	
 func deactivate():
 	activation_count -= 1
-	
+	print("DoorDeactivated")
 	if activation_count == 0:
 		animation_player.play("close")

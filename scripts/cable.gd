@@ -86,8 +86,8 @@ func update_cable():
 	curve_mesh_3d.curve.add_point(player.global_position - global_position)
 	updating = false
 	
-func _on_plug(switch: Switch, position_target:Vector3):
-	self.switch = switch
+func _on_plug(new_switch: Switch, position_target:Vector3):
+	self.switch = new_switch
 	print(switch)
 	curve_mesh_3d.curve.remove_point(curve_mesh_3d.curve.point_count-1)
 	curve_mesh_3d.curve.add_point(position_target - global_position)
@@ -112,12 +112,11 @@ func _set_pos_curv_last_point(new):
 		
 
 func play_animation_drop():
-	var length_cable : float = curve_mesh_3d.curve.get_baked_length()
 	var nb_points : int = curve_mesh_3d.curve.point_count
 	pos_curv_last_point=curve_mesh_3d.curve.get_point_position(curve_mesh_3d.curve.point_count-1)
-	for i in range(nb_points):
-		var old_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i)
-		var goal_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i-1)
+	for i in range(nb_points-1):
+		var old_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i-1)
+		var goal_pos : Vector3 = curve_mesh_3d.curve.get_point_position(nb_points-i-2)
 		var d = old_pos.distance_to(goal_pos)
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_QUAD)
 		tween.tween_property(self, "pos_curv_last_point",curve_mesh_3d.curve.get_point_position(curve_mesh_3d.curve.point_count-2),d/speed_cable_drop)

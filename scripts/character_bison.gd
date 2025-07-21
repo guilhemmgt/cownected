@@ -10,7 +10,7 @@ const BASE_MESH_ROTATION = Vector3(0.0, deg_to_rad(-90.0), 0.0)
 var movable:bool = true
 @onready var mow: AudioStreamPlayer = $mow
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if movable:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
