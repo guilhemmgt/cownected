@@ -23,13 +23,12 @@ const AUDIO_ON = preload("res://assets/KenneyUI/audioOn.png")
 @onready var credit: Panel = $Credit
 @onready var between_levels_lost: Panel = $BetweenLevelsLost
 @onready var between_levels_win: Panel = $BetweenLevelsWin
-@onready var decors: Node3D = $"../decors"
-@onready var cam: Camera3D = $"../decors/Camera3D"
+@onready var decors_menu: Node3D = $DecorsMenu
+
 var levels = [PLAYGROUND, LVL_1, LVL_2, LVL_3, LVL_4, LVL_5, LVL_6]
 var max_current_level_unlocked : int = 1
 var current_level : Level
 var current_level_id : int = 1
-@onready var __lights: Node3D = $"../decors/-lights"
 
 #func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("debug"):
@@ -56,9 +55,7 @@ func go_to_next_level():
 	change_level(current_level_id+1)
 
 func change_level(num:int):
-	decors.visible = false
-	cam.current = false
-	__lights.visible =false
+	deactive_menu()
 	# get_tree().paused = false
 	between_levels_win.visible = false
 	between_levels_lost.visible = false
@@ -77,8 +74,7 @@ func activate_game_ui():
 	ui_game.visible = true
 
 func active_menu():
-	__lights.visible= true
-	decors.visible = true
+	decors_menu.visible=true
 	credit.visible = false
 	between_levels_win.visible = false
 	between_levels_lost.visible = false
@@ -86,6 +82,7 @@ func active_menu():
 	menu.visible = true
 
 func deactive_menu():
+	decors_menu.visible=false
 	menu.visible = false
 
 func active_SelectLevel():

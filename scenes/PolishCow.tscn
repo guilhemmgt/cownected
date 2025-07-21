@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bufgvbqf3iol0"]
+[gd_scene load_steps=17 format=3 uid="uid://bufgvbqf3iol0"]
 
 [ext_resource type="Script" uid="uid://b84qclixi1768" path="res://scripts/game_manager.gd" id="1_bj85x"]
 [ext_resource type="Theme" uid="uid://p75k0fsmia7" path="res://theme.tres" id="2_cj4fi"]
@@ -10,6 +10,20 @@
 [ext_resource type="Texture2D" uid="uid://cg2kdqgp2eeo3" path="res://assets/KenneyUI/audioOn.png" id="7_ik0sd"]
 [ext_resource type="StyleBox" uid="uid://cp7va0ld2kbqc" path="res://ui/pannel_box_win.tres" id="8_ik0sd"]
 [ext_resource type="StyleBox" uid="uid://km1oqifqf48n" path="res://ui/pannel_box_lost.tres" id="8_ypjh0"]
+[ext_resource type="PackedScene" uid="uid://bur8ie4r05pru" path="res://scenes/levels/playground.tscn" id="11_4ahnx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik0sd"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_4ahnx"]
+sky_material = SubResource("ProceduralSkyMaterial_ik0sd")
+
+[sub_resource type="Environment" id="Environment_3e7sj"]
+background_mode = 2
+sky = SubResource("Sky_4ahnx")
+tonemap_mode = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik0sd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,6 +32,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="PolishCow" type="Node3D"]
 script = ExtResource("1_bj85x")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3e7sj")
 
 [node name="Menu" type="Panel" parent="."]
 anchors_preset = 15
@@ -359,6 +376,8 @@ process_mode = 3
 stream = ExtResource("5_134e1")
 autoplay = true
 parameters/looping = true
+
+[node name="DecorsMenu" parent="." instance=ExtResource("11_4ahnx")]
 
 [connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SelectLevelButton" to="." method="_on_select_level_button_button_up"]

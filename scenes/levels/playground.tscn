@@ -1,6 +1,5 @@
-[gd_scene load_steps=54 format=4 uid="uid://bur8ie4r05pru"]
+[gd_scene load_steps=53 format=4 uid="uid://bur8ie4r05pru"]
 
-[ext_resource type="PackedScene" uid="uid://bufgvbqf3iol0" path="res://scenes/PolishCow.tscn" id="1_1soop"]
 [ext_resource type="PackedScene" uid="uid://byb0yycdorl8b" path="res://assets/KenneyPrototype/wall-doorway-wide.fbx" id="2_5gmqu"]
 [ext_resource type="PackedScene" uid="uid://cwnm31ug0u1l0" path="res://assets/KenneySpaceStation/pipe-end-colored.fbx" id="3_kgokd"]
 [ext_resource type="PackedScene" uid="uid://388y7sc3xvd0" path="res://assets/KenneySpaceStation/pipe-ring-colored.fbx" id="4_b3j4y"]
@@ -385,9 +384,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_t6ysv")
 
-[node name="Node3D" type="Node3D"]
-
-[node name="PolishCow" parent="." instance=ExtResource("1_1soop")]
+[node name="DecorsMenu" type="Node3D"]
 
 [node name="decors" type="Node3D" parent="."]
 
@@ -401,6 +398,7 @@ visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="decors/-lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.75, 0)
+visible = false
 light_energy = 0.1
 shadow_enabled = true
 
