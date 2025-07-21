@@ -31,14 +31,6 @@ var max_current_level_unlocked : int = 1
 var current_level : Level
 var current_level_id : int = 1
 
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("debug"):
-		## change_level(randi_range(0,3))
-		#if menu.visible:
-			#deactive_menu()
-		#else:
-			#active_menu()
-
 func _ready() -> void:
 	deactive_SelectLevel()
 	active_menu()
@@ -51,14 +43,12 @@ func _on_end_level():
 	else :
 		print("Last Level reached")
 		last_level_finished.visible = true
-	# get_tree().paused = true
 
 func go_to_next_level():
 	change_level(current_level_id+1)
 
 func change_level(num:int):
 	deactive_menu()
-	# get_tree().paused = false
 	between_levels_win.visible = false
 	between_levels_lost.visible = false
 	activate_game_ui()
@@ -68,7 +58,6 @@ func change_level(num:int):
 	current_level = levels[num].instantiate()
 	self.add_child(current_level)
 	current_level.game_manager = self
-	# player.global_position = current_level.cow_spawner.global_position + Vector3.UP*0.3
 
 func activate_game_ui():
 	deactive_menu()
