@@ -8,8 +8,8 @@ var cable_list: Array[Cable] = []
 func _on_end_area_body_shape_entered(_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int) -> void:
 	print("Finish reached")
 	if game_manager:
-		game_manager._on_end_level()
 		body.stop_movement()
+		game_manager._on_end_level()
 		
 var door_list: Array[Door] = []
 

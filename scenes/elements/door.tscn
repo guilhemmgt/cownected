@@ -109,7 +109,7 @@ libraries = {
 }
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66032e-08, 0, 1.06616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6382e-08, 0, 1.28987)
 
 [node name="Marker3D2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.62175e-09, 0, -0.174366)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76517e-08, 0, -0.403824)

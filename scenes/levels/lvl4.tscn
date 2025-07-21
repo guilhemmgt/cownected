@@ -662,22 +662,27 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
 
 [node name="input2" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_sa1ue")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 5.25, 0.35, -6)
+collision_layer = 2
 targets = [NodePath("../../-items/door_begin")]
 
 [node name="input3" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_sa1ue")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 4.25, 0.35, -3.75)
+collision_layer = 2
 targets = [NodePath("../../-items/door_end")]
 
 [node name="input4" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_sa1ue")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.75, 0.35, -3.75)
+collision_layer = 2
 targets = [NodePath("../../-items/in_exit")]
 
 [node name="input" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("9_sa1ue")]
 transform = Transform3D(-4.37114e-08, 1.62921e-07, 1, 0, 1, -1.62921e-07, -1, -7.1215e-15, -4.37114e-08, 0.75, 0.35, -1.25)
+collision_layer = 2
 targets = [NodePath("../../-items/door_begin")]
 
 [node name="Source" type="Area3D" parent="logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75126, 0.422005, -3.34687)
+collision_layer = 2
 script = ExtResource("21_nngoc")
 reach = 20.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
@@ -717,6 +722,7 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="Source2" type="Area3D" parent="logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80983, 0.321126, -5.60236)
+collision_layer = 2
 script = ExtResource("21_nngoc")
 reach = 20.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
@@ -756,6 +762,7 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="Source3" type="Area3D" parent="logic"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.47742, 0.472234, 1.04553)
+collision_layer = 2
 script = ExtResource("21_nngoc")
 reach = 7.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
