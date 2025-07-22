@@ -3,9 +3,8 @@ class_name Switch
 
 extends Interactable3D
 
-var sources: Array[Source] = []
+var current_source: Source = null
 @export var targets: Array[Target] = []
-@export var voltage_needed: int = 1
 
 var active: bool = false
 var marker: Marker3D
@@ -18,36 +17,38 @@ func _ready():
 	marker = $Marker3D
 
 func add_source(source: Source):
-	sources.append(source)
+	# Disconnect previous source if any
+	if current_source:
+		current_source.drop_cable()
+	current_source = source
 	check_active()
 	
 func remove_source(source: Source):
-	sources.erase(source)
+	if current_source == source:
+		current_source = null
 	check_active()
 	
 func clear_sources():
-	for source in sources:
-		source.drop_cable()
-	sources.clear()
+	if current_source:
+		current_source.drop_cable()
+		current_source = null
 	check_active()
 
 func clear_source(source: Source):
-	if source in sources:
-		sources.erase(source)
-		source.drop_cable()
+	if current_source == source:
+		current_source.drop_cable()
+		current_source = null
 		check_active()
 
 func check_active():
-	var current_voltage: int = 0
-
-	for source in sources:
-		current_voltage += source.voltage
-		
-	if current_voltage >= voltage_needed and active == false:
+	# Switch is active if there's a connected source
+	var should_be_active = current_source != null
+	
+	if should_be_active and not active:
 		active = true
 		for target in targets:
 			target.activate()
-	elif current_voltage < voltage_needed and active == true:
+	elif not should_be_active and active:
 		active = false
 		for target in targets:
 			target.deactivate()
