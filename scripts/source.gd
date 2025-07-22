@@ -4,6 +4,7 @@ extends Interactable3D
 
 @export var voltage: int = 1
 @export var reach: float = 5.0
+@export var cable_color: Color = Color.BLUE
 var active: bool = true
 var switch: Switch
 var cable: Cable
@@ -14,10 +15,13 @@ func _ready():
 	connect("closest", _on_closest)
 	connect("not_closest", _on_not_closest)
 	connect("interacted", _on_interacted)
+	
 	var scene: PackedScene = preload("res://scenes/cable.tscn")
 	cable = scene.instantiate() as Cable
 	cable.source = self
 	cable.max_length = reach
+	# Set the cable color immediately - it will be stored and applied when ready
+	cable.set_cable_color(cable_color)
 	get_parent().add_child.call_deferred(cable)
 	
 func plug(new_switch: Switch):
