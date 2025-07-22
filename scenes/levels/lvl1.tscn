@@ -261,8 +261,8 @@ vertical_alignment = 2
 [node name="instructions" type="Label3D" parent="-env"]
 transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.67052e-22, -4.37114e-08, 1, 1, -1.31134e-07, -5.73205e-15, 2.25, 1.06, 1.875)
 modulate = Color(1, 0.819608, 0.372549, 1)
-text = "Move with wasd
-pick and connect cables with space"
+text = "Move using the arrows
+pick and connect cables with E"
 font = ExtResource("11_yq2hi")
 font_size = 40
 outline_size = 0
@@ -313,6 +313,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.381271, 1.43275)
 
 [node name="Source" type="Area3D" parent="logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.448497, 0.335882)
+collision_layer = 2
 script = ExtResource("11_pcmnq")
 reach = 4.0
 metadata/_custom_type_script = "uid://cpq11uhbfqr5p"
@@ -352,6 +353,7 @@ shape = SubResource("BoxShape3D_tqic5")
 
 [node name="Switch" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("12_7x113")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.35, -3)
+collision_layer = 2
 targets = [NodePath("../exit")]
 
 [node name="exit" parent="logic" instance=ExtResource("7_7x113")]
