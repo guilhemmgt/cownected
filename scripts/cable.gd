@@ -17,12 +17,33 @@ var plugged : bool = false
 var in_hand : bool = false
 var updating : bool = false
 var max_length: float = 0
+var desired_color: Color = Color.BLUE  
 
 func _ready() -> void:
 	curve_mesh_3d.curve = Curve3D.new()
 	curve_mesh_3d.visible = false
 	waypoints.append(source.global_position)
+	# Apply the desired color now that curve_mesh_3d is available
+	_apply_cable_color(desired_color)
 	print("I'm ready")
+
+func set_cable_color(color: Color) -> void:
+	"""Set the color of the cable material"""
+	desired_color = color
+	if curve_mesh_3d != null:
+		_apply_cable_color(color)
+
+func _apply_cable_color(color: Color) -> void:
+	var material: StandardMaterial3D = curve_mesh_3d.material
+	if not material:
+		material = StandardMaterial3D.new()
+		curve_mesh_3d.material = material
+	else:
+		material = material.duplicate()
+		curve_mesh_3d.material = material
+	
+	material.albedo_color = color
+	material.roughness = 0.5
 
 func _process(_delta: float) -> void:
 	if not updating and not plugged:
