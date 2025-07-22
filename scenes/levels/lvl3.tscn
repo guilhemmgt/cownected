@@ -491,4 +491,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.311
 [node name="CharacterBody3D" parent="." instance=ExtResource("16_3mu2x")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.659146, 0.400868, -2.10952)
 
+[node name="wall-doorway-wide" parent="." instance=ExtResource("6_apeqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.25, -6)
+
 [connection signal="body_shape_entered" from="logic/EndArea" to="." method="_on_end_area_body_shape_entered"]
