@@ -26,6 +26,16 @@ const AUDIO_ON = preload("res://assets/KenneyUI/audioOn.png")
 @onready var last_level_finished: Panel = $CanvasLayer/LastLevelFinished
 @onready var decors_menu: Node3D = $DecorsMenu
 
+# support manettes:
+@onready var next_level_button_win: Button = $CanvasLayer/BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NextLevelButton
+@onready var replay_button_lost: Button = $CanvasLayer/BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReplayButton
+@onready var return_button_finish: Button = $CanvasLayer/LastLevelFinished/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton2
+@onready var return_button_credit: Button = $CanvasLayer/HBoxContainer/MenuSub/Credit/Credit/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton
+@onready var button_selectlevel: Button = $CanvasLayer/HBoxContainer/MenuSub/SelectLevel/SelectLevel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HFlowContainer/Button
+@onready var play_button_menu: Button = $CanvasLayer/HBoxContainer/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton
+
+
+
 var levels = [PLAYGROUND, LVL_1, LVL_2, LVL_3, LVL_4, LVL_5, LVL_6]
 var max_current_level_unlocked : int = 1
 var current_level : Level
@@ -40,9 +50,11 @@ func _on_end_level():
 		max_current_level_unlocked = current_level_id
 	if current_level_id < len(levels)-1:
 		between_levels_win.visible = true
+		next_level_button_win.grab_focus()
 	else :
 		print("Last Level reached")
 		last_level_finished.visible = true
+		return_button_finish.grab_focus()
 
 func go_to_next_level():
 	change_level(current_level_id+1)
@@ -65,6 +77,7 @@ func activate_game_ui():
 	ui_game.visible = true
 
 func active_menu():
+	play_button_menu.grab_focus()
 	if current_level:
 		current_level.queue_free()
 	decors_menu.visible=true
@@ -80,6 +93,7 @@ func deactive_menu():
 	menu.visible = false
 
 func active_SelectLevel():
+	button_selectlevel.grab_focus()
 	select_level.visible = true
 	credit.visible = false
 	
@@ -116,6 +130,7 @@ func _on_restart_button_button_up() -> void:
 func _on_credit_button_button_up() -> void:
 	select_level.visible = false
 	credit.visible = true
+	return_button_credit.grab_focus()
 
 
 func _on_replay_button_button_up() -> void:
@@ -125,3 +140,4 @@ func _on_replay_button_button_up() -> void:
 
 func cow_dead():
 	between_levels_lost.visible = true
+	replay_button_lost.grab_focus()
