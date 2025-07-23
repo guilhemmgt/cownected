@@ -27,6 +27,17 @@ func _ready() -> void:
 	_apply_cable_color(desired_color)
 	print("I'm ready")
 
+func get_cable_length() -> float:
+	var total = 0.0
+	if waypoints.size() > 1:
+		for i in range(waypoints.size() - 1):
+			total += waypoints[i].distance_to(waypoints[i + 1])
+	if plugged and switch:
+		total += waypoints[-1].distance_to(switch.global_transform.origin)
+	elif in_hand and player:
+		total += waypoints[-1].distance_to(player.global_transform.origin)
+	return total
+
 func set_cable_color(color: Color) -> void:
 	"""Set the color of the cable material"""
 	desired_color = color

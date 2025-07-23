@@ -24,6 +24,12 @@ func _ready():
 	cable.set_cable_color(cable_color)
 	get_parent().add_child.call_deferred(cable)
 	
+func _process(_delta: float):
+	var length = reach
+	if cable && (cable.plugged || cable.in_hand):
+		length = reach - cable.get_cable_length()
+	get_node("computer/text").text = str(max(0, snapped(length, 0.1))) + "\nm"
+	
 func plug(new_switch: Switch):
 	self.switch = new_switch
 	cable._on_plug(switch, switch.marker.global_position)

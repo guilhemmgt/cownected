@@ -252,7 +252,6 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 41.75)
 
 [node name="Switch" parent="logic" instance=ExtResource("16_3v781")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0.35, 0.5)
-collision_layer = 2
 
 [node name="Source2" parent="logic" instance=ExtResource("17_utjuc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.5, 1)
