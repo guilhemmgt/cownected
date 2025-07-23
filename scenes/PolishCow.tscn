@@ -324,7 +324,7 @@ size_flags_stretch_ratio = 2.2
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="ReturnButton" parent="CanvasLayer/BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
+[node name="NextLevelButton" parent="CanvasLayer/BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_43xbm")]
 layout_mode = 2
 text = "next level"
 
@@ -470,7 +470,7 @@ parameters/looping = true
 [connection signal="button_up" from="CanvasLayer/UIGame/MarginContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/UIGame/MarginContainer/HBoxContainer/HomeButton" to="." method="return_to_menu"]
 [connection signal="toggled" from="CanvasLayer/UIGame/MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
-[connection signal="button_up" from="CanvasLayer/BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton" to="." method="go_to_next_level"]
+[connection signal="button_up" from="CanvasLayer/BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NextLevelButton" to="." method="go_to_next_level"]
 [connection signal="button_up" from="CanvasLayer/BetweenLevelsWin/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton2" to="." method="return_to_menu"]
 [connection signal="button_up" from="CanvasLayer/BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReplayButton" to="." method="_on_restart_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/BetweenLevelsLost/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReturnButton2" to="." method="return_to_menu"]
