@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lobxfca6o8c4"]
+[gd_scene load_steps=19 format=3 uid="uid://lobxfca6o8c4"]
 
 [ext_resource type="Script" uid="uid://cr2770pwumwm" path="res://scripts/level.gd" id="1_co2ub"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_u7exc"]
@@ -8,12 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="8_7x113"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="11_kylad"]
 [ext_resource type="PackedScene" uid="uid://cibdyu4g3ggoq" path="res://scenes/assets/doorway_wide.tscn" id="11_r5frt"]
+[ext_resource type="PackedScene" uid="uid://n2im5gtk1l2o" path="res://assets/KenneyFood/meat-raw.fbx" id="11_uta0w"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="11_yq2hi"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="12_2tpkn"]
 [ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="12_7x113"]
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="12_20eu8"]
 [ext_resource type="PackedScene" uid="uid://b3c8rs2ywwqhe" path="res://scenes/elements/end_area.tscn" id="13_7x113"]
+[ext_resource type="PackedScene" uid="uid://byf102ievhmj4" path="res://assets/KenneyPrototype/indicator-special-area.fbx" id="15_0thop"]
 [ext_resource type="PackedScene" uid="uid://c68te6b5ejdsy" path="res://scenes/elements/source.tscn" id="15_5tw4r"]
+[ext_resource type="PackedScene" uid="uid://davxke8h3wag8" path="res://assets/KenneyPrototype/indicator-special-lines.fbx" id="16_pcmnq"]
+[ext_resource type="PackedScene" uid="uid://dsojjq82w7fui" path="res://assets/KenneyPrototype/indicator-square-a.fbx" id="17_uta0w"]
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_co2ub")
@@ -78,7 +82,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.75,
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.25, 0, 2)
 
 [node name="wall15" parent="-walls" instance=ExtResource("2_r5frt")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2.98023e-08, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -2.98023e-08, -0.5)
 
 [node name="wall2" parent="-walls" instance=ExtResource("2_r5frt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -3)
@@ -135,10 +139,10 @@ horizontal_alignment = 0
 vertical_alignment = 2
 
 [node name="instructions" type="Label3D" parent="-env"]
-transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.67052e-22, -4.37114e-08, 1, 1, -1.31134e-07, -5.73205e-15, 2.25, 1.06, 1.875)
+transform = Transform3D(1, -1.74845e-07, -7.64274e-15, 3.67052e-22, -4.37114e-08, 1, -1.74845e-07, -1, -4.37114e-08, 2.225, 1.06, 2.525)
 modulate = Color(1, 0.819608, 0.372549, 1)
-text = "Move using the arrows
-pick and connect cables with E"
+text = "Move using WASD or the arrows
+pick and plug power cables with e"
 font = ExtResource("11_yq2hi")
 font_size = 40
 outline_size = 0
@@ -165,6 +169,101 @@ modulate = Color(1, 0.819608, 0.372549, 1)
 texture_filter = 0
 texture = ExtResource("12_2tpkn")
 
+[node name="instr_ground_1" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, -1.05879e-21, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 0.275, 0.0099999, 0.625)
+modulate = Color(1, 0.819608, 0.372549, 1)
+text = "this..."
+font = ExtResource("11_yq2hi")
+font_size = 60
+outline_size = 0
+
+[node name="arrow2" type="Sprite3D" parent="-env/instr_ground_1"]
+transform = Transform3D(-2, -1.74846e-07, -7.10542e-15, 1.74846e-07, -2, -1.74846e-07, 5.37316e-16, -1.74846e-07, 2, 0.5, 0, 0)
+modulate = Color(1, 0.819608, 0.372549, 1)
+texture_filter = 0
+texture = ExtResource("12_2tpkn")
+
+[node name="instr_ground_2" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, -1.05879e-21, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, -0.425, 0.0099999, -1.325)
+modulate = Color(1, 0.819608, 0.372549, 1)
+text = "...goes there"
+font = ExtResource("11_yq2hi")
+font_size = 60
+outline_size = 0
+
+[node name="arrow2" type="Sprite3D" parent="-env/instr_ground_2"]
+transform = Transform3D(-2, -1.74846e-07, -7.10542e-15, 1.74846e-07, -2, -1.74846e-07, 5.37316e-16, -1.74846e-07, 2, -1.1, 0, 0)
+modulate = Color(1, 0.819608, 0.372549, 1)
+texture_filter = 0
+texture = ExtResource("12_2tpkn")
+
+[node name="indicator-special-area" parent="-env" instance=ExtResource("15_0thop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.022405, 0.15)
+
+[node name="indicator-special-lines" parent="-env" instance=ExtResource("16_pcmnq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.022405, -2.75)
+
+[node name="indicator-special-lines2" parent="-env" instance=ExtResource("16_pcmnq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.022405, -0.25)
+
+[node name="indicator-square-a" parent="-env" instance=ExtResource("17_uta0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022405, -3)
+
+[node name="flavour" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, -3.55271e-15, 1, 1.06581e-14, 0, -1.06581e-14, 1, 1.45, 0.485, -2.875)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "engineer cow
+kindergarten"
+font = ExtResource("11_yq2hi")
+font_size = 30
+outline_size = 0
+
+[node name="flavour2" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 1, 0.00999999, 0.35)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "power source"
+font = ExtResource("11_yq2hi")
+font_size = 30
+outline_size = 0
+
+[node name="flavour3" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, -0.975, 0.00999999, -2.15)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "power plug"
+font = ExtResource("11_yq2hi")
+font_size = 30
+outline_size = 0
+
+[node name="flavour4" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 0.25, 0.00999999, -2.4)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "exit"
+font = ExtResource("11_yq2hi")
+font_size = 30
+outline_size = 0
+
+[node name="indicator-special-area" parent="-env/flavour4" instance=ExtResource("15_0thop")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3, 1.07241, -1.1)
+
+[node name="flavour5" type="Label3D" parent="-env/flavour4"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 3, 1.06, -0.75)
+modulate = Color(0.702415, 0.539507, 0, 1)
+text = "[redacted]"
+font = ExtResource("11_yq2hi")
+font_size = 20
+outline_size = 0
+
+[node name="meat-raw" parent="-env/flavour4" instance=ExtResource("11_uta0w")]
+transform = Transform3D(0.519615, 0, 0.3, 0, 0.6, 0, -0.3, 0, 0.519615, 2.975, 1.04741, -1.1)
+
+[node name="flavour5" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, -1.025, 0.00999999, 0.75)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "cow"
+font = ExtResource("11_yq2hi")
+font_size = 30
+outline_size = 0
+
 [node name="background" type="Node3D" parent="-env"]
 
 [node name="floor" parent="-env/background" instance=ExtResource("11_kylad")]
@@ -183,11 +282,12 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 52)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.25, -3)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("12_20eu8")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.381271, 1.43275)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.381, 0.15)
 
 [node name="logic" type="Node3D" parent="."]
 
 [node name="Source" parent="logic" instance=ExtResource("15_5tw4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.375, -0.125)
 
 [node name="Switch" parent="logic" node_paths=PackedStringArray("targets") instance=ExtResource("12_7x113")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.35, -3)

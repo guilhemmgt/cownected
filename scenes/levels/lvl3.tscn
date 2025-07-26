@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cailth8xh8d2f"]
+[gd_scene load_steps=21 format=3 uid="uid://cailth8xh8d2f"]
 
 [ext_resource type="Script" uid="uid://cr2770pwumwm" path="res://scripts/level.gd" id="1_cmjrl"]
 [ext_resource type="PackedScene" uid="uid://p6acsse4mibj" path="res://assets/KenneyConveyor/floor-large.fbx" id="1_qe0rt"]
@@ -10,8 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://c8pvii074fcsn" path="res://scenes/connection.tscn" id="9_xnfqt"]
 [ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="11_apeqx"]
 [ext_resource type="PackedScene" uid="uid://f37404ql16dx" path="res://scenes/elements/door.tscn" id="11_qe0rt"]
+[ext_resource type="PackedScene" uid="uid://davxke8h3wag8" path="res://assets/KenneyPrototype/indicator-special-lines.fbx" id="12_cmjrl"]
 [ext_resource type="FontFile" uid="uid://d0d5kh45sgnuj" path="res://assets/fonts/Kenney Mini Square.ttf" id="13_cng8y"]
+[ext_resource type="PackedScene" uid="uid://byf102ievhmj4" path="res://assets/KenneyPrototype/indicator-special-area.fbx" id="13_e3tpn"]
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="14_3i44f"]
+[ext_resource type="PackedScene" uid="uid://n2im5gtk1l2o" path="res://assets/KenneyFood/meat-raw.fbx" id="14_dsjva"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="15_mhuq4"]
 [ext_resource type="PackedScene" uid="uid://drpo23vwda3pp" path="res://scenes/character_bison.tscn" id="16_3mu2x"]
 [ext_resource type="PackedScene" uid="uid://du1hoa58xj0l" path="res://scenes/assets/wall.tscn" id="16_apeqx"]
@@ -220,9 +223,10 @@ horizontal_alignment = 0
 vertical_alignment = 2
 
 [node name="instructions" type="Label3D" parent="-env"]
-transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.67052e-22, -4.37114e-08, 1, 1, -1.31134e-07, -5.73205e-15, 2.25, 1.06, 1.875)
+transform = Transform3D(1, -1.74845e-07, -7.64274e-15, 3.67052e-22, -4.37114e-08, 1, -1.74845e-07, -1, -4.37114e-08, 2.25, 1.06, 2.5)
 modulate = Color(1, 0.819608, 0.372549, 1)
-text = "Same, but different ?"
+text = "some sources will offer
+longer or shorter power cables"
 font = ExtResource("13_cng8y")
 font_size = 40
 outline_size = 0
@@ -263,6 +267,53 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, -67.25)
 
 [node name="floor4" parent="-env/background" instance=ExtResource("15_mhuq4")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0.75, 40.75)
+
+[node name="indicator-special-lines3" parent="-env" instance=ExtResource("12_cmjrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.975, 0.04481, 1.125)
+
+[node name="flavour3" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, -1.425, 0.032405, 0.825)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "long
+cable"
+font = ExtResource("13_cng8y")
+font_size = 30
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="indicator-special-lines2" parent="-env" instance=ExtResource("12_cmjrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.022405, -2.875)
+
+[node name="flavour2" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 1.25, 0.00999999, -2.275)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "short cable"
+font = ExtResource("13_cng8y")
+font_size = 30
+outline_size = 0
+
+[node name="flavour" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, -3.55271e-15, 1, 1.06581e-14, 0, -1.06581e-14, 1, 1.45, 0.485, -5.875)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "engineer cow
+college"
+font = ExtResource("13_cng8y")
+font_size = 30
+outline_size = 0
+
+[node name="indicator-special-area" parent="-env" instance=ExtResource("13_e3tpn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.5, 0.022405, -5.1)
+
+[node name="flavour5" type="Label3D" parent="-env"]
+transform = Transform3D(1, 3.55271e-15, 0, 1.55294e-22, -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 1.5, 0.00999996, -4.75)
+modulate = Color(0.905882, 0.686275, 0.258824, 1)
+text = "[redacted]"
+font = ExtResource("13_cng8y")
+font_size = 20
+outline_size = 0
+
+[node name="meat-raw" parent="-env" instance=ExtResource("14_dsjva")]
+transform = Transform3D(0.519615, 0, 0.3, 0, 0.6, 0, -0.3, 0, 0.519615, 1.475, -0.00259498, -5.1)
 
 [node name="logic" type="Node3D" parent="."]
 

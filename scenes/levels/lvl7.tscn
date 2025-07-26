@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bmvq3p60c8tku" path="res://assets/KenneyCursor/tile_0071_full.png" id="14_ncuu3"]
 [ext_resource type="PackedScene" uid="uid://jxs6wcl8rum2" path="res://scenes/block_black.tscn" id="15_7peh3"]
 [ext_resource type="PackedScene" uid="uid://divj3gqkc30q5" path="res://scenes/elements/switch.tscn" id="16_3v781"]
-[ext_resource type="PackedScene" uid="uid://clo10e1308l1w" path="res://scenes/elements/source.tscn" id="17_utjuc"]
+[ext_resource type="PackedScene" uid="uid://c68te6b5ejdsy" path="res://scenes/elements/source.tscn" id="17_utjuc"]
 [ext_resource type="PackedScene" uid="uid://igygyj2hxpmv" path="res://scenes/elements/turret.tscn" id="18_h6f0d"]
 [ext_resource type="PackedScene" uid="uid://d3ua2qqlh40rp" path="res://scenes/elements/exit.tscn" id="19_kxu8m"]
 [ext_resource type="PackedScene" uid="uid://b3c8rs2ywwqhe" path="res://scenes/elements/end_area.tscn" id="20_xw03o"]
@@ -255,11 +255,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0.35, 0.5)
 
 [node name="Source2" parent="logic" instance=ExtResource("17_utjuc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.5, 1)
-collision_layer = 2
 
 [node name="Source" parent="logic" instance=ExtResource("17_utjuc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.75, 0.5, -0.5)
-collision_layer = 2
 
 [node name="turret" parent="logic" node_paths=PackedStringArray("target") instance=ExtResource("18_h6f0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.25, -1.75)
